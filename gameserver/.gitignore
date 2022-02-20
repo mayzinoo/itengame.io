@@ -1,0 +1,7 @@
+node_modules
+build/
+server.js
+server/socket.js
+config/config.js
+.*.swp
+.env

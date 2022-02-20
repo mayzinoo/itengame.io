@@ -1,0 +1,38 @@
+html, body, div, span, applet, object, iframe,h1, h2, h3, h4, h5, h6, p, blockquote, pre,a, abbr, acronym, address, big, cite, code,del, dfn, em, img, ins, kbd, q, s, samp,small, strike, strong, sub, sup, tt, var,b, u, i, center,dl, dt, dd, ol, ul, li,fieldset, form, label, legend,table, caption, tbody, tfoot, thead, tr, th, td,article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary,time, mark, audio, video {    margin: 0;  padding: 0; border: 0;  font-size: 100%;    font: inherit;  vertical-align: baseline;}/* HTML5 display-role reset for older browsers */article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {    display: block;}body {  line-height: 1;}ol, ul {    list-style: none;}blockquote, q {   quotes: none;}blockquote:before, blockquote:after,q:before, q:after {   content: '';    content: none;}table {  border-collapse: collapse;  border-spacing: 0;}
+.quick-button-container button {
+    border-radius: 7px;
+    padding: 1px 10px;
+    background: #0e71ca;
+    border: none;
+    color: #fff;
+    margin-right: 2px;
+}
+@media screen and (min-width:768px) {
+.d-hide {
+    display: none !important;
+}
+}
+@media screen and (max-width:767px) {
+    .quick-button-container {
+        display: none;
+    }
+    #controls-inner-container .wowgo-status {
+        display: none;
+    }
+    #wowgo-helper {
+        display: none;
+    }
+    #controls-inner-container .bet-input-group>span:last-child {
+        display: none !important;
+    }
+    #controls-inner-container .bet-input-group>input, #controls-inner-container .bet-input-group>span {
+        font-size: 0.8rem;
+        border: none;
+        border-radius: 6px;
+        color: #181a1e;
+        margin-left: 7px;
+    }
+}
+#top-bar .full-screen i {
+    display: none;
+}

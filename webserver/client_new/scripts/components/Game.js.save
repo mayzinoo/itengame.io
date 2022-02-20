@@ -1,0 +1,740 @@
+/**
+ * This view acts as a wrapper for all the other views in the game
+ * it is subscribed to changes in EngineVirtualStore but it only
+ * listen to connection changes so every view should subscribe to
+ * EngineVirtualStore independently.
+ */
+define([
+    'react',
+    'components/SweetAlert',
+    'components/DemoAlert',
+    'components/MemberAlert',
+    'components/TopBar',
+    'components/ChartControls',
+    'components/TabsSelector',
+    'components/TabsHistorySelector',
+    'components/Players',
+    'game-logic/engine',
+    'game-logic/clib',
+    'game-logic/hotkeys',
+    'stores/GameSettingsStore',
+    'components/Board',
+    'components/Square',
+    'components/DynamicSelect',
+    'constants/AppConstants',
+    'actions/ControlsActions',
+    'game-logic/clib',
+    'game-logic/stateLib',
+    'lodash',
+    'stores/ControlsStore'
+    
+], function (
+    React,
+    SweetAlertClass,
+    DemoAlertClass,
+    MemberAlertClass,
+    TopBarClass,
+    ChartControlsClass,
+    TabsSelectorClass,
+    TabsHistorySelectorClass,
+    PlayersClass,
+    Engine,
+    Clib,
+    Hotkeys,
+    GameSettingsStore,
+    BoardClass,
+    SquareClass,
+    DynamicSelectClass,
+    AppConstants,
+    ControlsActions,
+    Clib,
+    StateLib,
+    _,
+    ControlsStore
+    
+) {
+    var TopBar = React.createFactory(TopBarClass);
+    //var SpaceWrap = React.createFactory(SpaceWrapClass);
+    var ChartControls = React.createFactory(ChartControlsClass);
+    var TabsSelector = React.createFactory(TabsSelectorClass);
+    var TabsHistorySelector = React.createFactory(TabsHistorySelectorClass);
+    var Players = React.createFactory(PlayersClass);
+    var Board = React.createFactory(BoardClass);
+    var Square = React.createFactory(SquareClass);
+    var DynamicSelect = React.createFactory(DynamicSelectClass);
+    var SweetAlert = React.createFactory(SweetAlertClass);
+    var DemoAlert = React.createFactory(DemoAlertClass);  
+    var MemberAlert = React.createFactory(MemberAlertClass);  
+    
+    var D = React.DOM;
+
+    const EMOJI_OK = '🙂';
+    const EMOJI_GAME_OVER = '💀';
+    const EMOJI_WIN = '😎';
+
+    const arrayOfData = [
+      {
+        id: 'Easy',
+        name: '🥑 Easy' ,
+        width: 4,
+        level:'easy'   
+      },
+      {
+        id: 'Medium',
+        name: '🥥 Medium',
+        width: 3,
+        level:'medium'    
+      },
+      {
+        id: 'Hard',
+        name: '🍌 Hard',
+        width: 2,
+        level:'hard'    
+      },
+      {
+        id: 'Extreme',
+        name: '🍍 Extreme',
+        width: 3,
+        level:'extreme'    
+      },
+      {
+        id: 'Nightmare',
+        name: '🍓 Nightmare',
+        width: 2,
+        level:'nightmare'    
+      },
+    ];
+
+   function gamestate() {
+      //alert('gamestate');
+       return {
+            betSize: 10, //Bet input string in bits
+            betInvalid: false, //false || string error message
+            cashOut: ControlsStore.getCashOut(),
+            //cashOutInvalid: false, //false || string error message
+          //  engine: Engine,
+	//    isConnected: Engine.isConnected
+      //  }
+    //}
+
+    return React.createClass({
+        displayName: 'Game',
+
+        getInitialState: function () 
+	{
+	   var engine = Engine; var en_balance;
+            if(engine.balance === null)
+            {
+                en_balance = 80000;
+            }
+            else{
+              en_balance = Number(engine.balance);
+            }
+            
+            var state = GameSettingsStore.getState(en_balance);
+            state.isConnected = Engine.isConnected;
+            state.showMessage = true;
+            state.isMobileOrSmall = Clib.isMobileOrSmall(); //bool
+            return state;
+        },
+
+       gamestate:function() {
+      //alert('gamestate');
+        return {
+            betSize: 10, //Bet input string in bits
+            betInvalid: false, //false || string error message
+            cashOut: ControlsStore.getCashOut(),
+            cashOutInvalid: false, //false || string error message
+            engine: Engine,
+            isConnected: Engine.isConnected
+        }
+    },
+
+
+        componentDidMount: function () {
+this.setState(gamestate());  
+           Engine.on({
+               'connected': this._onChange,
+        });
+
+            GameSettingsStore.addChangeListener(this._onSettingsChange); 
+             window.addEventListener("resize", this._onWindowResize);
+            Hotkeys.mount();     
+            
+        },
+
+        
+        _onEngineChange: function () {
+            if ((this.state.isConnected != Engine.isConnected) && this.isMounted())
+                this.setState({ isConnected: Engine.isConnected });
+        },
+
+        _onSettingsChange: function () {
+            if (this.isMounted())
+                this.setState(GameSettingsStore.getState());
+        },
+
+        _onWindowResize: function () {
+            var isMobileOrSmall = Clib.isMobileOrSmall();
+            if (this.state.isMobileOrSmall !== isMobileOrSmall)
+                this.setState({ isMobileOrSmall: isMobileOrSmall });
+        },
+
+        _hideMessage: function () {
+            this.setState({ showMessage: false });
+        },
+
+         _placeBet: function (bet_amount,pay_amt,profit_amt,new_value) {
+          
+            var bet = bet_amount;
+            var new_bet = pay_amt;
+            var cashOut = pay_amt;
+            var pay_amt = pay_amt;
+            var profit = profit_amt;
+            var eth_value = new_value;
+
+            ControlsActions.placeBet(bet, cashOut, eth_value, profit);
+        },
+
+         _startgame: function (balance) {
+            ControlsActions.startgame(balance);
+        },
+
+         _endgame: function (balance, cclicks) {
+            ControlsActions.endgame(balance, cclicks);
+        },
+
+        _cancelBet: function () {
+            ControlsActions.cancelBet();
+        },
+
+        _cashOut: function () {
+            ControlsActions.cashOut();
+        },
+
+        _setBetSize: function (betSize) {
+            ControlsActions.setBetSize(betSize);
+        },
+
+        _setAutoCashOut: function (autoCashOut) {
+            ControlsActions.setAutoCashOut(autoCashOut);
+        },
+
+        _redirectToLogin: function () {
+            window.location = '/login';
+        },
+
+
+    generateGame: function(height, width, currentRow, currentColumn, maximumMines) { 
+    
+    const game =  this.generateArray(height, width, 0);
+   
+    let generatedMines = 0;
+    let row;
+    let column;
+
+    while (generatedMines < maximumMines) {
+     
+      row = this.randomInRange(0, height - 1);
+      column = this.randomInRange(0, width - 1);
+
+      if (!this.isMine(game, row, column)) {
+          //alert('lessthan');
+        game[row][column] = 'M';
+        this.incrementMinesNearby(game, row - 1, column);
+        this.incrementMinesNearby(game, row + 1, column);
+        this.incrementMinesNearby(game, row, column - 1);
+        this.incrementMinesNearby(game, row, column + 1);
+        this.incrementMinesNearby(game, row - 1, column - 1);
+        this.incrementMinesNearby(game, row - 1, column + 1);
+        this.incrementMinesNearby(game, row + 1, column + 1);
+        this.incrementMinesNearby(game, row + 1, column - 1);
+        generatedMines++;
+      }
+      else{
+        //alert('gameover');
+      }
+    }
+    return game;
+  },
+
+  incrementMinesNearby:function(game, row, column) {
+    if (this.inRange(row, column) && !this.isMine(game, row, column)) {
+      game[row][column] = game[row][column] + 1;
+    }
+  },
+  inRange:function(row, column) {
+    return row >= 0 && row < this.state.height
+      && column >= 0 && column < this.state.width;
+  },
+
+  isMine:function(squares, row, column) {
+    return squares[row][column] === 'M';
+  },
+
+  randomInRange:function(minimum, maximum) {
+    return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+  },
+
+
+  generateArray:function(height, width, value) {
+    return Array.from(
+      {length: height},
+      () => Array.from({length: width}, () => value)
+    )
+  },
+
+  vibrate:function(pattern) {
+    return navigator.vibrate(pattern);
+  },
+
+
+  getSolution:function(game, solution, symbol) {
+   
+      return game.map(
+      (row, rowKey) => row.map(
+        (square, squareKey) =>
+          this.isMine(solution, rowKey, squareKey) ? symbol : solution[rowKey][squareKey]
+      )
+    ); 
+
+  },
+
+  thereAreRemainingMoves:function(squares, maximumMines) {
+    return squares.flat().filter(
+      sq => (sq === null || sq === 'F')
+    ).length > maximumMines;
+  },
+
+  leftPad:function(number) {
+    if (number < 0) {
+      return '-' + Math.abs(number).toString().padStart(2, '0');
+    }
+    return number.toString().padStart(3, '0');
+  },
+
+  handleSelectChange:function (selectedValue)
+  {
+    this.setState({selectedValue: selectedValue});     
+    
+    if(selectedValue === 'Nightmare'){
+
+      var current_bet = Number(this.state.clicks);  
+    if(current_bet === 100){      
+      this.setState({mark6: 360 });
+      this.setState({mark5: 1296 });
+      this.setState({mark4: 4665 });
+      this.setState({mark3: 16796 });
+      this.setState({mark2: 60466 });
+      this.setState({mark1: 217678 });
+      this.setState({mark0: 783641  });
+    }  
+    else{
+      this.setState({mark6: Math.round(current_bet * 3.6)});
+      this.setState({mark5: Math.round(current_bet * 12.96)});
+      this.setState({mark4: Math.round(current_bet * 46.656)});
+      this.setState({mark3: Math.round(current_bet * 167.961)});
+      this.setState({mark2: Math.round(current_bet * 604.661)});
+      this.setState({mark1: Math.round(current_bet * 2176.782)});
+      this.setState({mark0: Math.round(current_bet * 7836.416)});
+    }    
+    
+    this.setState({payout6: (3.6).toFixed(2)});
+    this.setState({payout5: (12.96).toFixed(2)});
+    this.setState({payout4: (46.656).toFixed(2)});
+    this.setState({payout3: (167.961).toFixed(2)});
+    this.setState({payout2: (604.661).toFixed(2)});
+    this.setState({payout1: (2176.782).toFixed(2)});
+    this.setState({payout0: (7836.416).toFixed(2)});
+
+      const response0 = this.generateGame(1,4, 0,4,3);
+      const response1 = this.generateGame(1,4, 0,4,3);
+      const response2 = this.generateGame(1,4, 0,4,3);
+      const response3 = this.generateGame(1,4, 0,4,3);
+      const response4 = this.generateGame(1,4, 0,4,3);
+      const response5 = this.generateGame(1,4, 0,4,3);
+      const response6 = this.generateGame(1,4, 0,4,3);      
+   
+      this.setState({data0:response0});
+      this.setState({data1:response1});
+      this.setState({data2:response2});
+      this.setState({data3:response3});
+      this.setState({data4:response4});
+      this.setState({data5:response5});
+      this.setState({data6:response6});
+      
+      var engine = Engine; var en_balance;
+      if(engine.balance === null)
+      {
+          en_balance = 80000;
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getNightmareState());
+      this.setState({currentstep: 8});
+      this.setState({selectedValue: 'Nightmare'});     
+
+    }
+    else if(selectedValue === 'Extreme'){
+      var current_bet = Number(this.state.clicks);   
+    if(current_bet === 100){ 
+      this.setState({mark6: 276 });
+      this.setState({mark5: 761 });
+      this.setState({mark4: 2102 });
+      this.setState({mark3: 5802 });
+      this.setState({mark2: 16015 });
+      this.setState({mark1: 44203 });
+      this.setState({mark0: 122001 });
+    }
+    else{
+      this.setState({mark6: Math.round(current_bet * 2.76)});
+      this.setState({mark5: Math.round(current_bet * 7.617)});
+      this.setState({mark4: Math.round(current_bet * 21.0245)});
+      this.setState({mark3: Math.round(current_bet * 58.0278)});
+      this.setState({mark2: Math.round(current_bet * 160.156)});
+      this.setState({mark1: Math.round(current_bet * 442.0327)});
+      this.setState({mark0: Math.round(current_bet * 1220.0105)});
+    }  
+    
+    this.setState({payout6: (2.76).toFixed(2)});
+    this.setState({payout5: (7.617).toFixed(2)});
+    this.setState({payout4: (21.0245).toFixed(2)});
+    this.setState({payout3: (58.0278).toFixed(2)});
+    this.setState({payout2: (160.156).toFixed(2)});
+    this.setState({payout1: (442.0327).toFixed(2)});
+    this.setState({payout0: (1220.0105).toFixed(2)});
+
+      const response0 = this.generateGame(1,3, 0,2,2);
+      const response1 = this.generateGame(1,3, 0,2,2);
+      const response2 = this.generateGame(1,3, 0,2,2);
+      const response3 = this.generateGame(1,3, 0,2,2);
+      const response4 = this.generateGame(1,3, 0,2,2);
+      const response5 = this.generateGame(1,3, 0,2,2);
+      const response6 = this.generateGame(1,3, 0,2,2);
+      const response7 = this.generateGame(1,3, 0,2,2);
+      const response8 = this.generateGame(1,3, 0,2,2);
+
+   
+      this.setState({data0:response0});
+      this.setState({data1:response1});
+      this.setState({data2:response2});
+      this.setState({data3:response3});
+      this.setState({data4:response4});
+      this.setState({data5:response5});
+      this.setState({data6:response6});
+      this.setState({data7:response7});
+      this.setState({data8:response8});     
+      
+      var engine = Engine; var en_balance;
+      if(engine.balance === null)
+      {
+          en_balance = 80000;
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getExtremeState());
+      this.setState({selectedValue: 'Extreme'});
+
+    }
+    else if(selectedValue === 'Hard'){
+
+     var current_bet = Number(this.state.clicks); 
+    
+    if(current_bet === 100){ 
+      this.setState({mark8: 192 });
+      this.setState({mark7: 368 }); 
+      this.setState({mark6: 707 });
+      this.setState({mark5: 1358 });
+      this.setState({mark4: 2609 });
+      this.setState({mark3: 5009 });
+      this.setState({mark2: 9618 });
+      this.setState({mark1: 18467 });
+      this.setState({mark0: 35457 });
+    }
+    else{
+      this.setState({mark8: Math.round(current_bet * 1.92)});
+      this.setState({mark7: Math.round(current_bet * 3.6864)});
+      this.setState({mark6: Math.round(current_bet * 7.0778)});
+      this.setState({mark5: Math.round(current_bet * 13.5895)});
+      this.setState({mark4: Math.round(current_bet * 26.0919)});
+      this.setState({mark3: Math.round(current_bet * 50.0964)});
+      this.setState({mark2: Math.round(current_bet * 96.18527)});
+      this.setState({mark1: Math.round(current_bet * 184.67573)});
+      this.setState({mark0: Math.round(current_bet * 354.5774)});
+    }    
+    
+    this.setState({payout8: (1.92).toFixed(2)});
+    this.setState({payout7: (3.6864).toFixed(2)});
+    this.setState({payout6: (7.0778).toFixed(2)});
+    this.setState({payout5: (13.5895).toFixed(2)});
+    this.setState({payout4: (26.0919).toFixed(2)});
+    this.setState({payout3: (50.0964).toFixed(2)});
+    this.setState({payout2: (96.18527).toFixed(2)});
+    this.setState({payout1: (184.67573).toFixed(2)});
+    this.setState({payout0: (354.5774).toFixed(2)});
+
+      const response0 = this.generateGame(1,2, 0,2,1);
+      const response1 = this.generateGame(1,2, 0,2,1);
+      const response2 = this.generateGame(1,2, 0,2,1);
+      const response3 = this.generateGame(1,2, 0,2,1);
+      const response4 = this.generateGame(1,2, 0,2,1);
+      const response5 = this.generateGame(1,2, 0,2,1);
+      const response6 = this.generateGame(1,2, 0,2,1);
+      const response7 = this.generateGame(1,2, 0,2,1);
+      const response8 = this.generateGame(1,2, 0,2,1);
+
+   
+      this.setState({data0:response0});
+      this.setState({data1:response1});
+      this.setState({data2:response2});
+      this.setState({data3:response3});
+      this.setState({data4:response4});
+      this.setState({data5:response5});
+      this.setState({data6:response6});
+      this.setState({data7:response7});
+      this.setState({data8:response8});
+
+      var engine = Engine; var en_balance;
+      if(engine.balance === null)
+      {
+          en_balance = 80000;
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getHardState());
+      this.setState({selectedValue: 'Hard'});
+    }
+    else if(selectedValue === 'Medium'){
+
+     var current_bet = Number(this.state.clicks);   
+    if(current_bet === 100){  
+      this.setState({mark8: 145 });
+      this.setState({mark7: 211 });
+      this.setState({mark6: 308 });
+      this.setState({mark5: 448 });
+      this.setState({mark4: 652 });
+      this.setState({mark3: 948 });
+      this.setState({mark2: 1380 });
+      this.setState({mark1: 2008 });
+      this.setState({mark0: 2922 }); 
+    }
+    else{
+      this.setState({mark8: Math.round(current_bet * 1.4550)});
+      this.setState({mark7: Math.round(current_bet * 2.1170)});
+      this.setState({mark6: Math.round(current_bet * 3.08027137)});
+      this.setState({mark5: Math.round(current_bet * 4.48179485)});
+      this.setState({mark4: Math.round(current_bet * 6.52101150)});
+      this.setState({mark3: Math.round(current_bet * 9.48807174)});
+      this.setState({mark2: Math.round(current_bet * 13.80514438)});
+      this.setState({mark1: Math.round(current_bet * 20.08648508)});
+      this.setState({mark0: Math.round(current_bet * 29.22583579)});
+    }     
+
+    this.setState({payout8: (1.4550).toFixed(2)});
+    this.setState({payout7: (2.1170).toFixed(2)});
+    this.setState({payout6: (3.08027137).toFixed(2)});
+    this.setState({payout5: (4.48179485).toFixed(2)});
+    this.setState({payout4: (6.52101150).toFixed(2)});
+    this.setState({payout3: (9.48807174).toFixed(2)});
+    this.setState({payout2: (13.80514438).toFixed(2)});
+    this.setState({payout1: (20.08648508).toFixed(2)});
+    this.setState({payout0: (29.22583579).toFixed(2)});
+
+      const response0 = this.generateGame(1,3, 0,3,1);
+      const response1 = this.generateGame(1,3, 0,3,1);
+      const response2 = this.generateGame(1,3, 0,3,1);
+      const response3 = this.generateGame(1,3, 0,3,1);
+      const response4 = this.generateGame(1,3, 0,3,1);
+      const response5 = this.generateGame(1,3, 0,3,1);
+      const response6 = this.generateGame(1,3, 0,3,1);
+      const response7 = this.generateGame(1,3, 0,3,1);
+      const response8 = this.generateGame(1,3, 0,3,1);
+
+   
+      this.setState({data0:response0});
+      this.setState({data1:response1});
+      this.setState({data2:response2});
+      this.setState({data3:response3});
+      this.setState({data4:response4});
+      this.setState({data5:response5});
+      this.setState({data6:response6});
+      this.setState({data7:response7});
+      this.setState({data8:response8});
+
+      var engine = Engine; var en_balance;
+      if(engine.balance === null)
+      {
+          en_balance = 80000;
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getMediumState());
+      this.setState({selectedValue: 'Medium'});   
+    }
+    else {
+    
+    var current_bet = Number(this.state.clicks);    
+    if(current_bet === 100){ 
+      this.setState({mark8: 129 });
+      this.setState({mark7: 167 });
+      this.setState({mark6: 216 });
+      this.setState({mark5: 279 });
+      this.setState({mark4: 361 });
+      this.setState({mark3: 468 });
+      this.setState({mark2: 605 });
+      this.setState({mark1: 782 });
+      this.setState({mark0: 1012 });
+    }
+
+    else{
+      this.setState({mark8: Math.round(current_bet * 1.29333)});
+      this.setState({mark7: Math.round(current_bet * 1.67271)});
+      this.setState({mark6: Math.round(current_bet * 2.16337)});
+      this.setState({mark5: Math.round(current_bet * 2.79796)});
+      this.setState({mark4: Math.round(current_b
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getHardState());
+      this.setState({selectedValue: 'Hard'});
+    }
+    else if(selectedValue === 'Medium'){
+
+     var current_bet = Number(this.state.clicks);   
+    if(current_bet === 100){  
+      this.setState({mark8: 145 });
+      this.setState({mark7: 211 });
+      this.setState({mark6: 308 });
+      this.setState({mark5: 448 });
+      this.setState({mark4: 652 });
+      this.setState({mark3: 948 });
+      this.setState({mark2: 1380 });
+      this.setState({mark1: 2008 });
+      this.setState({mark0: 2922 }); 
+    }
+    else{
+      this.setState({mark8: Math.round(current_bet * 1.4550)});
+      this.setState({mark7: Math.round(current_bet * 2.1170)});
+      this.setState({mark6: Math.round(current_bet * 3.08027137)});
+      this.setState({mark5: Math.round(current_bet * 4.48179485)});
+      this.setState({mark4: Math.round(current_bet * 6.52101150)});
+      this.setState({mark3: Math.round(current_bet * 9.48807174)});
+      this.setState({mark2: Math.round(current_bet * 13.80514438)});
+      this.setState({mark1: Math.round(current_bet * 20.08648508)});
+      this.setState({mark0: Math.round(current_bet * 29.22583579)});
+    }     
+
+    this.setState({payout8: (1.4550).toFixed(2)});
+    this.setState({payout7: (2.1170).toFixed(2)});
+    this.setState({payout6: (3.08027137).toFixed(2)});
+    this.setState({payout5: (4.48179485).toFixed(2)});
+    this.setState({payout4: (6.52101150).toFixed(2)});
+    this.setState({payout3: (9.48807174).toFixed(2)});
+    this.setState({payout2: (13.80514438).toFixed(2)});
+    this.setState({payout1: (20.08648508).toFixed(2)});
+    this.setState({payout0: (29.22583579).toFixed(2)});
+
+      const response0 = this.generateGame(1,3, 0,3,1);
+      const response1 = this.generateGame(1,3, 0,3,1);
+      const response2 = this.generateGame(1,3, 0,3,1);
+      const response3 = this.generateGame(1,3, 0,3,1);
+      const response4 = this.generateGame(1,3, 0,3,1);
+      const response5 = this.generateGame(1,3, 0,3,1);
+      const response6 = this.generateGame(1,3, 0,3,1);
+      const response7 = this.generateGame(1,3, 0,3,1);
+      const response8 = this.generateGame(1,3, 0,3,1);
+
+   
+      this.setState({data0:response0});
+      this.setState({data1:response1});
+      this.setState({data2:response2});
+      this.setState({data3:response3});
+      this.setState({data4:response4});
+      this.setState({data5:response5});
+      this.setState({data6:response6});
+      this.setState({data7:response7});
+      this.setState({data8:response8});
+
+      var engine = Engine; var en_balance;
+      if(engine.balance === null)
+      {
+          en_balance = 80000;
+      }
+      else{
+        en_balance = this.state.ethereumvalue;
+      }
+
+      if(Number(this.state.ethereumvalue === 0)){
+        this.setState({valid: 'false'});
+      }
+      else{
+        this.setState({valid: 'true'});
+      }
+      this.setState({ethereumvalue:this.state.ethereumvalue});
+      this.setState(this.getMediumState());
+      this.setState({selectedValue: 'Medium'});   
+    }
+    else {
+    
+    var current_bet = Number(this.state.clicks);    
+    if(current_bet === 100){ 
+      this.setState({mark8: 129 });
+      this.setState({mark7: 167 });
+      this.setState({mark6: 216 });
+      this.setState({mark5: 279 });
+      this.setState({mark4: 361 });
+      this.setState({mark3: 468 });
+      this.setState({mark2: 605 });
+      this.setState({mark1: 782 });
+      this.setState({mark0: 1012 });
+    }
+
+    else{
+      this.setState({mark8: Math.round(current_bet * 1.29333)});
+      this.setState({mark7: Math.round(current_bet * 1.67271)});
+      this.setState({mark6: Math.round(current_bet * 2.16337)});
+      this.setState({mark5: Math.round(current_bet * 2.79796)});
+      this.setState({mark4: Math.round(current_b

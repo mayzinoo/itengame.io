@@ -1,0 +1,68 @@
+
+{{##def.page_title = 'Your account' #}}
+{{##def.content:
+  <div class="register_form" style="margin-top: 100px;">
+    <form action="/register" method="post" onsubmit="return submitEnabled;">
+        <div class="">
+            <div class="col-md-12 col-sm-12 col-xs-12 columns input">
+                <h5>Create a new account<br/> <small><a href="/login">already have one?</a></small></h5>
+                <hr>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 columns input">
+
+                <div class="row">
+                    <div class="col-md-3 columns">
+                        <label for="username">Usernameeeeee</label>
+                    </div>
+                    <div class="col-md-9 columns">
+                        <input id="username" type="text" name="user[name]" value="{{?it.values}}{{!it.values.name}}{{?}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12 col-xs-12 columns input">
+                <div class="row">
+                    <div class="col-md-3 columns">
+                        <label>Password</label>
+                    </div>
+                    <div class="col-md-9 columns">
+                        <input id="password" type="password" value="{{?it.values}}{{!it.values.password}}{{?}}" name="user[password]" autocomplete="off" pattern=".{7,200}" title="Password should be at least 7 characters" required/>
+                       
+                    </div>
+                </div>
+            </div>
+            <div class="large-12 col-sm-12 col-xs-12 columns input">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 columns">
+                        <label>Confirm Password</label>
+                    </div>
+                    <div class="col-md-9 columns">
+                        <input id="confirmation" type="password" value="{{?it.values}}{{!it.values.confirm}}{{?}}" name="user[confirm]" autocomplete="off" pattern=".{7,200}" data-equal-id="password" required/>
+                    </div>
+                </div>
+            </div>
+            <div class="large-12 col-sm-12 col-xs-12 columns input">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 columns">
+                        <label>Referral</label>
+                    </div>
+                    <div class="col-md-9 columns">
+                        <input id="referral" type="text" value="" name="referral_code" autocomplete="off"/>
+                    </div>
+                </div>
+            </div>
+            {{?it.warning}}
+                        {{it.warning}}
+                {{?}}
+            <div class="large-12 columns">
+               <!--<div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>-->
+                <input id="registerSubmit"  class="border-button blue right" type="submit" value="Register"/>
+            </div>
+        </div>
+    </form>
+</div>
+#}}
+
+{{#def.include('./template/main_new')}}
+

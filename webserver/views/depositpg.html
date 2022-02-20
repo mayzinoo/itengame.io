@@ -1,0 +1,1611 @@
+
+{{##def.page_title = 'Bitkong Ethereum Game' #}}
+
+{{##def.content:   
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
+<style type="text/css">
+.popup-inner p a {
+  text-decoration: none;
+  color: #f8f341;
+  font-family: 'Yeon Sung', cursive;
+}
+
+.popup {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  background: rgba(0, 0, 0, 0.75);
+  font-family: 'Raleway', sans-serif;
+  z-index: 200;
+}
+
+
+/* Inner */
+
+.popup-inner {
+  line-height: initial;
+  max-width: 700px;
+  width: 90%;
+  padding: 0px;
+  position: absolute;
+  top: 50%;
+  z-index: 99;
+  text-align: left;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 1);
+  border-radius: 3px;
+  background: #40434c;
+  background-size: cover;
+  color: #FFF;
+}
+
+/* Close Button */
+
+.popup-close {
+  width: 30px;
+  height: 30px;
+  padding: 4px 2px 0px;
+  display: inline-block;
+  position: absolute;
+  top: 35px;
+right: 488px;
+  transition: ease 0.25s all;
+  -webkit-transform: translate(50%, -50%);
+  transform: translate(50%, -50%);
+  border-radius: 1000px;
+  /*background: #FFF;*/
+  font-family: Arial, Sans-Serif;
+  font-size: 21px !important;
+  text-align: center;
+  line-height: 100%;
+  color: #000 !important;
+}
+
+.mybtn {
+  width: calc(50% - 60px);
+  float: left;
+  display: inline-block;
+  background: #FFF;
+  color: #000;
+  text-align: center;
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 10px 30px;
+  font-weight: bold;
+}
+
+.mybtn:hover {
+  opacity: 0.9;
+}
+
+.join {
+  background: #1b1464;
+  color: #FFF;
+}
+
+.popup-close:hover { 
+  color:#fff !important;
+font-size: 22px;
+}
+
+.right3 ul {
+  padding: 0px;
+  margin: 0px;
+}
+
+.right3 ul li {
+  background-image: url('https://s33.postimg.cc/502ku2hsv/correct_sign.png');
+  list-style: none;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 15px;
+}
+
+.code {
+  color: #23B14D;
+  font-weight: 700;
+}
+
+.left3 {
+  width: 40%;
+  padding: 0 10px 0 0;
+  box-sizing: border-box;
+  min-height: 2px;
+  float: left;
+}
+
+.right3 {
+  width: 60%;
+  padding: 0px;
+  box-sizing: border-box;
+  height: 310px;
+  float: left;
+  font-size: 17px;
+}
+
+.left3 img {
+  width: 100%;
+  margin-top: 0px;
+}
+
+.left3 {
+  background: url('https://s33.postimg.cc/d5kms1ya7/player1.png') no-repeat center top / auto 100%;
+}
+
+.right3 p {
+  margin: 0;
+}
+
+.popup-inner {
+  display: flex;
+  /*background: rgba(228,32,34,0.7); */
+  background: red;
+  border: 5px solid #FFF;
+}
+
+.preventclose {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 5px;
+}
+
+.left4 {
+  width: 100%;
+  float: left;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+.bbtitle {
+  font-family: 'Poppins', sans-serif;
+  color: #FFF;
+  display: block;
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 26px;
+  padding: 10px 10px 10px 0;
+}
+
+.right4 {
+  width: 100%;
+  float: left;
+  color: #FFF;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+.popup-inner .left4 a {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.popup-inner .right4 a {
+  font-size: 21px;
+  font-weight: bold;
+}
+
+.firstlink {
+  display: block;
+  padding: 13px 10px 10px;
+  background: none;
+}
+
+.endtext {
+  padding: 10px;
+  font-size: 13px;
+  color: #999;
+  font-weight: bold;
+  margin-top: 21px !important;
+  display: block;
+  float: left;
+}
+
+.dollar25 {
+  color: black;
+  font-weight: bolder;
+  text-shadow: 0px 0px 4px yellow;
+}
+
+.right3 p {
+  padding: 5px;
+  margin-top: 18px;
+  font-size: 14px;
+  text-align: justify;
+}
+
+.ifl-image {
+  width: 80px !important;
+}
+
+@media(max-width:767px) {
+  .left3 {
+    width: 30%;
+  }
+  .right3 {
+    width: 70%;
+    height: 360px;
+    padding: 0 10px;
+  }
+  .popup-inner {
+    max-width: 600px;
+  }
+  .left3 img {
+    width: 100%;
+    margin-top: 18px;
+  }
+}
+
+@media(max-width:550px) {
+  .popup-inner {
+    display: block;
+  }
+  .bbtitle {
+    text-align: center;
+    font-size: 22px;
+  }
+  .left3 {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center top;
+  }
+  .right3 {
+    width: 100%;
+  }
+  .popup-inner {
+    max-width: 400px;
+  }
+  .off {
+    font-size: 60px;
+  }
+  .left3 img {
+    width: 200px;
+    margin-top: 18px;
+  }
+}
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div class="preventclose"></div>
+<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<script type='text/javascript'>
+var popupdisplayed = false;
+
+jQuery(function() {
+  jQuery('[data-popup-close]').on('click', function(e) {
+    var targeted_popup_class = jQuery(this).attr('data-popup-close');
+    jQuery('[data-popup="' + targeted_popup_class + '"]').fadeOut(350);
+    e.preventDefault();
+  });
+});
+
+jQuery(document).ready(function() {
+  jQuery('.popup').show(0);
+  var halfbrowserHeight = jQuery(window).height() / 2;
+  jQuery(window).scroll(function() {
+    var distance = jQuery(window).scrollTop();
+    if (distance >= halfbrowserHeight && !popupdisplayed) {
+      jQuery('.popup').show(0);
+      popupdisplayed = true;
+    }
+  });
+});
+</script>
+<!-- //menu --><!-- //navigation -->
+<script> 
+    window.onload = function () {
+        if (document.getElementById('confirmation') !== null) {
+            document.getElementById('confirmation').onchange = validatePassword;
+            document.getElementById('password').onchange = validatePassword;
+        }
+    };
+    function validatePassword() {
+        var password = document.getElementById('new_password').value;
+        var confirm = document.getElementById('confirmation').value;
+        if (password != confirm) {
+            document.getElementById('confirmation').setCustomValidity("Confirmation and password should be the same");
+        } else document.getElementById("confirmation").setCustomValidity('');
+    }
+
+    function logout() {
+    if (confirm("Are you sure you want to log out?")) {
+        document.getElementById("logout").submit();
+            
+        }
+    }
+    function showsetting() {
+        document.getElementById('setting').style.display = 'block';
+        document.getElementById('profile1').style.display = 'none';
+    }
+</script>
+
+<!-- carousal -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/css/bootstrap-editable.css" rel="stylesheet"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/x-editable/1.5.0/bootstrap3-editable/js/bootstrap-editable.min.js"></script>
+
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- //carousal -->
+
+<!-- Gallery -->
+    <script type="text/javascript" src="/js/simple-lightbox.min.js"></script>
+        <script>
+            $(function(){
+                var gallery = $('.agileinfo-gallery-row a').simpleLightbox({navText:        ['&lsaquo;','&rsaquo;']});
+            });
+        </script> 
+<!--  <script type="text/javascript" src="/js/move-top.js"></script>  -->  
+<script src="/js/SmoothScroll.min.js"></script>
+<script src="/js/easyResponsiveTabs.js"></script>
+<script src="http://yui.yahooapis.com/3.2.0/build/simpleyui/simpleyui-min.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+<script>
+    $(document).on('ready', function() {
+        $(".scroll").click(function(event){     
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+
+   <!-- banner -->
+   <form action="/logout" method="post" id='logout'></form>
+    <div class="" id="home">
+        <div class="w3ls-slider">
+          <div class="banner-dott">
+            <div class="header-top">
+                <div class="banner-drop">
+                    <div class="header">
+                       
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!-- Left Side Bar -->
+                    {{#def.include('./left_sidebar')}}
+                    <!-- Left Side Bar -->
+                    
+                    <div class="clearfix"> </div>
+
+                    <!-- Top Bar -->
+                    {{#def.include('./topbar')}}
+                    <!-- Top Bar -->    
+                </div>
+            </div>
+            
+                <div class="w3l-banner-grids">
+                    <div class="">
+                        <div class="col-md-12 slider">
+                            <!-- <img src="../images/dongkey-kong.png" style="" class="monkey"> -->
+                            <div class="offset-md-2 col-md-4 nopadding">
+                                <div class="playtext">
+                                    <h1 contenteditable data-heading="Guru">Play Now</h1>
+                                </div>
+                                <div class="box">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                    
+                                    <div class="inner-gamearea">
+                                         <div class="play-btn">
+                                            <div class="button-big">
+                                              <input type="checkbox" id="checked" class="click">
+                                              <label for="checked"><div class="button-small"><h3>Play</h3></div></label>
+                                              <div class="bg"></div>
+                                            </div>
+                                            <div class="fruit-btn">
+                                                <a href=""><img src="../images/half-avocado.png"></a>
+                                            </div>
+                                        </div>
+
+                                        <div class="sc-cIShpX eJBueb">
+                                            <i class="icon-plus plus sc-EHOje fcyNzI"></i>
+                                            <i class="icon-minus minus sc-EHOje fcyNzI"></i>
+                                            <input class="input" spellcheck="false" type="text" tabindex="-1" value="0.00000200">
+                                            <div class="amount-label">Bet amount</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <!-- <h1>Game is Under Construction</h1>   -->
+                            </div>
+                            <div class="col-md-6 nopadding">
+                                <section class="activities">    
+                                <div class="banner-bottom-grids">
+                                        
+                        <div class="col-md-offset-2 col-md-8 banner-bottom-grid">               
+                          <div class="tabbed">
+                            <input type="radio" id="tabbed-tab-1-1" name="tabbed-tab-1" checked>
+                            <label for="tabbed-tab-1-1" class="firstrow"><img src="../images/list.png" class="hortab"><span>ACTIVITY</span></label>
+                            <div>
+                                    <div class="tabbed">
+                                        <input type="radio" id="tabbed-tab-1-1-1" name="tabbed-tab-1-1" checked>
+                                        <label for="tabbed-tab-1-1-1" class="secondrow">RECENT BETS</label>
+                                        <div>
+                                            <div class="responsive-table">
+                                                   <table class="table">
+                                                   <thead>
+                                                       <tr>
+                                                       <th scope="col">PLAYER</th>
+                                                       <th scope="col">BET</th>
+                                                      
+                                                       <th scope="col">PROFIT</th>
+                                                       <th scope="col">PAYOUT</th>
+                                                       
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                              <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                              <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                   </tbody>
+                                                   </table>
+                                            </div>
+                                        </div>
+
+                                        <input type="radio" id="tabbed-tab-1-1-2" name="tabbed-tab-1-1">
+                                        <label for="tabbed-tab-1-1-2" class="secondrow">MY BETS</label>
+                                        <div>
+                                            <div class="responsive-table">
+                                                   <table class="table">
+                                                   <thead>
+                                                       <tr>
+                                                       <th scope="col">DATE</th>
+                                                       <th scope="col">BET</th>
+                                                      
+                                                       <th scope="col">PROFIT</th>
+                                                       <th scope="col">PAYOUT</th>
+                                                       
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                              3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                              3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               3 Days ago
+                                                           </td>
+                                                           <td>b799b8724b</td>
+                                                           <td>0.00000051</td>                                        
+                                                           <td>x0</td>
+                                                       </tr>
+                                                   </tbody>
+                                                   </table>
+                                            </div>
+                                        </div>
+
+                                        <input type="radio" id="tabbed-tab-1-1-3" name="tabbed-tab-1-1">
+                                        <label for="tabbed-tab-1-1-3" class="secondrow">Leaderboard</label>
+                                        <div>
+                                            <div class="tabbed">                        
+                                                <input type="radio"id="tabbed-tab-1-1-3-1" name="tabbed-tab-1-3-1" checked>
+                                                <label for="tabbed-tab-1-1-3-1" class="thirdrow">DAILY</label>
+                                                <div>
+                                                    <div class="responsive-table">
+                                                   <table class="table">
+                                                   <thead>
+                                                       <tr>
+                                                       <th scope="col">PLAYER (daily)</th>
+                                                       
+                                                       <th scope="col">POINTS (daily)</th>
+                                                       
+                                                       </tr>
+                                                   </thead>
+                                                   <tbody>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                              <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                 
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                 
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                          <td>
+                                                              <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                   
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                   
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                  
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                  
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                 
+                                                           <td>x0</td>
+                                                       </tr>
+                                                       <tr>
+                                                           <td>
+                                                               <img src="./images/user.png" alt="">
+                                                               Tom Bass
+                                                           </td>
+                                                                                                  
+                                                           <td>x0</td>
+                                                       </tr>
+                                                   </tbody>
+                                                   </table>
+                                            </div>
+
+                                                </div>
+
+                                                <input type="radio"id="tabbed-tab-1-1-3-2" name="tabbed-tab-1-3-1">
+                                                <label for="tabbed-tab-1-1-3-2" class="thirdrow">WEEKLY</label>
+                                                <div>
+                                                    <div class="responsive-table">
+                                                           <table class="table">
+                                                           <thead>
+                                                               <tr>
+                                                               <th scope="col">PLAYER (weekly)</th>
+                                                               
+                                                               <th scope="col">POINTS (weekly)</th>
+                                                               
+                                                               </tr>
+                                                           </thead>
+                                                           <tbody>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                        
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                        
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                      <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                         
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                  <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                         
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                  <td>
+                                                                      <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                           
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                           
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                          
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                          
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                         
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                               <tr>
+                                                                   <td>
+                                                                       <img src="./images/user.png" alt="">
+                                                                       Tom Bass
+                                                                   </td>
+                                                                                                          
+                                                                   <td>x0</td>
+                                                               </tr>
+                                                           </tbody>
+                                                           </table>
+                                                    </div>
+                                                </div>
+
+                                                <input type="radio"id="tabbed-tab-1-1-3-3" name="tabbed-tab-1-3-1">
+                                                <label for="tabbed-tab-1-1-3-3" class="thirdrow">MONTHLY</label>
+                                                <div>
+                                                        <div class="responsive-table">
+                                                               <table class="table">
+                                                               <thead>
+                                                                   <tr>
+                                                                   <th scope="col">PLAYER (monthly)</th>
+                                                                   
+                                                                   <th scope="col">POINTS (monthly)</th>
+                                                                   
+                                                                   </tr>
+                                                               </thead>
+                                                               <tbody>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                            
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                            
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                          <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                             
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                      <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                             
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                      <td>
+                                                                          <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                               
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                               
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                              
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                              
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                             
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                                   <tr>
+                                                                       <td>
+                                                                           <img src="./images/user.png" alt="">
+                                                                           Tom Bass
+                                                                       </td>
+                                                                                                              
+                                                                       <td>x0</td>
+                                                                   </tr>
+                                                               </tbody>
+                                                               </table>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+
+
+
+                            <input type="radio" id="tabbed-tab-1-3" name="tabbed-tab-1">
+                            <label for="tabbed-tab-1-3" class="firstrow"><img src="../images/man.png" class="hortab"><span>ACCOUNT</span></label>
+                            <div>
+                                <div class="tabbed"> 
+                                    <input type="radio" id="tabbed-tab-1-1-3-3-1" name="tabbed-tab-1-3" checked>
+                                    <label for="tabbed-tab-1-1-3-3-1" class="acctrow">PROFILE</label>
+                                    <div class="purple">
+                                        <div id="profile1" class="padding-md">
+                                             <div id="profile">
+                                                <div class="userbets">
+                                                    <div style="float: left; width: 30%;"><span><h4>48</h4> <span class="bname">BETS</span></span></div>
+                                                    <div style="float: left; width: 30%;"><span><h4>| </div>
+                                                    <div style="float: left; width: 30%;"><span><h4>0</h4>  <span class="bname">POINTS</span></span></div>
+                                                </div>
+                                               
+                                             </div>
+                                             {{?it.user}}
+                                             <div id="editinfo">
+                                                <form action="edit-info" method="post">
+                                                <div class="input-group mb-3">
+                                                  <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-user fa-2x"  aria-hidden="true"></i></span>
+                                                    <input type="text" name="uname" class="form-control" placeholder="Username" value="{{=it.user.username}}" aria-label="Username" aria-describedby="basic-addon1">                                        
+                                                  </div>                                      
+                                                </div>
+                                                <div class="input-group mb-3">
+                                                  <div class="input-group-prepend">
+                                                    <span class="input-group-text" id="basic-addon1"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></span> 
+                                                    <input type="text" name="uemail" class="form-control"  value="{{=it.user.email}}" aria-label="Username" aria-describedby="basic-addon1" >
+                                                  </div>                                      
+                                                </div> 
+                                                <input type="hidden" id="userId" name="userId" value="{{=it.user.id}}" >
+                                                <input id="registerSubmit"  class="border-button blue right" type="submit" value="Edit"/>
+                                                </form>                                   
+                                                    <script>
+                                                    </script>
+                                             </div>   
+                                        </div>
+                                    </div>
+
+                                    <input type="radio" id="tabbed-tab-1-1-3-3-2" name="tabbed-tab-1-3">
+                                    <label for="tabbed-tab-1-1-3-3-2" class="acctrow">SELTTING</label>
+                                    <div class="purple">
+                                        <div class="padding-md sidepadding-md">
+                                            <h4>CHANGE PASSWORD</h4>
+                                            <form action="reset-password" method="post">
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key fa-2x"  aria-hidden="true"></i></span>
+                                                <input type="password" name="old_password" class="form-control updatename" placeholder="Old Password"  aria-label="Username" aria-describedby="basic-addon1">                                        
+                                              </div>                                      
+                                            </div>
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key fa-2x" aria-hidden="true"></i></span>
+                                                <input type="password" name="password" class="form-control updateemail"  placeholder="New Password" aria-label="Username" aria-describedby="basic-addon1" >
+                                              </div>                                      
+                                            </div> 
+                                            <div class="input-group mb-3">
+                                              <div class="input-group-prepend">
+                                                <span class="input-group-text" id="basic-addon1"><i class="fa fa-key fa-2x" aria-hidden="true"></i></span>
+                                                <input type="password" name="confirmation" class="form-control updateemail"  placeholder="Confirm Password" aria-label="Username" aria-describedby="basic-addon1" >
+                                              </div>                                      
+                                            </div> 
+                                            <div class="large-12 columns">
+                                            <input id="registerSubmit"  class="border-button blue right" type="submit" value="Change"/>
+                                        </form>
+                                        </div>
+                                           
+                                        {{?}} 
+                                    </div>
+                                </div>
+                               
+                                                       
+                                                          
+
+                                                         
+
+                        <!-- end -->
+
+
+                                </div>
+                                </section>
+                            </div>
+                                                      
+                            <!--banner Slider starts Here-->
+                        </div>
+                    </div>
+
+        <div class="bg-overlay" id="login">
+                <div class="subscribe-optin">
+                    <div class="login-form">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="large-6 columns">
+                                    <label>Username</label>
+                                </div>
+                                <input type="text" name="username" required/>
+                            </div>
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Password</label>
+                                </div>
+                                <input type="password" name="password" required />
+                             </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Remember me</label>
+                                        
+                                </div>
+                                <input type="checkbox" name="remember">
+                            </div>                              
+                             
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <input id="loginSubmit"  class="border-button right blue" value="Login" type="submit" />
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>      
+        <div id="yourNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="close2Nav()">&times;</a>
+          <div class="overlay-content">
+                <div class="col-md-12  login-form ">
+                <div class="col-md-4 offset-md-4 loginbox">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="col-md-12 ">
+                                <div class="col-md-3 columns">
+                                    <label>Username  </label>
+                                </div>
+                                <div class="col-md-5"><input type="text" class="form-control" name="username" required/></div>
+                            </div>
+                             <div class="col-md-12">
+                                <div class="col-md-3 columns">
+                                    <label>Password </label>
+                                </div>  
+                                <div class="col-md-5"><input type="password" class="form-control" name="password" required /></div>
+                             </div>
+                            <div class="col-md-12">
+                                <div class="col-md-3">
+                                    <label>
+                                       Remember me</label>
+                                </div>
+                                <div class="col-md-5"><input type="checkbox" class="form-control" name="remember"></div>
+                            </div>                              
+                             
+                             <div class="col-md-12">
+                                <div class="col-md-3">
+                                </div>
+                                <div class="col-md-5">
+                                    <input id="loginSubmit"  class="border-button blue" value="Login" type="submit" />
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    </div>
+          </div>
+        </div>
+        <div class="popup overlay deposit" data-popup="popup-1">
+  <div class="">
+    <!-- <a href="javascript:void(0)" class="closebtn" onclick="close3Nav()">&times;</a> -->
+          <div class="overlay-content">
+                  <div class="col-md-12 ">
+                  <div class="col-md-6 offset-md-3 loginbox"> 
+                      <div class='toggle'>
+                      <div class='tabs'>
+	                        <div class='tab active'>Deposit</div>
+	                        <div class='tab'>Withdraw</div>
+	                        <div class='tab'>Exchange</div>
+	                        <div class='tab'>History</div>
+                      </div>
+                      <div class='panels'>
+                      {{?it.user}} 
+                        <div class="content-container">
+                        <div class='panel'>
+                            <h3 class="mid_top_padding">Deposit to Ether (ETH) account</h3>
+                              <div class="deposit-content">
+                                    <!-- <p>Deposit to Ether (ETH) account</p>                          -->
+                                <form action="/deposit-request" method="post">
+                                    <div class="col-md-12 large_top_padding deposit-rgn">
+                                      <input type="hidden" name="currency_type" value="ETH">
+                                        <div class="col-md-5 nopadding padding-left-md">
+                                            <div class="col-md-10">
+                                                <input type="text" name="ethereum_amt" id="ethereum_amt" class="form-control currencychange">
+                                            </div>
+                                            <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                ETH
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 nopadding center" style="margin-top:14px;">≈</div>
+                                        <div class="col-md-5 nopadding padding-left-md">
+                                            <div class="col-md-10">
+                                                <input type="text" name="ethereum_wow_amt" id="ethereum_wow_amt" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                WoW
+                                            </div>
+                                        </div>
+
+                                    </div>   
+                                    <div class="col-md-12">
+                                      <p>Address</p>
+                                       <input type="text" name="eth_address" class="form-control" value="{{=it.user.deposit_address}}" readonly>
+                                    </div>
+                                    <div class="col-md-12 center large_top_padding">
+                                        <input type="submit" name="dep-request" value="Submit" class="summit-btn">                                 
+                                    </div> 
+                                </form> 
+                              </div>
+                            
+                        </div>
+                        <div class='panel'>
+                              <h3 class="mid_top_padding">Withdraw from Ether (ETH) account</h3>
+                              <div class="deposit-content">
+                                <form action="/new-withdraw-request" method="post"> 
+                                <input type="hidden" name="withdraw_currency" value="ETH">
+                                      <div class="col-md-12 deposit-rgn">
+                                      <p>Amount</p>
+                                          <div class="col-md-5 nopadding padding-left-md">
+                                              <div class="col-md-10">
+                                                  <input type="text" name="eth_amount" id="eth_amount" class="form-control">
+                                              </div>
+                                              <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                  WoW
+                                              </div>
+                                          </div>
+                                          <div class="col-md-2 nopadding center" style="margin-top:14px;">≈</div>
+                                          <div class="col-md-5 nopadding padding-left-md">
+                                              <div class="col-md-10">
+                                                  <!-- <span name="eth_with_amt" id="eth_with_amt"></span> -->
+                                                  <input type="text" name="eth_change_value" id="eth_change_value" class="form-control">
+                                              </div>
+                                              <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                  ETH
+                                              </div>
+                                          </div>
+                                           
+                                      </div>  
+                                      
+                                      <div class="col-md-12 mid_top_padding deposit-rgn">
+                                      <p>Address</p>
+                                        <input type="text" name="eth_etherum_address" class="form-control" placeholder="Enter Address">
+                                      </div>  
+                                      <div class="col-md-12 center mid_top_padding">
+                                          <input type="submit" name="dep-request" value="Submit" class="summit-btn">                                 
+                                      </div>  
+                                </form>
+                              </div>
+                        </div>
+                        <div class='panel'>
+                                <h3>Exchange from US Dollar (USD) account</h3>
+                              <div class="deposit-content">
+                                <p>Exchange to</p>                          
+                                <select class="select-css" id="ModalContactType" onchange="setPlaceholder(this)">
+                                    <option value="0">--Please Select--</option>
+                                    <option value="1">Bitcoin(BTC)</option>
+                                    <option value="2">US Dollar(USD)</option>                                    
+                                </select>
+                               <p>Address</p>
+                              <input type="text" class="form-control" placeholder="Enter Address" value="">
+                                <p>
+                                  Using any address other than Bitcoin (BTC) will result in permanent loss of withdrawal.
+                                </p>
+                                <p>Amount</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control currencychange" placeholder="ETH" value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" id="ModalDetail" class="form-control"/>                                      
+                                    </div>
+                                </div>
+                            
+                              </div>
+                        </div>
+                        <div class='panel'>No History Here</div>
+                      </div><!-- end content container -->
+                      {{?}}
+
+                      </div><!-- end panels -->
+                    </div>
+               
+                </div><!-- login box -->
+                </div>
+          </div>
+    <a class="popup-close" data-popup-close="popup-1" href="#">x</a>
+  </div>
+</div>
+        <div id="deposit" class="bg-overlay overlay popup">
+          <a href="javascript:void(0)" class="closebtn" onclick="close3Nav()">&times;</a>
+          <div class="overlay-content">
+                  <div class="col-md-12 ">
+                  <div class="col-md-6 offset-md-3 loginbox"> 
+                      <div class='toggle'>
+                      <div class='tabs'>
+                        <div class='tab active'>Deposit</div>
+                        <div class='tab'>Withdraw</div>
+                        <div class='tab'>Exchange</div>
+                        <div class='tab'>History</div>
+                      </div>
+                      <div class='panels'>
+                      {{?it.user}} 
+                        <div class="content-container">
+                        <div class='panel'>
+                            <h3 class="mid_top_padding">Deposit to Ether (ETH) account</h3>
+                              <div class="deposit-content">
+                                    <!-- <p>Deposit to Ether (ETH) account</p>                          -->
+                                <form action="/deposit-request" method="post">
+                                    <div class="col-md-12 large_top_padding deposit-rgn">
+                                      <input type="hidden" name="currency_type" value="ETH">
+                                        <div class="col-md-5 nopadding padding-left-md">
+                                            <div class="col-md-10">
+                                                <input type="text" name="ethereum_amt" id="ethereum_amt" class="form-control currencychange">
+                                            </div>
+                                            <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                ETH
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 nopadding center" style="margin-top:14px;">≈</div>
+                                        <div class="col-md-5 nopadding padding-left-md">
+                                            <div class="col-md-10">
+                                                <input type="text" name="ethereum_wow_amt" id="ethereum_wow_amt" class="form-control">
+                                            </div>
+                                            <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                WoW
+                                            </div>
+                                        </div>
+
+                                    </div>   
+                                    <div class="col-md-12">
+                                      <p>Address</p>
+                                       <input type="text" name="eth_address" class="form-control" value="{{=it.user.deposit_address}}" readonly>
+                                    </div>
+                                    <div class="col-md-12 center large_top_padding">
+                                        <input type="submit" name="dep-request" value="Submit" class="summit-btn">                                 
+                                    </div> 
+                                </form> 
+                              </div>
+                            
+                        </div>
+                        <div class='panel'>
+                              <h3 class="mid_top_padding">Withdraw from Ether (ETH) account</h3>
+                              <div class="deposit-content">
+                                <form action="/new-withdraw-request" method="post"> 
+                                <input type="hidden" name="withdraw_currency" value="ETH">
+                                      <div class="col-md-12 deposit-rgn">
+                                      <p>Amount</p>
+                                          <div class="col-md-5 nopadding padding-left-md">
+                                              <div class="col-md-10">
+                                                  <input type="text" name="eth_amount" id="eth_amount" class="form-control">
+                                              </div>
+                                              <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                  WoW
+                                              </div>
+                                          </div>
+                                          <div class="col-md-2 nopadding center" style="margin-top:14px;">≈</div>
+                                          <div class="col-md-5 nopadding padding-left-md">
+                                              <div class="col-md-10">
+                                                  <!-- <span name="eth_with_amt" id="eth_with_amt"></span> -->
+                                                  <input type="text" name="eth_change_value" id="eth_change_value" class="form-control">
+                                              </div>
+                                              <div class="col-md-2 nopadding margin-top-sm" style="margin-top:14px;">
+                                                  ETH
+                                              </div>
+                                          </div>
+                                           
+                                      </div>  
+                                      
+                                      <div class="col-md-12 mid_top_padding deposit-rgn">
+                                      <p>Address</p>
+                                        <input type="text" name="eth_etherum_address" class="form-control" placeholder="Enter Address">
+                                      </div>  
+                                      <div class="col-md-12 center mid_top_padding">
+                                          <input type="submit" name="dep-request" value="Submit" class="summit-btn">                                 
+                                      </div>  
+                                </form>
+                              </div>
+                        </div>
+                        <div class='panel'>
+                                <h3>Exchange from US Dollar (USD) account</h3>
+                              <div class="deposit-content">
+                                <p>Exchange to</p>                          
+                                <select class="select-css" id="ModalContactType" onchange="setPlaceholder(this)">
+                                    <option value="0">--Please Select--</option>
+                                    <option value="1">Bitcoin(BTC)</option>
+                                    <option value="2">US Dollar(USD)</option>                                    
+                                </select>
+                               <p>Address</p>
+                              <input type="text" class="form-control" placeholder="Enter Address" value="">
+                                <p>
+                                  Using any address other than Bitcoin (BTC) will result in permanent loss of withdrawal.
+                                </p>
+                                <p>Amount</p>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                      <input type="text" class="form-control currencychange" placeholder="ETH" value="">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" id="ModalDetail" class="form-control"/>                                      
+                                    </div>
+                                </div>
+                            
+                              </div>
+                        </div>
+                        <div class='panel'>No History Here</div>
+                      </div><!-- end content container -->
+                      {{?}}
+
+                      </div><!-- end panels -->
+                    </div>
+               
+                </div><!-- login box -->
+                </div>
+          </div>
+        </div><!-- end deposit-->   
+
+        <!-- deposit request success -->
+        <div class="bg-overlay" id="eth-success">
+                <div class="subscribe-optin">
+                    <h5>Deposit Successful</h5>
+                    <div class="col-md-12">
+                        <div class="col-md-12">
+                          Ethereum Deposit Successfully.
+                        </div>                    
+                    </div>               
+                    <a href="#" class="optin-close">x</a>
+                </div>
+        </div>  <!-- end -->
+
+        <!-- withdraw request success -->
+        <div class="bg-overlay" id="successwithdraw">
+            <div class="subscribe-optin">
+                <h5>Withdraw Request Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Successfully Request Withdraw.
+                    </div>                    
+                </div>                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+        <!-- end -->
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+                <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="col-md-12 ">
+                            <div class="col-md-6 offset-md-3 loginbox">
+                                <div class="col-md-12 columns input">
+                                    <img src="../images/money-bag.png" style="width:150px;height:auto;float:left;margin-left:70px;"><h5>Please Sign In Here !<br/> <!-- <small><a href="#login">already have one?</a></small> --></h5>
+                                    <hr>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" name="username" type="text" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Email</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="email" name="email" type="email" autocomplete="off" title="Email" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" name="password" type="password"  autocomplete="off"  title="Password should be at least 4 characters" required/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password"  name="confirm" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+</a></p>               
+        </div>
+                                
+                                <div class="large-12 columns">
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Sign In"/>
+                                </div>
+                            </div>
+                            </div>
+                        </form>
+                    </div>
+          </div>
+        </div><!-- end -->
+        <div class="bg-overlay" id="register">
+                <div class="subscribe-optin">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input">
+                                    <h5>Please Sign In<br/> <!-- <small><a href="#login">already have one?</a></small> --></h5>
+                                    <hr>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" name="username" type="text" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Email</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="email" name="email" type="email" autocomplete="off" title="Email" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" name="password" type="password"  autocomplete="off"  title="Password should be at least 4 characters" required/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password"  name="confirm" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+</a></p>               
+        </div>
+                                
+                                <div class="large-12 columns">
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Sign In"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">x</a>
+                </div>
+            </div>
+               
+            </div>
+         </div>                              
+                  
+        
+
+
+                </div>
+          </div>
+        </div>
+    </div>
+
+#}}
+
+{{#def.include('./template/main_new')}}
+
+<script>
+          var placeholderText = {
+                "Bitcoin(BTC)": "BTC",
+                "US Dollar(USD)": "USD",
+            };
+         function  setPlaceholder(slc){         
+                 if (this.value != 0) {
+                    document.getElementById("ModalDetail").placeholder=placeholderText[slc.options[slc.selectedIndex].text];
+                } 
+                else {
+                     document.getElementById("ModalDetail").placeholder="";
+                }
+            }
+
+    /*$('.currencychange').keyup(function () {
+        $.ajax({
+                  type: 'GET',
+                  url : 'http://api.coinlayer.com/api/live?access_key=55738710ac5f8b0391a3fcc52b946a9e',
+                  success: function(data){
+
+                  var num=(data.rates.ETH).toFixed(5);
+                  $('#ModalDetail').val(num);
+                    
+                  
+                 }
+              });
+        
+     });*/
+     $('#ethereum_amt').keyup(function () {
+        var eth_amt = $('#ethereum_amt').val();
+        $.ajax({
+                  type: 'GET',
+                  url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                  success: function(data){                                  
+                  var num1 = eth_amt;
+                  var num2 = parseInt(num1*data.result.ethusd); 
+                  var num3= ((data.result.ethusd) / 100000).toFixed(5); 
+                  var num4=  parseInt(num2/num3);  
+                           
+                  $('#ethereum_wow_amt').val(num4);                  
+                 }
+        });                     
+
+     });
+
+     $('#eth_amount').keyup(function () {
+       var wow_value = $('#eth_amount').val(); 
+
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){                          
+          var num1 = wow_value;          
+          var num2=(data.result.ethusd/100000).toFixed(5);                 
+          var result= Math.round(num1*num2); 
+          var rr =  (result/data.result.ethusd).toFixed(4) + ' ETH';
+          var e_val = (result/data.result.ethusd).toFixed(4);
+          $('#eth_with_amt').text(rr);           
+          $('#eth_change_value').val(e_val);          
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);                 
+               
+     });
+</script>

@@ -1,0 +1,58 @@
+{{##def.page_title = 'Your account' #}}
+{{##def.content:
+    
+<div class="content row panel radius"> 
+    <div >    
+        <div class="col-md-12 col-sm-12">
+            <div class="col-md-6 col-sm-12">
+                <div class="row">
+                    <h3 style="color:#fff;">Withdrawal Request Information</h3>
+                    <div class="col-lg-12" style="width: 1200px !important; margin-top: 40px;">
+                                      
+                        <div class="offset-md-12 col-md-12"> 
+                        <div class="row nopadding"> 
+                            <div class="col-md-4" style="margin-top: 9px;">
+                                Country                            
+                            </div>
+                            <div class="col-md-8" >
+                                <input type="text" value="{{=it.user.withinfo[0].country}}" readonly="" name="country" class="form-control">
+                            </div> 
+                        </div> 
+                        <div class="row nopadding">    
+                            <div class="col-md-4" style="margin-top: 9px;">
+                                Bank Name                           
+                            </div>
+                            <div class="col-md-8" >
+                                <input type="text" value="{{=it.user.withinfo[0].bank_name}}" readonly="" name="country" class="form-control">
+                            </div>
+                        </div>
+                        <div class="row nopadding">    
+                            <div class="col-md-4" style="margin-top: 9px;">
+                                Owner Name                           
+                            </div>
+                            <div class="col-md-8" >
+                                <input type="text" value="{{=it.user.withinfo[0].owner_name}}" readonly="" name="country" class="form-control">
+                            </div>
+                        </div>     
+                        <div class="row nopadding">    
+                            <div class="col-md-4" style="margin-top: 9px;">
+                                Account Address                         
+                            </div>
+                            <div class="col-md-8" >
+                                <input type="text" value="{{=it.user.withinfo[0].account_address}}" readonly="" name="country" class="form-control">
+                            </div>
+                        </div> 
+                        <a href="/account" class="border-button ">Back To Account</a>                         
+                        
+                        </div>
+                    
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>  
+    
+#}}
+{{#def.include('./template/main_new')}}

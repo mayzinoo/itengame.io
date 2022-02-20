@@ -1,0 +1,280 @@
+define([
+    'react',
+    'game-logic/clib',
+    'lodash',
+    'game-logic/engine',
+    'classnames'
+], function(
+    React,
+    Clib,
+    _,
+    Engine,
+    CX
+){
+
+    var D = React.DOM;
+
+    function calcProfit(bet, stoppedAt) {
+        return ((stoppedAt - 100) * bet)/100;
+    }
+
+    function getState(){
+        return {
+            engine: Engine
+        }
+    }
+
+    return React.createClass({
+        displayName: 'usersPlaying',
+
+        getInitialState: function () {
+            return getState();
+        },
+
+        componentDidMount: function() {
+            Engine.on({
+                game_started: this._onChange,
+                game_crash: this._onChange,
+                game_starting: this._onChange,
+                player_bet: this._onChange,
+                cashed_out: this._onChange
+            });
+            
+        },
+
+        componentWillUnmount: function() {
+            Engine.off({
+                game_started: this._onChange,
+                game_crash: this._onChange,
+                game_starting: this._onChange,
+                player_bet: this._onChange,
+                cashed_out: this._onChange
+            });
+        },
+
+        _onChange: function() {
+            if(this.isMounted())
+                this.setState(getState());
+        },
+
+        render: function() {
+            var self = this;
+
+            var usersWonCashed = [];
+            var usersLostPlaying = [];
+
+            var trUsersWonCashed;
+            var trUsersLostPlaying;
+
+            var tBody;
+
+            var game = self.state.engine;
+
+
+            usersLostPlaying = self.state.engine.joined.map(function(player) {                   
+
+                    if (player === self.state.engine.username)                        
+
+                    return { username: player };
+                });
+            //console.log('playing', usersLostPlaying[0]);
+
+            //Users Playing and users cashed
+            if(game.gameState === 'ENDED' ) {
+                var i, j, length, length2, bet, profit, payout;
+                var bonusClass = (game.gameState === 'IN_PROGRESS')? 'bonus-projection' : '';
+
+               // console.log('joined ', self.state.engine.joined[0].index);
+
+                trUsersLostPlaying = [];
+                if(self.state.engine.joined.length > 0){
+                    for(i=0, length = self.state.engine.joined.length; i < length; i++) {
+
+                    var user = self.state.engine.joined[i];
+                    var name = user.username;
+                  
+                   // console.log('bet', user.index);
+                    if(user.index != null){
+		              bet = user.bet;
+                      profit = user.profit;
+		              payout = 'x' + user.pay_amt;
+                      
+                    }
+                    else{
+                         bet = '';
+                         profit = '';
+                         payout = '';
+                    }
+                      
+                
+                    //var bonus = (game.gameState === 'IN_PROGRESS')? ( (user.bonus)? Clib.formatDecimals((user.bonus*100/user.bet), 2) + '%': '0%' ) : '-';
+                    var bonus = (game.gameState === 'IN_PROGRESS')? ( (user.bonus)? '0%': '0%' ) : '-';
+                    // var classes = CX({
+                    //     'user-playing': true,
+                    //     'me': self.state.engine.username === user.username
+                    // });
+
+                    trUsersLostPlaying.push( D.tr({ className: 'rbetdata', key: 'user' + i },
+                        D.td(null, D.div({ className: 'betlist'} , name )),
+                        D.td(null, D.div({ className: 'betlist'} , bet)),
+                        D.td(null, D.div({ className: 'betlist'} , profit)),
+                        D.td(null, D.div({ className: 'betlist'} , payout))
+                        // D.td({id:"bet_"+ 'phyu'},
+                        //     user.bet ? Clib.formatSatoshis(user.bet*100, 0) : '?'
+                        // ),
+                        // D.td({ className: 'me' }, '-'),
+                        // D.td({id:"profit_"+ 'phyu'}, '-')
+                    ));
+                }
+
+                trUsersWonCashed = [];
+                for (i=0, length = usersWonCashed.length; i < length; i++) {
+
+                    var user = usersWonCashed[i];
+                    var profit = calcProfit(user.bet, user.stopped_at);
+                    //var bonus = (game.gameState === 'IN_PROGRESS')? ( (user.bonus)? Clib.formatDecimals((user.bonus*100/user.bet), 2) + '%': '0%' ) : '-';
+                    //var bonus = (game.gameState === 'IN_PROGRESS')? ( (user.bonus)? '0%': '0%' ) : '-';
+                    var bonus = 0;
+                    var classes = CX({
+                        'user-cashed': true,
+                        'me': self.state.engine.username === user.username
+                    });
+
+                    trUsersWonCashed.push( D.tr({ className: classes, key: 'user' + i },
+                        D.td(null, D.a({
+                            },
+                            user.username)),
+                        D.td(null, user.stopped_at/100 + 'x'),
+                        D.td({id:"bet_"+user.username}, Clib.formatSatoshis(user.bet*100, 0)),
+                        D.td({ className: bonusClass }, '-'),
+                        D.td({id:"profit_"+user.username}, Clib.formatSatoshis(profit*100))
+                    ));
+                }
+
+                tBody = D.tbody({ className: '' },
+                    trUsersLostPlaying
+                );
+
+                //Users Lost and users Won
+                }
+                else{}
+                
+            } 
+            else{}
+         
+
+            return D.div({ id: 'players-container' },
+                D.div({ className: 'header-bg' }),
+                /*D.div({ className: 'table-inner' },
+                D.table({ className: 'users-playing' },
+                    D.thead(null,
+                        D.tr(null,
+                            D.th(null, D.div({ className: 'th-inner' }, 'Player')),                            
+                            D.th(null, D.div({ className: 'th-inner' }, 'Bet')),
+                            D.th(null, D.div({ className: 'th-inner' }, 'Profit')),
+                            D.th(null, D.div({ className: 'th-inner' }, 'Payout'))
+                        )
+                    ),
+                    tBody
+                    
+                )
+            )*/
+             D.div({className:'tabs'},
+                    D.input({  type:'radio', id:'tab1' ,name:'tab-control', defaultChecked: 'true'},
+                                  ),
+
+                    D.input({  type:'radio', id:'tab2' ,name:'tab-control'},
+                                  ),
+
+                    D.input({  type:'radio', id:'tab3' ,name:'tab-control'},
+                                  ),
+
+                    /*D.input({  type:'radio', id:'tab4' ,name:'tab-control'},
+                                  ),*/
+                D.ul({className:'righttab'},
+                    D.li({title:'Recent Bets',className:'first'},
+                        D.label({role:'button',htmlFor:'tab1'},
+                                D.svg({viewBox:'0 0 24 24'}),
+                                D.br(),
+                                'Recent Bets'
+                            ),  
+                        ),
+                    D.li({title:'My Bets',className:'second'},
+                        D.label({role:'button',htmlFor:'tab2'},
+                                D.svg({viewBox:'0 0 24 24'}),
+                                D.br(),
+                                'My Bets'
+                            ),  
+                        ),
+
+                    D.li({title:'leaderboard',className:'third'},
+                        D.label({role:'button',htmlFor:'tab3'},
+                                D.svg({viewBox:'0 0 24 24'}),
+                                D.br(),
+                                'leaderboard'
+                            ), 
+                        ),
+                    /*D.li({title:'Returns'},
+                        D.label({role:'button',htmlFor:'tab4'},
+                                D.svg({viewBox:'0 0 24 24'}),
+                                D.br(),
+                                'Returns'
+                            ),  
+
+                        ),*/
+                    ),
+                /*D.div({className:'slider'},
+                        D.div({className:'indicator'}),
+                        ),*/
+                D.div({className:'content'},
+                    D.section({className:''},
+                        D.h2({},'Recent Bets'),
+                            D.div({ className: 'responsive-table' }),                
+                                D.table({ className: 'table table-dark rbet' },
+                                    D.thead(null,
+                                        D.tr(null,
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Player')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Bets')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Profit')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Payout'))
+                                        ),
+                                        
+                                    ),
+                                    trUsersLostPlaying
+                                ) ,
+                        ),
+                    D.section({className:''},
+                        D.h2({},'My Bets'),
+                            D.div({ className: 'responsive-table' }),                
+                                D.table({ className: 'table table-dark rbet' },
+                                    D.thead(null,
+                                        D.tr(null,
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Player')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'My Bet')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Profit')),
+                                            D.th(null,  D.div({ className: 'actlog'}, 'Payout'))
+                                        )
+                                    ),
+                                    
+                                ) ,
+                        ),
+                    D.section({className:''},
+                        D.h2({},'leaderboard'),
+                        'under construction'
+                        ),
+                    /*D.section({className:''},
+                        D.h2({},'Returns'),
+                        'rrr'
+                        ),*/
+                    ),
+
+
+
+
+                ),
+            );
+        }
+
+    });
+
+});

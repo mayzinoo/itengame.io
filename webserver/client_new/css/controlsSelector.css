@@ -1,0 +1,84 @@
+#controls-selector-container {
+    position: absolute;
+    top: 17%;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+
+#controls-selector-container .buttons-container {
+    width: 100%;
+    display: table;
+}
+
+/* Hide controls selector when small controls */
+#controls-selector-container .buttons-container.small {
+    display: none;
+}
+
+#controls-selector-container .button-holder {
+    display: table-cell;
+    width: 50%;
+    text-align: center;
+    font-size: 0.8rem;
+    cursor: pointer;
+    background-color: #ddd;
+}
+
+#controls-selector-container .button-holder:hover a{
+    /* color: rgba(228, 121, 3, 1); */
+    color : rgba(255,0,0,0.2);
+}
+
+#controls-selector-container .button-holder.tab-active {
+    background-color: white;
+}
+
+#controls-selector-container .button-holder.tab-active a{
+    /*color: rgba(228, 121, 3, 1);*/
+    /*color:#fff;*/
+    color:#008cba;
+}
+
+#controls-selector-container .button-holder a{
+    line-height: 1.5rem;
+    color: black;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+}
+
+#controls-selector-container .controls-widget-container {
+    position: absolute;
+    top: 1.5rem;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 767px) {
+    #controls-selector-container .controls-widget-container {
+        top: 38px;
+        bottom: -27px;
+        background-color: #26272c !important;
+        padding-top: 7px;
+    }
+    #controls-selector-container .button-holder.tab-active {
+        background-color: #26272c;
+    }
+    #controls-selector-container .button-holder {
+        background-color: #1a1b20;
+    }
+    #controls-selector-container {
+        position: absolute;
+        top: -10px;
+        right: 0;
+        left: 0;
+        bottom: 0;
+    }
+}
+#controls-selector-container .controls-widget-container.small {
+    top: 0;
+}

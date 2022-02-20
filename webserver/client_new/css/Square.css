@@ -1,0 +1,330 @@
+
+.HideSquare {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #33312b;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+    opacity: 50%;
+}
+.Square {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #eee;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+}
+.Square.unrevealed:active {
+
+    background: #999;
+    border: 1px inset #fff;
+}
+
+.level-logo{
+    margin-right: 25px;   
+    margin-bottom: 12px;       
+    cursor: auto;    
+}
+
+.fruit-img{
+    width: 30px;       
+}
+
+.level-logo-2{
+    width: 40px;    
+    margin-bottom: 12px;    
+    padding-right: 10px;
+    cursor: auto;
+    position: relative;
+    top: 110px;
+    left: 10px;
+}
+
+.level-logo-easy{
+    width: 45px;    
+    margin-bottom: 12px;    
+    padding-right: 10px;
+    cursor: auto;
+    position: relative;
+    top: -25px;
+	left:17px;
+}
+
+.new-mine {
+    background-image: url("../img/bonb.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.success-easy{
+    background-image: url("../img/apple.png") !important;
+    background-repeat: no-repeat !important;
+    background-color: #b2b2b2 !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.success-medium{
+    background-image: url("../img/plant.png") !important;
+    background-repeat: no-repeat !important;
+    background-color: #b2b2b2 !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.success-hard{
+    background-image: url("../img/hard.png") !important;
+    background-repeat: no-repeat !important;
+    background-color: #b2b2b2 !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.success-extreme{
+    background-image: url("../img/extreme.png") !important;
+    background-repeat: no-repeat !important;
+    background-color: #b2b2b2 !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.success-nightmare{
+    background-image: url("../img/nightmare.png") !important;
+    background-repeat: no-repeat !important;
+    background-color: #b2b2b2 !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.revealed-number1 {
+    background-image: url("../img/bonb.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+
+.unrevealed-easy {
+    background-image: url("../img/apple.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: 40px 40px !important;
+}
+.unrevealed-medium {
+    background-image: url("../img/plant.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+	background-size: 40px 40px !Important;
+}
+.unrevealed-hard {
+    background-image: url("../img/hard.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+	background-size: 40px 40px !Important;
+}
+.unrevealed-extreme {
+    background-image: url("../img/extreme.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+	background-size: 40px 40px !Important;
+}
+.unrevealed-nightmare {
+    background-image: url("../img/nightmare.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+	background-size: 40px 40px !Important;
+}
+
+.Square.old {
+    background: #b1f0dc;
+    border: 1px inset #fff;
+}
+.Square.emoji {
+    font-size: 3vmin;
+}
+.Square.revealed, .Square.mine {    
+    background: #ddd;
+}
+.Square.mine.clicked {
+    background-color: #a00;
+}
+.Square.number0 {
+    color: blue;
+    text-align: center !important;
+}
+.Square.number1 {
+    color: blue;
+}
+.Square.number2 {
+    color: green;
+}
+.Square.number3 {
+    color: red;
+}
+.Square.number4 {
+    color: darkblue;
+}
+.Square.number5 {
+    color: darkred;
+}
+.Square.number6 {
+    color: teal;
+}
+.Square.number7 {
+    color: #333;
+}
+.Square.number8 {
+    color: deeppink;
+}
+=======
+
+.HideSquare {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #33312b;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+    opacity: 50%;
+}
+.Square {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #eee;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+}
+.Square.unrevealed:active {
+    background: #999;
+    border: 1px inset #fff;
+}
+.Square.old {
+    background: #b1f0dc;
+    border: 1px inset #fff;
+}
+.Square.emoji {
+    font-size: 3vmin;
+}
+.Square.revealed, .Square.mine {
+    background: #ddd;
+}
+.Square.mine.clicked {
+    background-color: #a00;
+}
+.Square.number1 {
+    color: blue;
+}
+.Square.number2 {
+    color: green;
+}
+.Square.number3 {
+    color: red;
+}
+.Square.number4 {
+    color: darkblue;
+}
+.Square.number5 {
+    color: darkred;
+}
+.Square.number6 {
+    color: teal;
+}
+.Square.number7 {
+    color: #333;
+}
+.Square.number8 {
+    color: deeppink;
+}
+
+=======
+
+.HideSquare {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #33312b;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+    opacity: 50%;
+}
+.Square {
+    width: 7vmin;
+    height: 5vmin;    
+    font-size: 4vmin;
+    font-weight: bold;
+    line-height: 5vmin;
+    background: #eee;
+    border: 1px outset #ddd;
+    cursor: default;
+    display: inline-block;
+    outline: none;
+}
+.Square.unrevealed:active {
+    background: #999;
+    border: 1px inset #fff;
+}
+.Square.old {
+    background: #b1f0dc;
+    border: 1px inset #fff;
+}
+.Square.emoji {
+    font-size: 3vmin;
+}
+.Square.revealed, .Square.mine {
+    background: #ddd;
+}
+.Square.mine.clicked {
+    background-color: #a00;
+}
+.Square.number0 {
+    color: blue;
+    text-align: center !important;
+}
+.Square.number1 {
+    color: blue;
+}
+.Square.number2 {
+    color: green;
+}
+.Square.number3 {
+    color: red;
+}
+.Square.number4 {
+    color: darkblue;
+}
+.Square.number5 {
+    color: darkred;
+}
+.Square.number6 {
+    color: teal;
+}
+.Square.number7 {
+    color: #333;
+}
+.Square.number8 {
+    color: deeppink;
+}
+

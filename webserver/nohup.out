@@ -1,0 +1,489 @@
+DATABASE_URL:  postgres://postgres:123@localhost/wowgodb
+DATABASE_URL:  postgres://postgres:123@localhost/wowgodb
+Listening on port  3841
+Client joined:  1  -  test1111
+Client joined:  2  -  test1111
+Client joined:  3  -  test1111
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client joined:  2  -  test1111
+Client joined:  3  -  test1111
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client joined:  12  -  test1111
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+DATABASE_URL:  postgres://postgres:123@localhost/wowgodb
+Tue, 12 Nov 2019 08:31:39 GMT uncaughtException: listen EADDRINUSE: address already in use :::3841
+Error: listen EADDRINUSE: address already in use :::3841
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Object.<anonymous> (/var/www/html/wowgo/webserver/server/index.js:224:8)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+/var/www/html/wowgo/admin_dashboard/server.js:44
+      referralfee: data.referralfee
+      ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+/var/www/html/wowgo/admin_dashboard/server.js:44
+      referralfee: data.referralfee
+      ^^^^^^^^^^^
+
+SyntaxError: Unexpected identifier
+    at Module._compile (internal/modules/cjs/loader.js:723:23)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:831:12)
+    at startup (internal/bootstrap/node.js:283:19)
+    at bootstrapNodeJSCore (internal/bootstrap/node.js:623:3)
+DATABASE_URL:  postgres://postgres:123@localhost/wowgodb
+Listening on port  3841
+Client joined:  1  -  ~guest~
+Client joined:  2  -  ~guest~
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  test1111
+Client joined:  11  -  test1111
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client joined:  14  -  ~guest~
+Client disconnect, left:  13
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client disconnect, left:  12
+Client joined:  13  -  ~guest~
+Client joined:  14  -  test1111
+Client joined:  15  -  ~guest~
+Client joined:  16  -  test1111
+Client disconnect, left:  15
+Client disconnect, left:  14
+Client joined:  15  -  test1111
+Client disconnect, left:  14
+Client joined:  15  -  test1111
+Client disconnect, left:  14
+Client joined:  15  -  donc310
+Client joined:  16  -  ~guest~
+Client joined:  17  -  ~guest~
+Client joined:  18  -  ~guest~
+Client joined:  19  -  ~guest~
+Client joined:  20  -  ~guest~
+Client disconnect, left:  19
+Client disconnect, left:  18
+Client disconnect, left:  17
+Client disconnect, left:  16
+Client disconnect, left:  15
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client joined:  14  -  test1111
+Client disconnect, left:  13
+Client joined:  14  -  test1111
+Client joined:  15  -  ~guest~
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client joined:  14  -  ~guest~
+Client joined:  15  -  ~guest~
+Client disconnect, left:  14
+Client joined:  15  -  test1111
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client joined:  14  -  ~guest~
+DATABASE_URL:  postgres://postgres:123@localhost/wowgodb
+Listening on port  3841
+Client joined:  1  -  ~guest~
+Client joined:  2  -  ~guest~
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  phyu
+Client joined:  12  -  test1111
+Client joined:  13  -  ~guest~
+Client joined:  14  -  ~guest~
+Client joined:  15  -  ~guest~
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  ~guest~
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client joined:  7  -  test1111
+Client joined:  8  -  test1111
+Client joined:  9  -  test1111
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  phyu
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  ~guest~
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  ~guest~
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  ~guest~
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client joined:  7  -  test1111
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client joined:  14  -  ~guest~
+Client joined:  15  -  ~guest~
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client joined:  3  -  ~guest~
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+[Login] Error for  1111tset  err:  NO_USER
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+[Login] Error for  1111tset  err:  NO_USER
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0

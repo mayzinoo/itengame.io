@@ -1,0 +1,16 @@
+{{##def.page_title = 'Play' #}}
+
+{{##def.content:
+	<!-- {{?it.what}}
+	<h1 style="color: white;">{{=it.what.username}}</h1>
+	{{?}} -->
+    <div id="game-container">
+        
+    </div>
+    <!--RequireJs-->
+    <script data-main="/scripts/main" src="{{? it.buildConfig }}/scripts/{{=it.buildConfig['main-new.js']}}{{??}}/node_modules/requirejs/require.js{{?}}"></script>
+
+    <!-- Detect the viewport size with css and javascript hack -->
+    <div id="handheld-detection"></div>
+#}}
+{{#def.include('./template/game_new')}}

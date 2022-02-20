@@ -1,0 +1,561 @@
+
+{{##def.page_title = 'Wowkong Ethereum Game' #}}
+
+{{##def.content:
+
+    <style>
+  /*padding*/
+.small_top_padding{
+  padding-top:10px;
+}
+.small_bottom_padding{
+  padding-bottom:10px;
+}
+.small_padding{
+  padding-top:10px;
+  padding-bottom:10px;
+}
+h6{
+  color: white;
+}
+.mid_top_padding{
+  padding-top:30px;
+}
+.mid_bottom_padding{
+  padding-bottom:30px;
+}
+.mid_padding{
+  padding-top:30px;
+  padding-bottom:30px;
+}
+.large_top_padding{
+  padding-top:80px;
+}
+.large_bottom_padding{
+  padding-bottom:80px;
+}
+.large_padding{
+  padding-top:80px;
+  padding-bottom:80px;
+}
+/*margin*/
+
+/*text*/
+.center{
+  text-align:center;
+}
+.white{
+  color:#fff;
+}
+tr.black td {
+    color: white !important;
+}
+.black{
+  color:#fff;
+}
+.grey{
+  color:#efefef;
+}
+/*custom css by may*/
+.bankinfo label,
+.bankinfo h5,
+.bankinfo table tbody tr th{
+  color:#fff;
+}
+.bankinfo table tr td{
+  color:#fff;
+}
+.userdetail{
+  padding:10px;
+  border:1px solid #615f5f;
+}
+.sidebar-nav .metismenu li{
+  border-bottom: 1px solid #777575;
+}
+.useraction h5{
+    font-size: 20px;
+    color: #d58512;
+    margin-bottom: 20px;
+}
+.blockaction h5{
+  font-size: 20px;
+    color: #fff;
+    margin-bottom: 20px;
+}
+/*quick tab css*/
+ul.tabs
+{
+  list-style:none;
+  margin:0;
+  padding:0
+}
+ul.tabs li
+{
+      display: inline-block;
+    padding: 13px 109px;
+    margin-bottom: 0px;
+    /*border: solid 1px #ccc;*/
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background: #00000078;
+
+}
+.about-page .active{
+  display: inline-block !important;
+}
+.about-page ul li a{
+  font-size:1.5rem !important;
+}
+ul.tabs li a
+{
+color:#aba3a3 !important;
+}
+/* the margin-bottom makes the tab and container borders overlap */
+ul.tabs li.active
+{
+  /*border-bottom:solid 1px #fff;*/
+  background:#000000;
+}
+ul.tabs li.active a{
+  color:#fff !important;
+}
+#tabcontainer
+{
+  padding:20px;
+  /*border:solid 1px #ccc;*/
+  /*background:#353638;*/
+
+background: #11325b; /* Old browsers */
+background: -moz-radial-gradient(center, ellipse cover, #11325b 0%, #1a2b40 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, #11325b 0%,#1a2b40 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, #11325b 0%,#1a2b40 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#11325b', endColorstr='#1a2b40',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+#tabcontainer section
+{
+  display:none;
+  width:100%;
+}
+
+#tabcontainer p{
+  color:#fff !important;
+  font-size:14px !important;
+}
+#tabcontainer table tr td{
+  font-size:13px !important;
+}
+/* showing the first section by default */
+/*referral view*/
+.a1{
+  color: white;
+  background: #000000;
+  border: 0 !important;
+}
+table{
+  border: 0 !important;
+}
+.a2{
+  border: 0 !important;
+  background:#606063;
+}
+tr.black{
+  background:#000;
+}
+tr.a41{
+  background:#f9f9f9;
+}
+tr.a42{
+  background:#f9f9f9;
+}
+.tree ul li{
+  list-style-type: circle;
+  color:#cec8c8 !important;
+  line-height: 2rem;
+  font-size:1.5rem !important;
+}
+
+/**/
+.product-status-wrap h5{
+  color:#d58512;
+  font-size:20px !important;
+}
+.login-wrap {
+    background: #000;
+    padding: 30px 40px;
+    box-shadow: 0 2px 5px 0px #777;
+}
+.login-wrap label {
+    margin-top: 20px;
+    color:#fff;
+}
+.button-login {
+    background-color: #3a3f4c;
+    padding: 10px 80px 10px 80px;
+    color: #fff;
+    width: 100%;
+}
+.login-wrap .form-control{
+  color:#ccc !important;
+}
+.menu-title h3{
+  display: none;
+}
+.setting-form h4{
+  color:#fff;
+}
+.setting-form label{
+  color:#fff !important;
+}
+.setting-form .form-control{
+  background:#ccc !important;
+  color:#000 !important;
+}
+.adminprofile{
+  color:#fff;
+}
+.adminprofile table tr td{
+  border-top:0px !important;
+}
+.profitloss{
+  height: 915px;
+    overflow: auto;
+}
+.current {
+font-weight: bold;
+color:#CD232C !important;
+text-decoration:underline  !important;
+}
+.pagegi{
+  text-align:center;
+}
+.pagegi li{
+  display: inline;
+  text-decoration-style: none;
+  padding-left:10px;
+  padding-right:10px;
+  /*text-decoration: underline;*/
+}
+/*mobile responsive my may*/
+@media only screen and (min-width:200px) and (max-width: 480px){
+    .blockaction{
+    width:100% !important;
+    }
+  .xs_padding{
+    padding-top:5px;
+    padding-bottom:5px;
+  }
+  .product-status-wrap .xs_padding{
+    padding-top:5px !important;
+    padding-bottom:5px !important;
+  }
+  .header-right-info {
+      display: none !important;
+
+  }
+  .menu-title h3{
+    display: inherit !important;
+    color: #fff;
+      margin-top: 15px;
+    font-size:20px;
+  }
+  .mobile-menu-area{
+    background:none !important;
+  }
+  .mid_top_padding{
+    padding-top:0px !important;
+  }
+  .breadcome-list{
+    padding:0px !important;
+  } 
+  .mobile-button{
+    float:right;
+  }
+  .product-status-wrap table th{
+    white-space: nowrap !important;
+  }
+  .product-status-wrap table td{
+    white-space: nowrap !important;
+  }
+  .history table td{
+    white-space:inherit !important;
+  }
+  .useraction,.blockaction,.history-time{
+    padding-top:84px !important;
+  }
+  ul.tabs li{
+    padding: 13px 36px !important;
+  }
+  .historytime ,.transaction{
+    overflow-y: hidden;
+      white-space: nowrap;
+      border: 0px !important;
+  }
+  .html-bar{
+    background-color: transparent; !important;
+  }
+</style>
+<script>
+    function validate(e){
+      console.log(this);
+      console.log(e);
+    }
+  
+    function changeTab(id){
+      console.log(id);
+      let ids = $(id).attr('id');
+      $('.active').removeClass('active');
+      $('section#'+ids).addClass('active');
+      $('a#'+ids).parent().addClass('active');
+    }
+
+    function fallbackCopyTextToClipboard(text) {
+      var textArea = document.createElement("textarea");
+      textArea.value = text;
+      textArea.style.position="fixed";  
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+
+      try {
+        var successful = document.execCommand('copy');
+        var msg = successful ? 'successful' : 'unsuccessful';
+        console.log('Fallback: Copying text command was ' + msg);
+      } catch (err) {
+        console.error('Fallback: Oops, unable to copy', err);
+      }
+
+      document.body.removeChild(textArea);
+    }
+
+    function copyTextToClipboard(text) {
+      console.log(text);
+      if (!navigator.clipboard) {
+        fallbackCopyTextToClipboard(text);
+        return;
+      }
+      navigator.clipboard.writeText(text).then(function() {
+      }, function(err) {
+      });
+    }
+
+    function logout() {
+
+    if (confirm("Are you sure you want to log out?")) {
+        document.getElementById("logout").submit();
+            
+        }
+    }
+</script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   <!-- banner -->
+   <form action="/logout" method="post" id='logout'></form>
+    <div class="innerbanner" id="home">
+        <div class="w3ls-slider">
+          <div class="banner-dott">
+            <div class="header-top">
+                <div class="banner-drop">
+                    <div class="header">
+                       
+                        <div class="clearfix"> </div>
+                    </div>
+                                      
+                    <div class="clearfix"> </div>
+                   
+               
+                </div>
+            </div>
+                <div class="about-page">
+                    <div class="container">
+                        <div class="large_top_padding slider">
+                            <h1>HOW TO PLAY</h1>
+                            <img src="/images/fruits.gif" class="play-img" />
+                            <hr class="new1">
+                            <h2>RANKS</h2>
+<p>Rewards depend on ranks - the higher the rank, the better the benefits. Strive to get the highest rank possible and go nuts with your amazing perks!</p>
+
+
+
+                            
+                            <!--banner Slider starts Here-->
+                        </div>
+                        <div style="margin-bottom: 20px;">
+                            <div class="bg-card col-md-2" style="width: 20rem; height: 109px; margin-right: 13px; float: left;">
+                              <i class="image sc-dnqmqq bwzzem"></i>
+                              <div class="card-body bg-card">
+                                <p ><span class="card-text">ADVENTURER</span><br>
+                                <span class="card-bottom">STARTING RANK</span></p>
+                              </div>
+                            </div>
+
+                            <div class="bg-card col-md-2" style="width: 20rem;  margin-right: 13px; float: left;">
+                              <i class="image sc-dnqmqq bwzzem"></i>
+                              <div class="card-body bg-card">
+                                <p ><span class="card-text">HERO</span><br>
+                                <span class="card-bottom">FROM 1,000,000 POINTS</span></p>
+                              </div>
+                            </div>
+
+                            <div class="bg-card col-md-2" style="width: 20rem;  margin-right: 13px; float: left;">
+                              <i class="image sc-dnqmqq bwzzem"></i>
+                              <div class="card-body bg-card">
+                                <p ><span class="card-text">MASTER</span><br>
+                                <span class="card-bottom">FROM 10,000,000 POINTS</span></p>
+                              </div>
+                            </div>
+
+                            <div class="bg-card" style="width: 20rem; height: 109px;  margin-right: 13px; float: left;">
+                              <i class="image sc-dnqmqq bwzzem"></i>
+                              <div class="card-body bg-card">
+                                <p ><span class="card-text">LEGEND</span><br>
+                                <span class="card-bottom">FROM 100,000,000 POINTS</span></p>
+                              </div>
+                            </div>
+
+                            <div class="bg-card" style="width: 20rem; height: 109px; margin-right: 13px; float: left;">
+                              <i class="image sc-dnqmqq bwzzem"></i>
+                              <div class="card-body bg-card">
+                                <p ><span class="card-text">KING</span><br>
+                                <span class="card-bottom">FROM 1,000,000,000 POINTS</span></p>
+                              </div>
+                            </div>                             
+                           
+                    </div>
+
+                    <div class="slider" style="margin-top: 200px !important;">                                                       
+                            <hr class="new2">
+                            <h2>GAMEPLAY</h2>
+<p>We present the world’s favourite easy-to-play crypto game! Please follow the instructions below to learn how to play and win big.</p>
+
+
+
+                            
+                            <!--banner Slider starts Here-->
+                        </div>
+                     
+
+                </div>
+
+
+        <div class="bg-overlay" id="login">
+                <div class="subscribe-optin">
+                    <div class="login-form">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Username
+                                        <input type="text" name="username" required/>
+                                    </label>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Password
+                                        <input type="password" name="password" required />
+                                    </label>
+                                </div>
+                             </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>
+                                        Remember me
+                                        <input type="checkbox" name="remember">
+                                    </label>
+                                </div>
+                            </div>                              
+                             
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <input id="loginSubmit"  class="border-button right blue" value="Login" type="submit" />
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>             
+
+        <div class="bg-overlay" id="register">
+                <div class="subscribe-optin">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input">
+                                    <h5>Please Sign In<br/> <!-- <small><a href="#login">already have one?</a></small> --></h5>
+                                    <hr>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" name="username" type="text" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Email</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="email" name="email" type="email" autocomplete="off" title="Email" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" name="password" type="password"  autocomplete="off"  title="Password should be at least 4 characters" required/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password"  name="confirm" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+</a></p>                                </div>
+                                
+                                <div class="large-12 columns">
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Sign In"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">x</a>
+                </div>
+            </div>
+               
+            </div>
+         </div>                              
+                  
+        
+
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+    
+    
+
+#}}
+
+{{#def.include('./template/main_new')}}
+
+
+

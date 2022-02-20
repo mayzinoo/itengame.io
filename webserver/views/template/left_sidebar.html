@@ -1,0 +1,32 @@
+<script type="text/javascript" src="/js/simple-lightbox.min.js"></script>
+<script>
+    $(document).ready(function () {
+      $('.mobile-nav-button').on('click', function() {
+      $( ".mobile-nav-button .mobile-nav-button__line:nth-of-type(1)" ).toggleClass( "mobile-nav-button__line--1");
+      $( ".mobile-nav-button .mobile-nav-button__line:nth-of-type(2)" ).toggleClass( "mobile-nav-button__line--2");  
+      $( ".mobile-nav-button .mobile-nav-button__line:nth-of-type(3)" ).toggleClass( "mobile-nav-button__line--3");  
+      
+      $('.mobile-menu').toggleClass('mobile-menu--open');
+      return false;
+    }); 
+    });
+    
+</script>
+<div class="w3_menu">
+    <div class="mobile-nav-button">
+        <div class="mobile-nav-button__line"></div>
+        <div class="mobile-nav-button__line"></div>
+        <div class="mobile-nav-button__line"></div>
+    </div>
+    <nav class="mobile-menu">
+        <ul>
+            <li class="active"><a href="/" id="#">Home</a></li>
+            <!-- <li><a href="/about">About</a></li> -->
+            <li><a href="/howtoplay" >How To Play</a></li>
+            <!-- <li><a href="#" >Bonuses</a></li> -->
+            <li><a href="/affiliate" >Affiliate</a></li>
+            <li><a href="/fairness">Fairness</a></li>
+            
+        </ul>
+    </nav>
+</div>

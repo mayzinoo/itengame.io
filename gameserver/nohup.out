@@ -1,0 +1,274 @@
+DATABASE_URL:  postgres:wowgo@localhost/wowgodb
+Listening on port  3842  with http
+Have a bankroll of:  1  btc
+Client joined:  1  -  test1111
+Client joined:  2  -  ~guest~
+Client disconnect, left:  1
+DATABASE_URL:  postgres:wowgo@localhost/wowgodb
+Listening on port  3842  with http
+Have a bankroll of:  1  btc
+Client joined:  1  -  ~guest~
+Client joined:  2  -  test1111
+DATABASE_URL:  postgres:wowgo@localhost/wowgodb
+Listening on port  3842  with http
+Have a bankroll of:  1  btc
+Client joined:  1  -  test1111
+Client joined:  2  -  ~guest~
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client joined:  3  -  ~guest~
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  donc310
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client joined:  3  -  ~guest~
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client joined:  4  -  ~guest~
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  phyu
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  ~guest~
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  ~guest~
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  phyu
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  ~guest~
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client joined:  6  -  ~guest~
+Client joined:  7  -  ~guest~
+Client joined:  8  -  ~guest~
+Client joined:  9  -  ~guest~
+Client joined:  10  -  ~guest~
+Client joined:  11  -  ~guest~
+Client joined:  12  -  ~guest~
+Client joined:  13  -  ~guest~
+Client joined:  14  -  ~guest~
+Client joined:  15  -  ~guest~
+Client disconnect, left:  14
+Client disconnect, left:  13
+Client disconnect, left:  12
+Client disconnect, left:  11
+Client disconnect, left:  10
+Client disconnect, left:  9
+Client disconnect, left:  8
+Client disconnect, left:  7
+Client disconnect, left:  6
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client disconnect, left:  1
+Client joined:  2  -  test1111
+Client joined:  3  -  ~guest~
+Client disconnect, left:  2
+Client joined:  3  -  ~guest~
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  ~guest~
+Client joined:  5  -  ~guest~
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client disconnect, left:  2
+Client joined:  3  -  test1111
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  ~guest~
+Client joined:  6  -  test1111
+Client disconnect, left:  5
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client joined:  4  -  test1111
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client joined:  5  -  test1111
+Client disconnect, left:  4
+Client disconnect, left:  3
+Client disconnect, left:  2
+Client disconnect, left:  1
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0
+Client joined:  1  -  test1111
+Client disconnect, left:  0

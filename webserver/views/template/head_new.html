@@ -1,0 +1,165 @@
+<head>
+<title>Bitkong Game</title>
+<link rel="shortcut icon" href="/img/favicon-3.ico" type="image/x-icon">
+<link rel="icon" href="/img/favicon-3.ico" type="image/x-icon">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="keywords" content="Business pro a Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+  {{?it.table}}
+        <link rel="stylesheet" href="/css/{{? it.buildConfig }}{{=it.buildConfig['game-new.css']}}{{??}}game.css{{?}}" />
+    {{??}}
+       <link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['account.css']}} {{??}} /css/account.css {{?}}" />
+      
+        <link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['app-new.css']}} {{??}} /css/app.css {{?}}" />
+        <link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['app-new.css']}} {{??}} /css/popup.css {{?}}" />
+
+    {{?}}
+<!-- Default-JavaScript-File -->
+
+    <!-- <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>  -->
+  
+<!-- //Default-JavaScript-File -->
+<link href='/css/simplelightbox.min.css' rel='stylesheet' type='text/css'>  
+<!-- default css files -->
+    <!-- <link rel="stylesheet" href="/css/bootstrap.css" type="text/css" media="all"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/front.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all">
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/easy-responsive-tabs.css " />
+<!-- default css files -->
+<!-- web font-->
+     <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Abel" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,latin-ext,vietnamese" rel="stylesheet">
+<!-- //web font-->
+    <link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['Board.css']}} {{??}} /css/Board.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['Game.css']}} {{??}} /css/Game.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['Square.css']}} {{??}} /css/Square.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['Square.css']}} {{??}} /css/Square.css {{?}}" />
+
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['front.css']}} {{??}} /css/front.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['style.css']}} {{??}} /css/style.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['font-awesome.min.css']}} {{??}} /css/font-awesome.min.css {{?}}" />
+<link rel="stylesheet" href="{{? it.buildConfig }} /css/{{=it.buildConfig['easy-responsive-tabs.css']}} {{??}} /css/easy-responsive-tabs.css {{?}}" />
+
+
+<script src="/vendor/foundation/javascripts/jquery.js"></script>   
+<script src="/vendor/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+<!-- <script type="text/javascript" src="/js/bootstrap.js"></script> -->
+<script src="/js/jquery-1.9.1.min.js"></script>
+
+<script src="/js/easyResponsiveTabs.js"></script>
+<script src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+
+<script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="/js/simple-lightbox.min.js"></script>
+<!--  -->
+
+    <script src="/js/jquery-1.9.1.min.js"></script>
+   
+    <script src="/js/easyResponsiveTabs.js"></script>
+    <script src="/js/SmoothScroll.min.js"></script>
+    <script src="/js/firework3.js"></script>
+    <script type="text/javascript" src="/js/move-top.js"></script>
+    <script type="text/javascript" src="/js/easing.js"></script>
+
+    <script src="/js/slick.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" src="/js/simple-lightbox.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+  
+
+<!-- old script files -->
+    <script src="/vendor/foundation/javascripts/jquery.js"></script>   
+    <script src="/vendor/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- old script files -->    
+<script>
+function openCity(cityName) {
+  var i;
+  var x = document.getElementsByClassName("city");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }   
+  document.getElementById(cityName).style.display = "block";  
+}
+
+function opendeposit(depositname) {
+  var i;
+  var x = document.getElementsByClassName("deposit");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  document.getElementById(depositname).style.display = "block";  
+}
+</script>
+<script>
+  (function() {
+  $(function() {
+    var toggle;
+    return toggle = new Toggle('.toggle');
+  });
+
+  this.Toggle = (function() {
+    Toggle.prototype.el = null;
+
+    Toggle.prototype.tabs = null;
+
+    Toggle.prototype.panels = null;
+
+    function Toggle(toggleClass) {
+      this.el = $(toggleClass);
+      this.tabs = this.el.find(".tab");
+      this.panels = this.el.find(".panel");
+      this.bind();
+    }
+
+    Toggle.prototype.show = function(index) {
+      var activePanel, activeTab;
+      this.tabs.removeClass('active');
+      activeTab = this.tabs.get(index);
+      $(activeTab).addClass('active');
+      this.panels.hide();
+      activePanel = this.panels.get(index);
+      return $(activePanel).show();
+    };
+
+    Toggle.prototype.bind = function() {
+      var _this = this;
+      return this.tabs.unbind('click').bind('click', function(e) {
+        return _this.show($(e.currentTarget).index());
+      });
+    };
+
+    return Toggle;
+
+  })();
+
+}).call(this);
+
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+$(document).ready(function () {
+  $('.usdamt').keyup(function () {  
+  $.ajax({
+                type: 'GET',
+                url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                success: function(data){
+                  alert(data);
+                /* document.getElementById("usd").innerHTML=("1 wow ="+(data.result.ethusd/100000).toFixed(5)+" USD");*/
+                
+               }
+            });
+  });
+});
+</script>
+</head>
+
+

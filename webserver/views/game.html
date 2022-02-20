@@ -1,0 +1,28 @@
+{{##def.page_title = 'Game Info' #}}
+
+{{##def.content:
+    <div>
+
+        <p><b>Information </b>#<strong>{{=it.game.id}}</strong></p>
+        </div>
+
+    <div>
+        <p>
+           <b>At: </b> {{#def.format: { n: it.game.game_crash, decimals: 2 } }}x
+        </p>
+        </label>
+    </div>
+
+    <div>
+        <p>
+            <b>Hashed: </b>{{=it.game.created}} <small>{{=it.game.timeago}}</small>
+        </p>
+        <hr>
+        <p>
+        <b>Hash:</b> {{=it.game.hash}}
+        </p>
+    </div>
+
+#}}
+
+{{#def.include('./template/main_new')}}

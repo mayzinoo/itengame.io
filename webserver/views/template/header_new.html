@@ -1,0 +1,687 @@
+
+<script type="text/javascript">
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+    
+</script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+    * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+       
+
+        .navbar {
+            font-size: 18px;
+            
+        }
+
+        .main-nav {
+            list-style-type: none;
+            display: none;
+        }
+
+        .nav-links,
+        .logo {
+            text-decoration: none;            
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .main-nav li {
+            text-align: center;
+            
+        }
+
+        .logo {
+            display: inline-block;
+            font-size: 22px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+        
+
+        .active {
+            display: block;
+        }
+
+        @media screen and (min-width: 768px) {
+            .navbar {
+                display: flex;
+                padding-bottom: 0;
+                height: 70px;
+                padding:0 !important;
+            }
+
+            .main-nav {
+                display: flex;
+                float: right;
+                margin-left:200px;
+                margin-right: 30px;
+                flex-direction: row;
+                justify-content: flex-end;
+            }
+
+            .main-nav li {
+                margin: 0;
+            }
+
+            .nav-links {
+                margin-left: 40px;
+            }
+
+            .logo {
+                margin-top: 0;
+            }
+
+            .navbar-toggle {
+                display: none;
+            }
+
+            .logo:hover,
+            .nav-links:hover {
+                color: rgba(255, 255, 255, 1);
+            }
+        }
+        @media screen and (min-width: 768px) {
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+    .main-nav {
+        display: flex;
+        margin-right: 30px;
+        flex-direction: row;
+        justify-content: flex-end;
+    }
+    .main-nav li {
+        margin: 0;
+    }
+    .nav-links {
+        margin-left: 40px;
+    }
+    .logo {
+        margin-top: 0;
+    }
+   .navbar-toggle {
+       display: none;
+    }
+    .logo:hover,
+    .nav-links :hover {
+        color: rgba(255, 255, 255, 1);
+    }
+    
+    }
+
+    .title{
+        padding-top:17px;
+        padding-left: 30px;
+    }
+
+    .logo-img {
+    float: left;
+    width: 50px !important;
+    height: auto;
+}
+.logo-txt {
+    width: 80px;
+    margin: 5px 0px 0px 54px;
+}
+header{
+    font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+    /*position:fixed;*/
+    width:100%;
+    height:auto;
+    z-index:6;
+    top:0px;
+    transition:all 0.2s ease-in-out;
+    background:#174ebd03;
+    text-align: center;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px)  and (-webkit-min-device-pixel-ratio: 2) {
+    .forhow{
+  padding-top:48px !important;
+  padding-left:25px !important;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { 
+   .forhow{
+  padding-top:48px !important;
+  padding-left:85px !important;
+    }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 2) { 
+   .forhow{
+  padding-top:48px !important;
+  padding-left:85px !important;
+    }
+}
+
+</style>
+
+
+<header>
+    {{?it.user}}
+    <nav id="top-bar">
+    <div class="col-md-12">       
+        <div class="col-md-2 col-sm-12 col-xs-12 acc-logo-area">
+            <a href="/">
+                <img href="https://wowgo.io/" src="img/wow-logo.png" class="img-responsive logo-img" alt="">
+                <img href="https://wowgo.io/" src="img/wow.png" class="img-responsive logo-txt" alt="">
+            </a>
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 getresult">
+            <div class="acc-balance">
+                <div class="lgmyresult">                
+
+                    <!-- <span class="balance">{{#def.format:{n: it.user.balance, decimals:2} }}</span> -->
+                    <h3 id="ethvalue">{{=it.user.balance }}</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-md-pull-1 headertop-accbtn">
+            <div class="right">            
+            {{?it.user}}            
+            <div class="login-upper glow-on-hover2 forhow">
+                <a href="/account"><div class="uname">{{=it.user.username}}</div></a>
+                <div class="burger-btn uname">
+                  <a href="/account"><i class="fa fa-bars"></i></a>
+                </div>
+            </div>
+        
+            {{??}}
+            
+            <div class="col-md-2 col-md-pull-1 headertop-btn">
+              <div class="right">
+                <div class="btn">
+                  <div class="user-login">
+                      <div class="register">
+                        <a href="/register" class="glow-on-hover">Register</a>
+                      </div>
+                      <div class="login">
+                        <a href="/login" class="glow-on-hover">Log in</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+       
+            <div class="bg-overlay" id="login">
+                <div class="subscribe-optin">
+                    <div class="login-form">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Username
+                                        <input type="text" name="username" required/>
+                                    </label>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Password
+                                        <input type="password" name="password" required />
+                                    </label>
+                                </div>
+                             </div>
+                            <div class="row">
+                                <div class="large-12 columns checkboxes">                               
+                                    <label for="x"><span>Remember me</span><input type="checkbox" name="remember" ></label>
+                                </div>
+                            </div>
+                             <!--<div class="row">
+                                <div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>
+                             </div>-->
+                             <div class="row">
+
+                                <div class="large-12 columns">                                    
+
+                                    <input id="loginSubmit"  class="border-button right blue" value="Login" type="submit" />
+                                </div>
+                                
+                            </div>
+
+                        </form>
+                    </div>
+                    <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>
+            <div class="bg-overlay" id="forgot-password">
+                        <div class="subscribe-optin">
+                            <form action="/sent-recover" method="post" onsubmit="return submitEnabled;">
+                                <div class="row">
+                                    <div class="large-6 large-offset-2 columns">
+                                        <label>Enter your email
+                                            <input type="email" name="email" required/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="g-recaptcha" data-callback="enableSubmit"></div>
+                                    <!-- <div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div> -->
+                                </div>
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <input  id="forgotSubmit" class="border-button right blue" type="submit" value="Submit"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <a href="#" class="optin-close">&times;</a>
+                        </div>
+                    </div>
+                    <!-- Warning Register Start -->
+                    <div class="bg-overlay" id="namewarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Username not valid.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="namelengthwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Username is too long.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="passwordwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Password not valid</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="donotmatchwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Password and confirmation did not match.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="alreadytakenwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">User name already taken...</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <!-- Warning Register End -->
+            <div class="bg-overlay" id="register">
+                <div class="subscribe-optin">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input register">
+                                    <h6 style="text-align:center;color:#fff">Create a new account<br/> <small><a href="#login">already have one?</a></small></h6>
+                                    <hr>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" minlength=4 type="text" name="user[name]" value="{{?it.values}}{{!it.values.name}}{{?}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required  class="reg-textbox" />
+                                            <label class="reg-label">4 or more words</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" minlength=4 type="password" value="{{?it.values}}{{!it.values.password}}{{?}}" name="user[password]" autocomplete="off"  title="Password should be at least 4 characters" required class="reg-textbox" />
+                                          <label class="reg-label">4 or more words</label> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password" value="{{?it.values}}{{!it.values.confirm}}{{?}}" name="user[confirm]" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Referral</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="referral" type="text" value="" name="referral_code" autocomplete="off" class="reg-textbox" />
+                                            <label class="reg-label">optional</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns">
+                                   <!--<div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>-->
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Register"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>
+            {{?}}
+        </div>
+        </div>
+        
+        <ul class="main-nav mob-margin" id="js-menu" style="visibility: hidden;">
+            <li>
+                <a href="/account" class="nav-links">Account</a>
+            </li>
+            <li>
+                <a href="javascript:logout();" class="nav-links">Logout</a>
+            </li>            
+        </ul>
+    </nav>
+    {{??}}
+    <!-- <nav  id="top-bar"> -->
+        <div id="game-upper-container" class="header col-md-12">
+            <div class="col-md-2 col-sm-12 col-xs-12 logo-area">
+            <a href="/">
+                <img src="img/wow-logo.png" class="img-responsive logo-img" alt="">
+                <img src="img/wow.png" class="img-responsive logo-txt" alt="">
+            </a>        
+        </div>
+        <div class="col-md-4 col-sm-12 col-xs-12 getresult">
+            <div class="balance">
+                <div class="myresult">
+                    <button id="b01" class="demo-txt">DEMO</button>
+                    <h3 class="">9990000</h3>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="">             -->
+            {{?it.user}}
+            <div class="balance-bits">
+                <span>WoW: </span>
+                <!-- <span class="balance">{{#def.format:{n: it.user.balance, decimals:2} }}</span> -->
+                <span class="balance">{{#def.format:{n: it.user.balance} }}</span>
+            </div>
+            <div class="username">
+                <a href="/account">{{=it.user.username}}</a>
+            </div>
+        	<div class="burger-btn">
+        	   <a href=""><i class="fa fa-bars"></i></a>
+        	</div>
+            {{??}}
+            
+            <div class="col-md-2 col-md-pull-1 headertop-btn">
+              <div class="right">
+                <div class="btn">
+                  <div class="user-login">
+                      <div class="register">
+                        <a href="/register" class="glow-on-hover">Register</a>
+                      </div>
+                      <div class="login">
+                        <a href="/login" class="glow-on-hover">Log in</a>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+	
+            <div class="bg-overlay" id="login">
+                <div class="subscribe-optin">
+                    <div class="login-form">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Username
+                                        <input type="text" name="username" required/>
+                                    </label>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Password
+                                        <input type="password" name="password" required />
+                                    </label>
+                                </div>
+                             </div>
+                            <div class="row">
+                                <div class="large-12 columns checkboxes">                               
+                                    <label for="x"><span>Remember me</span><input type="checkbox" name="remember" ></label>
+                                </div>
+                            </div>
+                             <!--<div class="row">
+                                <div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>
+                             </div>-->
+                             <div class="row">
+
+                                <div class="large-12 columns">                                    
+
+                                    <input id="loginSubmit"  class="border-button right blue" value="Login" type="submit" />
+                                </div>
+                                
+                            </div>
+
+                        </form>
+                    </div>
+                    <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>
+            <div class="bg-overlay" id="forgot-password">
+                        <div class="subscribe-optin">
+                            <form action="/sent-recover" method="post" onsubmit="return submitEnabled;">
+                                <div class="row">
+                                    <div class="large-6 large-offset-2 columns">
+                                        <label>Enter your email
+                                            <input type="email" name="email" required/>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="g-recaptcha" data-callback="enableSubmit"></div>
+                                    <!-- <div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div> -->
+                                </div>
+                                <div class="row">
+                                    <div class="large-12 columns">
+                                        <input  id="forgotSubmit" class="border-button right blue" type="submit" value="Submit"/>
+                                    </div>
+                                </div>
+                            </form>
+                            <a href="#" class="optin-close">&times;</a>
+                        </div>
+                    </div>
+                    <!-- Warning Register Start -->
+                    <div class="bg-overlay" id="namewarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Username not valid.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="namelengthwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Username is too long.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="passwordwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Password not valid</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="donotmatchwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">Password and confirmation did not match.</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <div class="bg-overlay" id="alreadytakenwarning">
+                        <div class="subscribe-optin">
+                            <h5>Register Warning</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  <span style="font-size:20px;">User name already taken...</span>
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                    <!-- Warning Register End -->
+            <div class="bg-overlay" id="register">
+                <div class="subscribe-optin">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input register">
+                                    <h6 style="text-align:center;color:#fff">Create a new account<br/> <small><a href="#login">already have one?</a></small></h6>
+                                    <hr>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" minlength=4 type="text" name="user[name]" value="{{?it.values}}{{!it.values.name}}{{?}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required  class="reg-textbox" />
+                                            <label class="reg-label">4 or more words</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" minlength=4 type="password" value="{{?it.values}}{{!it.values.password}}{{?}}" name="user[password]" autocomplete="off"  title="Password should be at least 4 characters" required class="reg-textbox" />
+                                          <label class="reg-label">4 or more words</label> 
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password" value="{{?it.values}}{{!it.values.confirm}}{{?}}" name="user[confirm]" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Referral</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="referral" type="text" value="" name="referral_code" autocomplete="off" class="reg-textbox" />
+                                            <label class="reg-label">optional</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns">
+                                   <!--<div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>-->
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Register"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>
+            {{?}}
+        <!-- </div> -->
+
+        <div class="menu">
+            <ul class="nav-list">
+                <!--<li class="nav-item"><a href="/login">Play</a></li>-->
+                {{?it.user}}
+                <!-- <li class="nav-item"><a href="/leaderboard">History</a></li>
+                <li class="nav-item"><a href="/stats">Stats</a></li> -->
+                {{?}}
+
+
+                <!-- <li class="nav-item"><a href="/leaderboard">Leaderboard</a></li>
+                <li class="nav-item"><a href="/faq">Help</a></li> -->
+            </ul>
+        </div>
+        </div>  <!-- end game upper container -->
+        <!-- </nav>  -->
+    {{?}}  
+        
+
+<!--         <div class="menu-mobile">
+            <ul class="nav-list">
+                <li class="nav-item"><a href="/request"><i class="fa fa-gift"></i></a></li>
+                <li class="nav-item"><a href="/leaderboard"><i class="fa fa-users"></i></a></li>
+                <li class="nav-item"><a href="/stats"><i class="fa fa-area-chart"></i></a></li>
+                <li class="nav-item"><a href="/faq"><i class="fa fa-info"></i></a></li>
+            </ul>
+        </div>
+ -->
+
+    
+        
+</header>
+

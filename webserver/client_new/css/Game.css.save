@@ -1,0 +1,390 @@
+@overfont-face {
+font-family: "icomoon";
+src: url("fonts/icomoon.ttf");
+
+}
+
+.Game {
+    text-align: center;
+    user-select: none;
+}
+.Game .wrapper {
+    padding: 2vmin;
+    background-color: #ccc;
+    margin-bottom: 2vmin;
+}
+.Game .bestScore {
+    margin: 2vmin 0;
+}
+
+.login-box{
+  width: 350px !important;
+}
+
+.outer-login{
+  width: 450px !important;
+}
+
+
+.board {
+  display: inline-block;
+  width: auto;
+  background-color: #000;
+}
+
+.board .board-row {
+  width: 100%;
+  display: flex;  
+}
+
+.board .board-row:last-child .board-cell {
+  margin-bottom: 20px;
+}
+
+.board .board-row .board-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  background-color: #fff;  
+  height: 50px;
+  width: 50px;
+  margin: 20px 0 0 20px;
+  cursor: pointer;
+ 
+}
+
+.board .board-row .board-cell:last-child {
+  margin-right: 20px;  
+}
+
+.board .board-row .board-cell.selected {
+  background-color: #aaa;
+}
+
+.board .board-row .board-cell .board-cell-content {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #0000dd;
+  font-size: 20pt;
+  font-weight: 600;
+}
+
+.eJBueb:not(.form-field) {
+    position: relative;
+    height: 5rem;
+    margin-top: 0.6rem;
+    background: rgb(44, 58, 68);
+    border-radius: 0.5rem;
+    width: 420px;
+    margin-left: 880px !important;
+}
+
+.eJBueb {
+    user-select: none;
+    transition: opacity 0.3s ease 0s;
+}
+
+.play {
+
+  position: relative;
+    margin-top: 0.6rem;
+    padding-top: 3px !important;
+    background: rgb(44, 58, 68);
+    border-radius: 0.5rem;
+    width: 220px;
+    margin-left: 880px !important;
+    text-align: center;
+    font-family: Primary, DefaultFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, Secondary, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    vertical-align: middle !important;
+    color: rgb(223, 245, 255);
+    height: 25px !important;
+    cursor: pointer;
+    transition: opacity 0.3s ease 0s;
+    
+
+}
+
+.chooselevel{
+  position: relative;
+    margin-top: 0.6rem;
+    padding-top: 3px !important;
+    background: rgb(44, 58, 68);
+    border-radius: 0.5rem;
+    width: 80px;
+    margin-left: 720px !important;
+    text-align: center;
+    font-family: Primary, DefaultFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, Secondary, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    vertical-align: middle !important;
+    color: rgb(223, 245, 255);
+    height: 25px !important;
+    cursor: pointer;
+    transition: opacity 0.3s ease 0s;
+    float: right;
+}
+
+.eJBueb:not(.form-field) .input {
+    position: absolute;
+    top: 1rem;
+    left: 6.6rem;
+    width: calc(100% - 13.2rem);
+    height: 2.6rem;
+    color: rgb(223, 245, 255);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    font-family: Primary, DefaultFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif, Secondary, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    text-shadow: rgba(0, 0, 0, 0.1) 0px 1px 0px;
+    background: transparent;
+    border-width: 0px;
+    border-style: initial;
+    border-color: initial;
+    border-image: initial;
+    padding: 0px;
+    outline: none;
+    width: 288px;
+    left: 66px;
+    
+    cursor: text;
+}
+
+.plus {
+    position: absolute;
+    right: 0rem;
+    top: 0rem;
+    width: 6.6rem;
+    height: 6.6rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(145, 165, 176);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: color 0.3s ease 0s;
+}
+
+.eJBueb:not(.form-field) .amount-label {
+    position: absolute;
+    bottom: 1rem;
+    left: 6.6rem;
+    right: 6.6rem;
+    font-size: 1rem;
+    text-align: center;
+    font-family: Primary, DefaultFont, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    color: rgb(145, 165, 176);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.fcyNzI {
+    font-size: 2.8rem;
+    cursor: pointer;
+    background: transparent;
+}
+
+.minus {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    width: 6.6rem;
+    height: 6.6rem;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    color: rgb(145, 165, 176);
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: color 0.3s ease 0s;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icomoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+ul li {
+    list-style-type: none !important;
+}
+
+.overlay, .overlay2 {
+    height: 0;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left:0;
+    background-color: rgba(0,0,0, 0.9);
+    overflow-x: auto;
+    overflow: hidden;
+    text-align: center;
+    transition: .5s;
+    
+}
+
+#boo{
+  height: 300px !important;
+}
+
+.overlay-content {
+  position: relative;
+  top: 0px;
+  width: 200px;
+  margin-left: 900px;
+  margin-top: 30px;
+}
+
+.overlay a, .overlay2 a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  font-family: 'Tahoma';
+  color: #fff;
+  display: block;
+  transition: 0.3s;
+}
+
+.overlay a:hover, .overlay a:focus ,.overlay2 a:hover, .overlay2 a:focus {
+  color: #f1f1f1;
+}
+
+.mode-name{
+    font-size: 20px;
+    width:300px !important;
+}
+
+.group-name{
+    font-size: 14px;
+}
+
+.overlay .closebtn .overlay2 {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+.btn-level{
+    cursor: pointer;
+    height: 50px;
+    width: 100px;
+    font-size: 20px;
+}
+.selectvalue{
+    margin-top: 10px;
+    margin-left: 650px !important;
+}
+#game-lower-bottom-container{
+  padding-left: 200px;
+  width: 700px;
+}
+.fruit{
+    font-size: 20px;
+ }  
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+  cursor: none;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: 190px;
+  background: linear-gradient(rgb(69, 86, 100) 0%, rgb(63, 81, 93) 100%);
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  font-size: 14px;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 15%;
+  margin-left: -60px;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible !important;
+}
+
+.label {
+    pointer-events: all;
+    cursor: pointer;
+    position: relative;
+    height: 4.6rem;
+    color: rgb(223, 245, 255);
+    display: inline-flex;
+    text-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(rgb(69, 86, 100) 0%, rgb(63, 81, 93) 100%);
+    padding: 0.6rem 0.7rem 0.6rem 1.5rem;
+    transition: background 0.3s ease 0s;
+    float: left;
+}
+.activelabel {
+    pointer-events: all;
+    cursor: pointer;
+    position: relative;
+    height: 4.6rem;
+    color: rgb(133, 191, 122);
+    display: inline-flex;
+    text-align: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 1rem;
+    background: linear-gradient(rgb(48, 58, 66) 0%, rgb(45, 58, 66) 100%);
+    padding: 0.6rem 0.7rem 0.6rem 1.5rem;
+    transition: background 0.3s ease 0s;
+    float: left;
+}
+.group{
+    clear: both;
+    padding-top: 10px;    
+}
+
+.level{
+    height: 40px;
+    margin-top: 30px;
+    cursor: pointer;
+    float: right;
+    font-size: 20px;
+
+}
+.overlay2{
+    height: 100%;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {font-size: 20px}
+  .overlay .closebtn {
+  font-size: 40px;
+  top: 15px;
+  right: 35px;
+  }
+}
+
+
+

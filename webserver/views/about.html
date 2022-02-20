@@ -1,0 +1,184 @@
+
+{{##def.page_title = 'Bitkong Ethereum Game' #}}
+
+{{##def.content:
+<script>
+    
+    function logout() {
+
+    if (confirm("Are you sure you want to log out?")) {
+        document.getElementById("logout").submit();
+            
+        }
+    }
+</script>
+   <!-- banner -->
+   <form action="/logout" method="post" id='logout'></form>
+    <div class="" id="home">
+        <div class="">
+          <div class="">
+            <div class="header-top">
+                <div class="container banner-drop">
+                    <div class="header">
+                    
+                        
+                        <div class="clearfix"> </div>
+                    </div>
+                    <!-- Left Side Bar -->
+                    {{#def.include('./left_sidebar')}}
+                    <!-- Left Side Bar -->
+                <div class="clearfix"> </div>
+                    <!-- Top Bar -->
+                    {{#def.include('./topbar')}}
+                    <!-- Top Bar -->
+
+               </div> 
+            </div>
+                <div class="about-page">
+                    <div class="container">
+                        <div class="slider">
+                            <h1>About </h1>
+                            <p>Deep in the forest lives the abominable BitKong, a formidable ape with a penchant for blondes, climbing and eating custodial technicians. But his real passion… is crypto!</p>
+
+<p>Back in 2009, BitKong was already stacking BTC like a king, which is why some believe he is the original Satoshi, still hoarding coins deep within the jungle. Others think that's silly. But whatever you believe, being a Crypto millionaire 💰is not enough of a thrill for this Gigantopethicus 🦍. And that is his only weakness, and possibly his downfall...</p>
+
+<p>BitKong is bored, but he LOVES ❤️to gamble. By using an elaborate system of coconuts, ropes and pulleys he has created a provably fair game that will strain your nerves with a chance at striking it rich as bananas. And relax, the random results of the game are generated using solid provably fair system!</p>
+
+<p>The prizes are predefined when you press start, but nobody knows that result in advance and thus nobody can manipulate the result. So, your luck is the only thing that matters.This means that BitKong is 100% verifiably fair. Go ahead and look.</p>
+
+<p>The ground shakes. "So, you want to be the new king of the jungle?", BitKong mimes in sign language. "Give it a go and see if you can be the hero of this story. Maybe you'll get lucky, but keep your hands off the girls I have in my cave." Travelers have known to return from his lair in their underpants, staring at their feet and sighing, "Well, at least he wasn't a loanshark!". Others groaned at his puns and bought themselves a rolex with their winnings. Now say what you will about this big hairy beast, but his games are always fair.</p>
+
+<p>Play BitKong, get rich, and tell girls you are an early adopter. They'll be impressed. Or lose everything and struggle to explain it to your wife. Preferably something in the middle.</p>
+
+<p>Just have fun! 🤟
+Remember to try Demo, Free Faucet and Bonuses. *Tarzan yell*</p>
+
+<p>PS. Please don't taunt BitKong too much about your winnings, unless you want him chasing you and destroying the jungle on his way.</p>
+                            
+                            <!--banner Slider starts Here-->
+                        </div>
+                    </div>
+
+        <div class="bg-overlay" id="login">
+                <div class="subscribe-optin">
+                    <div class="login-form">
+                        <form action="/login" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Username
+                                        <input type="text" name="username" required/>
+                                    </label>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <label>Password
+                                        <input type="password" name="password" required />
+                                    </label>
+                                </div>
+                             </div>
+                            <div class="row">
+                                <div class="large-12 columns">
+                                    <label>
+                                        Remember me
+                                        <input type="checkbox" name="remember">
+                                    </label>
+                                </div>
+                            </div>                              
+                             
+                             <div class="row">
+                                <div class="large-12 columns">
+                                    <input id="loginSubmit"  class="border-button right blue" value="Login" type="submit" />
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                    <a href="#" class="optin-close">&times;</a>
+                </div>
+            </div>             
+
+        <div class="bg-overlay" id="register">
+                <div class="subscribe-optin">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input">
+                                    <h5>Please Sign In<br/> <!-- <small><a href="#login">already have one?</a></small> --></h5>
+                                    <hr>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" name="username" type="text" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Email</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="email" name="email" type="email" autocomplete="off" title="Email" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" name="password" type="password"  autocomplete="off"  title="Password should be at least 4 characters" required/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password"  name="confirm" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+</a></p>                                </div>
+                                
+                                <div class="large-12 columns">
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Sign In"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">x</a>
+                </div>
+            </div>
+               
+            </div>
+         </div>                              
+                  
+        
+
+                </div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+    
+    
+
+#}}
+
+{{#def.include('./template/main_new')}}
+
+

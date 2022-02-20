@@ -1,0 +1,8 @@
+.env
+config/build-config.json
+build/
+node_modules
+.*.swp
+client_new/scripts/constants/Appconstants.js
+
+

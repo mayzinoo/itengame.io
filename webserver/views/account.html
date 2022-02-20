@@ -1,0 +1,3377 @@
+{{##def.page_title = 'Your account' #}}
+{{##def.content:
+<script type="text/javascript">
+    window.onload = function () {
+       
+
+        if (document.getElementById('confirmation') !== null) {
+            document.getElementById('confirmation').onchange = validatePassword;
+            document.getElementById('password').onchange = validatePassword;
+        }
+    };
+    function validatePassword() {
+        var password = document.getElementById('new_password').value;
+        var confirm = document.getElementById('confirmation').value;
+        if (password != confirm) {
+            document.getElementById('confirmation').setCustomValidity("Confirmation and password should be the same");
+        } else document.getElementById("confirmation").setCustomValidity('');
+    }
+    function logout() {
+        if (document.getElementById('logout') ) {
+            if (confirm("Are you sure you want to log out?")) {
+                document.getElementById("logout").submit();
+            }
+        }
+    }
+function isNumberKey(evt){
+    var charCode = (evt.which) ? evt.which : event.keyCode
+    if (charCode > 31 && (charCode < 48 || charCode > 57))
+        return false;
+    return true;
+}    
+
+</script>
+<style type="text/css">
+    @import url("../vendor/bootstrap-4.3.1-dist/css/bootstrap.css"); 
+ @import url("general.css");
+/** The current theme of the page is based on foundation **/
+
+@import url("../vendor/foundation_old/css/foundation.css"); 
+
+/*@import url("../vendor/foundation/stylesheets/foundation.css"); */
+/*@import url("../vendor/foundation-6.5.1/css/foundation.min.css");*/
+@import url("topBar.css");
+
+@font-face {
+    font-family: rbn;
+    src: url("../fonts/RBN.otf");
+}
+
+@media only screen and (min-width:414px) and (max-width:420px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 385px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    padding-right: 2rem;    display: inline-block;
+    padding-right: 0.2rem !important;
+    } 
+    #top-bar .user-login {
+    float:none !Important;
+    padding-left: 10px;    
+    
+    } 
+    .mobilemargin{
+        margin-top: 80px !important;
+    } 
+    .mob-margin{
+        margin-left: 350px;
+    }   
+
+}  
+
+.popupclass{
+height: 130px;
+text-align: center;
+margin-top: 90px;
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 50px;
+        margin-top: 60px !important;
+        }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px)  and (-webkit-min-device-pixel-ratio: 2) {
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 30px !important;
+        margin-top: 60px !important;
+        }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) { 
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 50px !important;
+        margin-top: 60px !important;
+        }
+}
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { 
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 90px !important;
+        margin-top: 60px !important;
+        }
+}
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) { 
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 50px !important;
+        margin-top: 60px !important;
+        }
+}
+
+@media only screen   and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) { 
+    .popupclass{
+        height: 100px;
+        text-align: center;
+        padding-left: 80px !important;
+        margin-top: 60px !important;
+        }
+
+        .deposit-option{
+            width: 85% !important;
+        }
+}
+#top-bar .user-login .burger-btn a {
+color:#fff !important;
+font-size:28px;
+}
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    color: #fff;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background: #181A1E;
+}
+header{    
+    width:100%;
+    height:auto;
+    z-index:6;
+    top:0px;
+    transition:all 0.2s ease-in-out;
+    background:#174ebd03;
+}
+
+.nopadding{
+padding:0px !Important;
+}
+.mid_padding{
+padding-top:30px;
+padding-bottom:30px;
+}
+.mid_top_padding{
+padding-top:30px;
+}
+#top-bar .user-login .burger-btn{
+display: inline-block;
+    padding-right: 2rem;
+}
+input[type="text"]::placeholder {  
+        text-align: right; 
+  } 
+input[type="file"], input[type="checkbox"],  select{
+    width:30px;
+    height:30px;
+    border: 5px solid #AAAAAA;
+}
+input[type=radio]checked .trigger::before{
+    background-color: #32a852;
+}
+.page-content .settings .box a{
+    font: 16px "Verlag A", "Verlag B", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-weight: bold;
+}
+.settings .button{
+background:#292d35 !important;
+}
+.settings .logout-btn{
+background:#292d35 !Important;
+}
+.currency ul{
+text-align:center;
+}
+.currency li{
+    display:inline;
+    color:#fff;
+    margin:0px 26px 0px 26px;
+}
+/*
+
+/* Top bar
+   ========================================================================== */
+
+@media screen and (max-width: 767px) {
+    header {
+        height: 5rem;
+    }
+}
+
+#top-bar {
+    position: static;
+    top: inherit;
+    right: inherit;
+    left: inherit;
+    width: 100%;    
+    height: 58px;
+    font-size: 20px;
+    background:transparent;    
+}
+#top-bar .user-login  {
+    
+}
+#top-bar .title h4 {
+    margin: 0;
+    padding: 0;
+    font-size: 30px;
+    line-height: 58px;
+    padding-left: 20px;
+}
+
+#top-bar .user-login .balance-bits span {
+    line-height: 54px;
+    color: #fff;
+}
+
+.page-content {
+    position: relative;
+    margin-top: 1rem;
+}
+
+#top-bar .menu, #top-bar .menu-mobile {
+    float: right;
+    margin-right: 3rem;
+}
+
+#top-bar .nav-list {
+    line-height: 40px;
+    
+    padding: 0;
+    margin: 0;
+}
+
+#top-bar .nav-item {
+    display: inline-block;
+
+    padding-right: 1rem;
+}
+
+#top-bar .nav-item a {
+    line-height: 58px;
+    color: #fff;
+    font-size: 20px;
+}
+
+.rounded-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+@media screen and (max-width: 767px) {
+    #top-bar .menu {
+        position: absolute;
+        top: 40px;
+        right: 0;
+        left: 0;
+        text-align: center;
+        margin-right: 0;
+    }   
+
+    #top-bar .user-login .login {
+        padding-right:0.5rem;
+    }   
+
+    #top-bar .user-login .register {
+        padding-right: 0.5rem;
+    }
+
+    #top-bar .title h1 {
+        padding-left: 0.5rem;
+    }
+
+    .page-content {
+        margin-top: 2rem;
+    }
+}
+
+
+
+
+/* Message wrappers
+   ========================================================================== */
+
+.success-wrap {
+    text-align: center;
+    line-height: 1.2rem;
+}
+
+.success-wrap a {
+    color: green;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+
+/* Index Styles
+   ========================================================================== */
+
+.index .title {
+    text-align: center;
+    font-size: 4rem;
+    line-height: 4rem;
+    /*margin-top: 1.5rem;*/
+    padding-top:90px;
+    font-family: rbn;
+    font-weight: bold;
+    color:#fff;
+}
+
+.index .faucet {
+    text-align: center;
+    margin-top: 5rem;
+    color:#fff;
+}
+
+.index .play-btn-cont {
+    width: 40%;
+    padding-top: 2rem;
+    margin: auto;
+    text-align: right;
+}
+
+.index .play-btn-cont .play {
+    /* padding-top: 2rem; */
+    display: block;
+    width: 100%;
+    /* top: calc(100% - 3em); */
+    line-height: 3em;
+    text-align: center;
+    color: #000;
+    /*background-color: rgba(243,150,47,1);*/
+    /*background:rgb(99, 167, 228);*/
+    position: relative;
+    text-decoration: none;
+    font-weight: 300;
+    font-size: 2em;
+    border-radius: 8px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    /*-webkit-box-shadow: 0 6px 0 rgb(255,82,5),0px 9px 25px rgba(0,0,0,.1);*/
+    /*-moz-box-shadow: 0 6px 0 rgb(255,82,5),0px 9px 25px rgba(0,0,0,.1);*/
+    /*box-shadow: 0px 6px 0px rgb(255,81,20),0px 9px 25px rgba(0,0,0,0);*/
+    margin-bottom: 10px;
+    border: 0;
+    outline: none;
+    font-family: inherit;
+    margin: auto;
+    background:#fff;
+    text-transform: uppercase;
+    box-shadow: -2px 11px 6px -9px #ddd;
+}
+
+.index .play-btn-cont .play-old {
+    display: block;
+    margin-top: 1rem;
+}
+
+.index .features {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+.index .features h4{
+    margin-top: 0.3rem;
+    font-weight: bold;
+    color:#fff;
+}
+
+.index .features .text{
+    margin-top: 0.9rem;
+}
+
+.index .feature img{
+    height: 100px;
+    width: 100px;
+}
+
+
+/* Shared Stuff
+   ========================================================================== */
+ul {
+    list-style: none;
+}
+
+h4 {
+    margin: 0 0 10px;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: 2px;
+}
+strong *{
+    color: #7cba00;
+}
+strong {
+    color: #7cba00;
+}
+
+table {
+    width: 100%;
+    text-align: center;
+}
+
+.row {
+    width: 100% !important;
+}
+
+.content {
+    margin-top: 50px;
+    padding-left: 10px;
+}
+
+.data {
+    padding-top: 15px;
+    padding-right: 10px;
+    background: rgba(0, 140, 186, 0.82);
+    box-shadow: 1px 1px 1px #888888;
+}
+
+.data p {
+    margin-bottom: 5px;
+}
+
+.data b, .data h5 {
+    color: #FDFDFD;
+}
+
+.panel {
+    background-color: #FFFFFF;
+}
+/* Style for everything that is a button or wants to look like one */
+.border-button {
+    cursor: pointer;
+    background: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 16px;
+    padding: 0px 20px;
+    border: 3px solid #ccc;
+    color: #fff;
+    display: inline-block;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    border-radius: 2px;
+    overflow: hidden;
+    outline: none;
+    position: relative;
+    z-index: 2;
+    white-space: nowrap;
+ line-height:36px; !important;
+border-radius:10px !Important;
+}
+
+.border-button:hover {
+    color:#fff;
+    text-shadow: 0px 2px 2px rgba(236, 105, 19, 0.40);
+}
+
+.input small {
+    letter-spacing: 1px;
+    font-size: 11px;
+}
+.input {
+    margin-bottom: 25px;
+}
+
+.small {
+    font-size: 12px;
+}
+
+.strong {
+    font-weight: bold;
+}
+/* Different Colors for the buttons */
+.red {
+    border: 3px solid #ba3c12;
+}
+
+.green {
+    border: 3px solid #7cba00;
+}
+
+/* FAQ styles
+   ========================================================================== */
+.faq-nav li a:not(.button){
+    padding: 1px;
+    margin-bottom: 5px;
+    color: #353535;
+    font-weight: 500;
+}
+
+.faq-nav li a:not(.button):hover{
+    color: #5d5d5d;
+}
+
+/* Contact Styles
+   ========================================================================== */
+#contact {
+    padding-bottom: 30px;
+    margin: 10px;
+}
+
+/* Top Players Styles
+   ========================================================================== */
+.leaders td{
+    text-align: center;
+}
+
+/* Tables Styles
+   ========================================================================== */
+.j-table {
+    position: relative;
+    color: rgba(255,255,255,1);
+    text-decoration: none;
+    background-color: rgba(243, 150, 47,1);
+    font-weight: 700;
+    font-size: 3em;
+    display: block;
+    padding: 4px;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: 0px 9px 0px rgb(255, 82, 5), 0px 9px 25px rgba(0,0,0,.1);
+    -moz-box-shadow: 0px 9px 0px rgb(255, 82, 5), 0px 9px 25px rgba(0,0,0,.1);
+    box-shadow: 0px 9px 0px rgb(255, 81, 20), 0px 9px 25px rgba(0,0,0,0.1);
+    margin:50px auto;
+    width: 320px;
+    text-align: center;
+    -webkit-transition: all .1s ease;
+    -moz-transition: all .1s ease;
+    -ms-transition: all .1s ease;
+    -o-transition: all .1s ease;
+    transition: all .1s ease;
+}
+
+.j-table:active {
+    -webkit-box-shadow: 0px 3px 0px rgb(186, 60, 18), 0px 3px 6px rgba(0,0,0,.2);
+    -moz-box-shadow: 0px 3px 0px rgb(186, 60, 18), 0px 3px 6px rgba(0,0,0,.2);
+    box-shadow: 0px 3px 0px rgb(186, 60, 18), 0px 3px 6px rgba(0,0,0,0.2);
+    position: relative;
+    top: 6px;
+}
+
+.j-table:hover {
+    color:#FFFFFF;
+}
+
+.j-table-sub {
+    text-align: center;
+    margin-top: -35px;
+}
+.small-t {
+    font-size: 2.2em;
+    padding: 13px;
+}
+
+.tables-second-row {
+    margin-top: 10px;
+}
+
+/* User's Settings
+   ========================================================================== */
+.settings {
+   
+    padding-top:70px;
+
+}
+
+.settings .menu {
+    width: 66px;
+    margin-left: 0;
+}
+
+/* Account */
+.account {
+    margin-top: 0px;
+}
+
+#statistics {
+    margin-top: 30px;
+    margin-left: 0px;
+    text-align: center;
+}
+.bits{
+    margin: 0px;
+}
+
+/* errors pages; 401, 500, 404
+   ========================================================================== */
+.not-found {
+    margin-top: 250px;
+}
+
+/* User's public profile
+   ========================================================================== */
+.rank:hover{
+    background-color: rgba(239, 71, 3, 0.77);
+}
+
+.user-table td{
+    text-align: center;
+}
+
+.lose td{
+    color: #ba3c12;
+}
+
+.pagination {
+    width: 139px;
+}
+
+.created {
+    width: 12%;
+}
+
+.game {
+    width: 23%;
+}
+
+.greeny {
+    color: #7cba00;
+}
+
+.created small{
+    color: #5A5A5A;
+}
+
+.stats td{
+    text-align: center;
+}
+
+/* Forms
+  ========================================================================== */
+.register input{
+    margin-bottom: 0;
+}
+
+.giveaway-form {
+    width: 323px;
+    margin-left: 10%;
+}
+.game-wrap{
+    width:50% !important;
+}
+/*custom css by  may*/
+/*Home Page Animation*/
+.register_form .border-button:hover:{
+color:#fff !Important;
+}
+canvas{
+    background-color: #000;
+    width:100%;
+}
+button, .button {
+    width:400px;
+    text-align: initial !important;
+    }
+
+/*button css*/
+
+.button {
+  display: inline-block;
+  font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  padding: 0.8em 1.4em;
+  padding-right: 4.7em;
+  background: #1a1b20;
+  border: none;
+  color: white;
+  transition: 0.2s;
+  border-radius: 15px;
+}
+.button:before,
+.button:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: inherit;
+  padding-bottom: inherit;
+  width: 2.8em;
+  content: "\00a0";
+  font-family: 'FontAwesome', sans-serif;
+  font-size: 1.2em;
+  text-align: center;
+  transition: 0.2s;
+  transform-origin: 50% 60%;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.button:before {
+  background: rgba(0, 0, 0, 0.1);
+}
+.button:hover {
+  background: #0079a5;
+}
+.button:active,
+.button:focus {
+  background: #002e3f;
+  outline: none;
+}
+.button {
+  min-width: 15em;
+}
+.arrow {
+  /*background: #FE5F55;*/
+}
+.arrow:hover {
+  /*background: #fe2f22;*/
+}
+.arrow:active,
+.arrow:focus {
+  background: #b90c01;
+}
+.arrow:after {
+  /*content: "\F054";*/
+}
+.arrow:hover:after {
+  -webkit-animation: bounceright 0.3s alternate ease infinite;
+  animation: bounceright 0.3s alternate ease infinite;
+}
+.logout a{
+    color:#fff !important;
+}
+.panel{
+    border-style: none !important;
+border-width: 0px !important;
+border-color: none !important;
+margin-bottom: none !important;
+background:none !important;
+}
+
+.logout{
+    margin-left:92px;
+}
+.logout .button{
+    width:200px !important;
+}
+.logout a{
+    text-align: center;
+}
+.logout-btn{
+
+    display: inline-block;
+font-family: "Montserrat", "Trebuchet MS", Helvetica, sans-serif;
+position: relative;
+/*padding: 0.8em 1.4em;*/
+/*padding-right: 4.7em;*/
+background:
+#000;
+border: none;
+color:
+white;
+transition: 0.2s;
+border-radius: 10px;
+padding:15px 50px;
+}
+/*class="effect-shine"*/
+a:hover, a:focus{
+    text-decoration: none !Important;
+}
+/* effect-shine */
+a.effect-shine:hover {
+  -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+  -webkit-mask-size: 200%;
+  animation: shine 2s infinite;
+}
+
+@-webkit-keyframes shine {
+  from {
+    -webkit-mask-position: 150%;
+  }
+  
+  to {
+    -webkit-mask-position: -50%;
+  }
+}
+.subscribe-optin p{
+color:#fff !important;
+}
+.subscribe-optin h4{
+color:#fff !important;
+}
+.subscribe-optin label{
+color:#fff !important;
+}
+/*mobile version*/
+@media only screen and (min-width:200px) and (max-width:300px){
+#top-bar .title h1{
+padding-left:0rem !Important;
+}
+#top-bar .user-login .burger-btn{
+    padding-right: 1rem !important;
+    line-height: 50px !Important;
+}
+#top-bar .user-login .username{
+font-size:15px !Important;
+}
+#top-bar .user-login .balance-bits{
+padding-right:0px !important;
+}
+.account{
+padding-top:10px !important;
+}
+button, .button{
+    min-width: 100% !important;
+    margin: 0 0 0.1rem !important;
+    font-size: 14px !important;
+        width: 262px;
+}
+.settings{
+margin-top:-50px !important;
+}
+.security{
+margin-top:-10px;
+}
+.logout{
+margin-top: -5px !important;
+}
+.logout-btn
+{
+       width: 260px;
+    margin-left: -105px;
+    margin-top: -39px;
+    text-align: inherit !important;
+    min-width: 100% !Important;
+    border-radius: 10px !important;
+    padding: 15px 20px !important;
+}
+.gotoplay{
+margin-left: 77px;
+    margin-top: 16px !important;
+}
+}
+@media only screen and (min-width:300px) and (max-width: 480px){
+#top-bar .title h1{
+    padding-left:0rem !important;
+}
+.account{
+padding-top: 10px !Important;
+}
+#top-bar .user-login .username{
+font-size:15px !Important;
+    padding-right: 1rem !important;
+}
+#top-bar .user-login{
+    line-height: 56px !Important;
+    padding-right:5px !Important;
+}
+#top-bar .user-login .balance-bits{
+padding-right:0px !Important;
+}
+#top-bar .user-login .balance-bits span{
+font-size:15px !important;
+}
+#top-bar .user-login .burger-btn{
+        padding-right: 1.1rem !important;
+    line-height: 52px !important;
+}
+.input{
+    margin-bottom:0px !Important;
+}
+.register h6{
+padding-bottom:0px !Important;
+}
+[class*='col-']{
+margin-top:0px !Important;
+}
+input[type="file"], input[type="checkbox"], input[type="radio"], select{
+    width:17px !Important;
+    height:17px !Important;
+}
+.currency ul{
+    
+}
+.currency li{
+    margin:0px !Important;
+}
+.border-button{
+        line-height: 24px !Important;
+            padding: 0px 5px !important;
+    }
+    .green{
+            border: 1px solid #7cba00 !important;
+    }
+.margin-top-sm{
+margin-top:25px !Important;
+}
+/*setting page*/
+.right-column{
+margin-top:0px !important;
+}
+button, .button{
+border-radius:10px !important;
+}
+.content{
+padding-left:0px !important;
+padding-top:0px !important;
+}
+.data{
+padding-top:2px !Important;
+padding-right:16px !Important;
+}
+.settings{
+padding-left:0px !important;
+width:100%;
+}
+button, .button{
+    min-width:100% !important;
+    margin:0 0 0.1rem !important;
+    width:293px !important;
+}
+.subscribe-optin{
+    padding: 11px !important;
+    width: 95% !important;
+
+}
+input[type="checkbox"] + label, input[type="radio"] + label{
+
+    margin-right:0rem !important;
+}
+.subscribe-optin h5{
+    padding-bottom:30px !important;
+}
+.subscribe-optin h5{
+    margin-bottom:0px !Important;
+    font-size:16px !important;
+}
+#statistics{
+margin-top:0px !Important;
+}
+
+#statistics h6{
+    text-align:right !important;
+color:#fff;
+text-align: center !important;
+}
+.green{
+    margin-right: 29px !important;
+    font-size: 12px !important;
+}
+.subscribe-optin h5{
+    font-size:16px !important;
+}
+.logout {
+    margin-left: -16px !important;
+    margin-top:-13px;
+}
+.logout-btn{
+ text-align:left !important;
+min-width:100% !Important;
+border-radius:10px !important;
+padding:15px 20px !important;
+width:293px;
+margin-top:-9px !Important;
+}
+#top-bar .nav-list{
+display:none !important;
+}
+#top-bar .menu{
+top:0px !Important;
+}
+/*end setting page*/
+
+/*home page*/
+
+.index .title{
+    font-size: 1.8rem !Important;
+}
+.feature{
+    margin-top: 28px !important;
+}
+.index .play-btn-cont .play{
+    font-size: 20px !Important;
+    line-height: 2em !Important;
+}
+.index .faucet{
+    font-size:13px !Important;
+}
+#top-bar .user-login .login-form{
+    padding-top: 19px !important;
+    width: 90% !important;
+    padding-right:0px !important;
+}
+#top-bar .user-login .register_form{
+    padding-top: 19px !important;
+    width: 90% !important;
+    padding-right:0px !important;
+}
+.border-bottom{
+padding:0px 10px !important;
+}
+/*end home page*/
+}
+@media only screen and (min-width:480px) and (max-width: 800px){
+#top-bar .user-login{
+line-height:80px !Important;
+padding-right: 2rem;
+}
+.margin-top-sm{
+    margin-top:25px !important;
+}
+button, .button{
+width:343px !important;
+}
+.logout-btn{
+width:220px !important;
+}
+.logout {
+    margin-left: -9px;
+}
+.gotoplay {
+    margin-left: 44px !important;
+    margin-top: 0px !important;
+}
+#top-bar{
+width:100%;
+}
+#statistics .data{
+    width:143px;
+}
+#statistics h6{
+    text-align:right !important;
+    color:#fff;
+}
+
+.padding-left-md{
+    padding-left:40px !important;
+}   
+.padding-left-sm{
+    padding-left:10px !Important;
+}
+}
+
+@media only screen and (min-width:320px) and (max-width: 350px){
+    #top-bar{
+    font-size: 14px !important;
+    width: 100% !important;
+    }
+#top-bar .user-login .balance-bits span {
+    font-size: 13px !Important;
+}
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.2rem;    
+    }
+    #top-bar .user-login {
+   
+    
+    
+    }
+    .mob-margin{
+        margin-left: 230px;
+    }
+} 
+}
+@media only screen and (min-width:360px) and (max-width: 370px){
+    #top-bar{
+    font-size: 16px !important;
+    width: 335px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.2rem !important;
+    }
+    #top-bar .user-login {
+    line-height: 54px !important;
+    float: left !important;
+    padding-left: 10px;
+    } 
+    .mobilemargin{
+        margin-top: 80px !important;
+    }  
+    .mob-margin{
+        margin-left: 280px;
+    }
+} 
+
+@media only screen and (min-width:375px) and (max-width: 400px){
+    #top-bar{
+    font-size: 18px !important;
+    width: 347px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.2rem !important;
+    } 
+    #top-bar .user-login {
+    line-height:51px !Important;
+    padding-left: 10px;
+    
+    }   
+.account{
+padding-top:10px !important;
+}
+#top-bar .user-login .burger-btn{
+ padding-right:0rem !important;
+}
+    .mob-margin{
+        margin-left: 290px;
+    }
+}  
+}
+
+
+
+@media only screen and (min-width:600px) and (max-width:600px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 570px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    }
+    #top-bar .user-login {
+    
+    }     
+}  
+
+@media only screen and (min-width:800px) and (max-width:800px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 770px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    }  
+    #top-bar .user-login {
+    line-height: 54px !important;
+    }   
+}  
+
+@media only screen and (min-width:1440px) and (max-width:1440px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 1400px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    }
+    #top-bar .user-login {
+    line-height: 54px !important;
+    }     
+}  
+
+@media only screen and (min-width:1600px) and (max-width:1600px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 1570px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    }
+    #top-bar .user-login {
+    line-height: 54px !important;
+    }     
+} 
+
+
+
+@media only screen (max-width:1920px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 1810px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    } 
+    #top-bar .user-login {
+    line-height: 54px !important;
+    }    
+}  
+
+@media only screen and (min-width:1280px) and (max-width:1280px){
+    #top-bar{
+    font-size: 20px !important;
+    width: 1240px !important;
+    }
+    #top-bar .user-login .balance-bits {
+    display: inline-block;
+    padding-right: 0.5rem !important;
+    }
+    #top-bar .user-login {
+    line-height: 54px !important;
+    }     
+    
+}  
+
+@media only screen and (min-width:300px) and (max-width: 600px){
+.padding-left-sm{
+    padding-left:10px !important;
+}
+.padding-left-md{
+    padding-left:40px !important;
+}
+button,.button{
+width:335px !important;
+}   
+.logout-btn{
+width:335px !important;
+}
+.gotoplay{
+    margin-left: -14px;
+    margin-top: 10px !important;
+}
+#top-bar{
+width:100%;
+}
+#top-bar .user-login .balance-bits{
+padding-right:1rem !important;
+}
+#top-bar .user-login .balance-bits span{
+font-size:14px !Important;
+}
+.border-button{
+line-height:24px !important;
+padding:0px 5px !important;
+}
+.green{
+border:1px solid #7cba00 !important; 
+}
+
+#statistics h6{
+    text-align:right !important;
+color:#fff;
+}
+#top-bar .user-login .burger-btn{
+    padding-right: 0rem !important;
+    line-height: 52px !Important;
+}
+}
+/*end*/
+/* FOUNDATION MEDIA QUERIES */
+@media only screen and (max-width: 40.063em) {
+    .content {
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (min-width: 40.063em) {
+    .top-bar-section li:not(.has-form) a:not(.button) {
+        background: #F3DF6C;
+        color: #7A7A7A;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+.text-logo{
+    font-size: 30px !important;
+    color: #008cba !important;
+    font-weight: bold;
+    padding-left: 1rem;
+    font-family: "Courier New"
+    }
+
+  .profile-back{
+    background-color: #fff !important;
+  }  
+
+
+  a:hover, a:focus{
+    text-decoration: none !Important;
+}
+/* effect-shine */
+a.effect-shine:hover {
+ -webkit-mask-image: linear-gradient(-75deg, rgba(0,0,0,.6) 30%, #000 50%, rgba(0,0,0,.6) 70%);
+ -webkit-mask-size: 200%;
+ animation: shine 2s infinite;
+}
+@-webkit-keyframes shine {
+ from {
+   -webkit-mask-position: 150%;
+ }
+ to {
+   -webkit-mask-position: -50%;
+ }
+}
+
+.reg-textbox{
+    margin-bottom: 0px !important;
+}
+
+.reg-label{
+    float: right;
+    vertical-align: 
+    text-top;
+}
+
+.currency-label{
+    height: 35px;
+    vertical-align: middle !important;
+} 
+
+.checkboxes label {
+  display: inline-block;
+  padding-right: 10px;
+  white-space: nowrap;
+}
+.checkboxes input {
+  vertical-align: middle;
+}
+.checkboxes label span {
+  vertical-align: middle;
+} 
+
+input[type="checkbox"] {
+    margin: 0 !important;
+}    
+
+input[type="radio"] {
+  appearance:none;  
+  width: 24px;
+  height: 24px;  
+  border-radius: 50%;
+  transition: .2s;
+  cursor:pointer;
+  padding: 10px 20px;  
+  background-color: #56be8e !important;
+}
+
+.radio-btn{
+    background-color: #56be8e !important;
+}
+
+@media only screen and (min-width:200px) and (max-width: 640px){
+    .currency-label{
+    height: 30px !important;
+    vertical-align: middle !important;
+    }
+   
+}
+
+@media only screen and (max-device-width: 360px) {
+       
+   .subscribe-optin {
+    position: relative;
+    z-index: 999;
+    top: 50%;
+    left: 80%;
+    width: 70% !important;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+    height: auto;
+    background: #292d35;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    font-size: 0.8rem;
+    overflow-y: auto;
+    }
+    .currency li {
+        display: inline;
+        color: #fff;
+        margin: 0px 5px 0px 5px; 
+    }
+}
+
+@media only  screen and (max-device-width: 360px)
+  {       
+   .subscribe-optin {
+    position: relative;
+    z-index: 999;
+    top: 50%;
+    left: 80%;
+    width: 95% !important;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+    height: auto;
+    background: #292d35;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    font-size: 0.8rem;
+    overflow-y: auto;
+}
+.currency li {
+    display: inline;
+    color: #fff;
+    margin: 0px 5px 0px 5px; 
+}
+}
+
+@media only  screen and (max-device-width: 600px)
+  {       
+   .subscribe-optin {
+    position: relative;
+    z-index: 999;
+    top: 50%;
+    left: 80%;
+    width: 95% !important;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+    height: auto;
+    background: #292d35;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    font-size: 0.8rem;
+    overflow-y: auto;
+}
+.currency li {
+    display: inline;
+    color: #fff;
+    margin: 0px 5px 0px 5px; 
+}
+}
+
+
+@media only  screen and (max-device-width: 1280px)
+and (min-device-width: 768px)
+  {       
+   .subscribe-optin {
+    position: relative;
+    z-index: 999;
+    top: 50%;
+    left: 80%;
+    width: 80% !important;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+    height: auto;
+    background: #292d35;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    font-size: 0.8rem;
+    overflow-y: auto;
+}
+.currency li {
+    display: inline;
+    color: #fff;
+    margin: 0px 5px 0px 5px; 
+}
+
+}
+
+@media only screen and (max-device-width: 1440px)
+and (min-device-width: 1280px)
+  {       
+   .subscribe-optin {
+    position: relative;
+    z-index: 999;
+    top: 50%;
+    left: 80%;
+    width: 80% !important;
+    transform: translate(-50%, -50%);
+    padding: 5rem;
+    height: auto;
+    background: #292d35;
+    border-radius: 5px;
+    /* text-transform: uppercase; */
+    font-size: 0.8rem;
+    overflow-y: auto;
+}
+.currency li {
+    display: inline;
+    color: #fff;
+    margin: 0px 5px 0px 5px; 
+}
+}
+
+
+
+
+
+input[type="text"]::placeholder {
+        text-align: right;
+  }
+
+
+.settings button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+.settings button.learn-more {
+  width: 19rem;
+  height: auto;
+}
+.settings button.learn-more .circle {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+}
+.settings button.learn-more .circle .icon {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+.settings button.learn-more .circle .icon.arrow {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+.settings button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.settings button.learn-more .button-text {
+  -webkit-transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+    margin: 0px 0 0 60px;
+  color: #0093F5;
+  font-weight: 700;
+  line-height: 1.6;
+  /*text-align: center;*/
+  /*text-transform: uppercase;*/
+}
+.settings button:hover .circle {
+  width: 100%;
+}
+.settings button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+}
+
+/*color effect*/
+.account .acc-color button.learn-more .button-text{
+    color:#16A085 !Important;
+}
+.account .acc-color button.learn-more .circle{
+    background-color: #16A085;
+}
+.settings .acc-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.deposit .deposit-color button.learn-more .button-text{
+    color:#EB9532 !Important;
+}
+.deposit .deposit-color button.learn-more .circle{
+    background-color: #EB9532;
+}
+.settings .deposit-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.tip .tip-color button.learn-more .button-text{
+    color:#C82647 !Important;
+}
+.tip .tip-color button.learn-more .circle{
+    background-color: #C82647;
+}
+.settings .tip-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.howplay .howplay-color button.learn-more .button-text{
+    color:#8CC63F !Important;
+}
+.howplay .howplay-color button.learn-more .circle{
+    background-color: #8CC63F;
+}
+.settings .howplay-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.security .security-color button.learn-more .button-text{
+    color:#7E3661 !Important;
+}
+.security .security-color button.learn-more .circle{
+    background-color: #7E3661;
+}
+.settings .security-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.withdraw .withdraw-color button.learn-more .button-text{
+    color:#8CC63F !Important;
+}
+.withdraw .withdraw-color button.learn-more .circle{
+    background-color: #8CC63F;
+}
+.settings .withdraw-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.support .support-color button.learn-more .button-text{
+    color:#16A085 !Important;
+}
+.support .support-color button.learn-more .circle{
+    background-color: #16A085;
+}
+.settings .support-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.support .support-color button.learn-more .button-text{
+    color:#16A085 !Important;
+}
+.support .support-color button.learn-more .circle{
+    background-color: #16A085;
+}
+.settings .support-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.source_code .source_code-color button.learn-more .button-text{
+    color:#EB9532 !Important;
+}
+.source_code .source_code-color button.learn-more .circle{
+    background-color: #EB9532;
+}
+.settings .source_code-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.source_code .source_code-color button.learn-more .button-text{
+    color:#EB9532 !Important;
+}
+.source_code .source_code-color button.learn-more .circle{
+    background-color: #EB9532;
+}
+.settings .source_code-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+.fairness .fairness-color button.learn-more .button-text{
+    color:#C82647 !Important;
+}
+.fairness .fairness-color button.learn-more .circle{
+    background-color: #C82647;
+}
+.settings .fairness-color button:hover .button-text {
+  color: #fff !important;
+}
+/**/
+/*mobile version*/
+/*iphone X*/
+@media only screen and (min-width:300px) and (max-width: 480px){
+    .headertop-accbtn{
+        margin-top: -33px !important;
+        margin-right: -41px;
+    }
+}
+/**/
+</style>
+
+<form action="/logout" method="post" id='logout'></form>
+<div class="panel radius mobilemargin">
+ 
+    <div class="row settings">
+        <div class="col-md-4 col-sm-12 nopadding ">
+            <div class="setting-area">
+                <div class="account"> 
+                    <div >
+                        <!-- <a class="button arrow" href="#account">Account</a> -->
+                        <a href="#account" class="acc-color">
+                          <button class="learn-more">
+                            <span class="circle" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">Account</span>
+                          </button>
+                         </a>
+                    </div>
+                    <div class="bg-overlay" id="account">
+                        <div class="account-option">           
+                            
+                            <h5 class="dep-header">Account Information</h5>
+                            <div id="statistics" class="row">
+                                <div class="data col-md-6 col-xs-12 col-sm-12">
+                                    <p><b>Deposits </b></p>
+                                    <h6>{{#def.format:{n: it.user.depositsSum, decimals:2} }} WoW</h6>
+                                </div>
+                                <div class="data col-md-6 col-sm-12">
+                                    <p><b>Withdrawals </b></p>
+                                    <h6>{{#def.format:{n: it.user.withdrawlsSum, decimals:2} }} WoW</h6>
+                                </div>
+                                <!-- <div class="data col-md-3 col-sm-12">
+                                    <p><b>Bonus</b></p>
+                                    <h6>{{#def.format:{n: it.user.giveaways, decimals:2} }}</h6>
+                                </div>
+                                <div class="data col-md-3 col-sm-12">
+                                    <p><b>Net Profit</b></p>
+                                    <h6>{{#def.format:{n: it.user.net_profit, decimals:2} }} WoW</h6>
+                                </div> -->
+                            </div>
+                            <br>                    
+                                    <a href="#" class="optin-close">x</a>
+                            </div>        
+                        
+                    </div>
+                </div><!-- end acccount -->                
+                <div class="deposit">
+                    <div >
+                        <!-- <a class="button arrow" href="#deposit-popup">Deposit</a> -->
+                        <a href="#deposit-popup" class="deposit-color">
+                          <button class="learn-more">
+                            <span class="circle" aria-hidden="true">
+                              <span class="icon arrow"></span>
+                            </span>
+                            <span class="button-text">Deposit</span>
+                          </button>
+                         </a>
+                    </div>
+        
+                    <div class="bg-overlay" id="deposit-popup">
+                                <div class="deposit-option">
+                                    <a class="border-button right green" href="#depositnew-popup">Request Deposit</a>
+                                    <h5 class="dep-header">Deposit History</h5>                           
+                                
+                                {{?it.user.deposits.length > 0}}
+                                    <div class="tableFixHead">
+                                    <table>
+                                        <thead>
+                                            <tr>
+                                                <th>WoW</th>
+                                                <th>Transaction</th>
+                                                <th class="show-for-medium-up">Created</th>
+                                                <th>Cancel</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {{~it.user.deposits :deposit:index}}
+                                                <tr>                                                    
+                                                    <td>
+                                                        {{?deposit.status == '3'}}
+                                                        {{#def.format: {n: deposit.update_wow, decimals: 2 } }}
+                                                        {{??}}
+                                                        {{#def.format: {n: deposit.amount, decimals: 2 } }}
+                                                        {{?}}
+                                                     </td>   
+                                                    <td>                                                                                                       
+                                                    {{?deposit.ethereum_deposit_txid}}    
+                                                      <a href="https://etherscan.io/tx/{{=deposit.ethereum_deposit_txid}}" target="_blank">View</a>  
+                                                     {{?}}   
+                                                     
+                                                    </td>
+                                                    <td class="show-for-medium-up">{{=deposit.created}}</td>
+                                                    <form action="/cancel-deposit" id="deposit-cancel" name="deposit-cancel" method="post">
+                                                        <td>
+                                                            {{?deposit.status == '0'}}
+                                                            <input type="button" onclick="getdepositConfirmation('{{=deposit.id}}');" name="deposit-cancel" value="Cancel" class="right btn btn-success">                                                                                                    
+                                                            {{??}}
+                                                            {{?deposit.status == '2'}}
+                                                            <input type="button" disabled="disabled"  value="Cancelled" class="right btn btn-secondary">
+                                                            {{??}}
+                                                               <input type="button" disabled="disabled"  value="Success" class="right btn btn-success">
+                                                            {{?}}
+                                                            {{?}}
+
+                                                         <input type="hidden" name="cancel_id" id="cancel_id">
+                                                        </td>
+                                                        <script type="text/javascript">
+                                                            function getdepositConfirmation(cancel_id) {
+                                                                                                                    
+                                                                   var retVal = confirm("Are you sure to cancel ?");
+
+                                                                   if( retVal == true ) {
+                                
+                                                                      document.getElementById('cancel_id').value = cancel_id;                                                
+                                                                      document.getElementById('deposit-cancel').submit();
+                                                                   } else {         
+                                                                                       
+                                                                      return false;
+                                                                   }
+                                                                }
+                                                        </script>
+                                                    </form> 
+                                                </tr>
+                                            {{~}}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {{??}}
+                                    <p>You don't have deposits</p>
+                                {{?}}
+                                    <a href="#" class="optin-close">x</a>
+                                </div>
+                    </div>
+        <div class="bg-overlay" id="depositnew-popup">
+            <div class="deposit-option currency deposit">
+                <form action="/deposit-request" method="post">
+                <h5 class="dep-header">Deposit Request</h5>
+                <ul>              
+                
+                <li><input type="radio" checked="checked" value="ETH" id="1" data-trigger="div2" class="currency-label" name="currency_type"> <label class="currency-label">ETH</label></li>
+
+                <li><input type="radio"  value="CTC" id="5" data-trigger="div2" class="currency-label" name="currency_type"> <label class="currency-label">CTC</label></li>
+                <li><input type="radio" value="USD" id="2" data-trigger="div1" class="currency-label" name="currency_type"> <label class="currency-label">USD</label></li>
+                
+                <li><input type="radio" value="KRW" id="3" data-trigger="div1" class="currency-label" name="currency_type"> <label class="currency-label">KRW</label></li>
+                    
+                <li><input type="radio" value="VND" id="4" data-trigger="div1" class="currency-label" name="currency_type"> <label class="currency-label">VND<label></li>
+                
+                </ul>
+                 <p id="usd" class="dep-equal">1 iten = {{=it.user.itenrate}} USD</p>
+            
+                <div id="dep_usd" style="display: none;" class="mid_padding">                
+                    <div class="offset-md-2 col-md-9">                  
+                    <p class="alllabel">Please Input the amount</p>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="usd_currency_amt" id="usdamt" class="form-control currencychange">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            USD
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="usd_wow_amt" id="wowamt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            WoW
+                        </div>
+                    </div>
+                    
+                    <p class="alllabel">Please input the deposit's name</p>
+                    <input type="text" name="usd_deposit_name" class="form-control">                   
+                    </div>
+                    
+                </div>
+
+                <div id="dep_krw" style="display: none;" class="mid_padding">                
+                    <div class="offset-md-2 col-md-9">                  
+                    <p class="alllabel">Please Input the amount</p>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="krw_currency_amt" id="krwamt" class="form-control krwchange">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            KRW
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="krw_wow_amt" id="krw_wow_amt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            WoW
+                        </div>
+                    </div>
+                    
+                    <p class="alllabel">Please input the deposit's name</p>
+                    <input type="text" name="krw_deposit_name" class="form-control">             
+                    </div> 
+                    
+                    
+                </div>
+
+                <div id="dep_vnd" style="display: none;" class="mid_padding">                
+                    <div class="offset-md-2 col-md-9">                  
+                    <p class="alllabel">Please Input the amount</p>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="vnd_currency_amt" id="vndamt" class="form-control vndchange">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            VND
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="vnd_wow_amt" id="vnd_wow_amt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            WoW
+                        </div>
+                    </div>
+                    
+                    <p class="alllabel">Please input the deposit's name</p>
+                    <input type="text" name="vnd_deposit_name" class="form-control">                    
+                    </div>  
+                    
+                </div>
+
+                <div id="dep_eth" class="mid_padding">
+                    <p class="alllabel">Please Input the amount</p>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="ethereum_amt" id="ethereum_amt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            KRW
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="ethereum_wow_amt" id="ethereum_wow_amt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            WoW
+                        </div>
+                    </div>
+                    <p class="alllabel">
+                        <b class="alllabel">Deposit Address:</b>
+                        <input type="text" name="eth_address" value="{{=it.user.deposit_address}}" readonly>
+                        <a href="ethereum:{{=it.user.deposit_address}}?message=deposit" >Ethereum link</a>
+                        <a href="https://etherscan.io/address/0x326c2dbb91140Af3D664D5e7C904E1aD9598E902" >Ethereum link</a>
+                    </p>
+                </div>
+
+                <div id="dep_ctc" style="display: none;" class="mid_padding">
+                    <p class="alllabel">Please Input the amount</p>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="ctc_amt" id="ctc_amt" class="form-control ctcchange">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            CTC
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="number" name="eth_ctc" id="eth_ctc" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            ETH
+                        </div>
+                    </div>
+                    <div class="row nopadding padding-left-md">
+                        <div class="col-md-10">
+                            <input type="text" name="ctc_wow_amt" id="ctc_wow_amt" class="form-control">
+                        </div>
+                        <div class="col-md-2 margin-top-sm" style="margin-top:14px;">
+                            WoW
+                        </div>
+                    </div>
+                    
+                    <p class="alllabel">
+                        <b class="alllabel">Deposit Address:</b>
+                        <input type="text" name="ctc_address" value="{{=it.user.deposit_address}}" readonly>
+                        <a href="ethereum:{{=it.user.deposit_address}}?message=deposit" >Ethereum link</a>
+                        <a href="https://etherscan.io/address/0x326c2dbb91140Af3D664D5e7C904E1aD9598E902" >Ethereum link</a>
+                    </p>
+                 </div>
+
+                <input type="submit" name="dep-request" value="Submit" class="right btn btn-success">
+                <!-- <a href="#admininfo" class="right btn btn-success">Submit</a> -->
+                    
+            </form>
+            <a href="#" class="optin-close">x</a>
+            </div>
+
+            
+        </div>
+
+    </div><!-- end deposit -->
+
+    <div class="bg-overlay" id="input-warning">
+            <div class="deposit-option">
+                <h5>Input Warning.</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                      <span>Please add input value.<span>
+                    </div>                    
+                </div>               
+                <a href="/account" class="optin-close">x</a>
+            </div>
+    </div>
+
+    <div class="bg-overlay" id="depnull-error">
+            <div class="deposit-option">
+                <h5>Deposit Warning.</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                      <span>Please add input value.<span>
+                    </div>                    
+                </div>               
+                <a href="/account" class="optin-close">x</a>
+            </div>
+    </div>
+
+    <div class="bg-overlay" id="eth-success">
+            <div class="deposit-option">
+                <h5>Deposit Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                      <span>Iten Deposit Successfully.<span>
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+    </div>
+
+    <div class="bg-overlay" id="ctc-success">
+            <div class="deposit-option">
+                <h5>Deposit Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                      <span>CTC Deposit Successfully.</span>
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+    </div>
+
+    <!-- Withdraw Warning -->
+        <div class="bg-overlay" id="withdraw-warning-nomoney">
+            <div class="deposit-option">
+                <h5>Withdraw Request Warning</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                      Not enough money to process withdraw.
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+
+        <div class="bg-overlay" id="withdraw-warning-pending">
+            <div class="deposit-option">
+                <h5>Withdraw Request Warning</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Withdrawal successful, however hot wallet was empty. Withdrawal will be reviewed and sent ASAP.
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+
+        <div class="bg-overlay" id="withdraw-warning-sameid">
+            <div class="deposit-option">
+                <h5>Withdraw Request Warning</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Please reload your page, it looks like you tried to make the same transaction twice.
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+
+        <div class="bg-overlay" id="withdraw-warning-funding">
+            <div class="deposit-option">
+                <h5>Withdraw Request Warning</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Your transaction is being processed come back later to see the status.
+                    </div>                    
+                </div>               
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+    <!-- End Withdraw Warning -->
+
+    <!-- Success Withdraw -->
+        <div class="bg-overlay" id="warning-withdraw">
+            <div class="deposit-option">
+                <h5>Withdraw Request Warning</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Please add input value.
+                    </div>                    
+                </div>                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+        <div class="bg-overlay" id="successwithdraw">
+            <div class="deposit-option">
+                <h5>Withdraw Request Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Successfully Request Withdraw.
+                    </div>                    
+                </div>                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+        <div class="bg-overlay" id="successcancelwithdraw">
+            <div class="deposit-option">
+                <h5>Withdraw Cancel Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Successfully Cancel Withdraw.
+                    </div>                    
+                </div>                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+    <!-- End Success Withdraw -->
+
+    <!-- Success Deposit Cancel -->
+        <div class="bg-overlay" id="successcanceldeposit">
+            <div class="deposit-option">
+                <h5>Deposit Cancel Successful</h5>
+                <div class="col-md-12">
+                    <div class="col-md-12">
+                       Successfully Cancel Deposit.
+                    </div>                    
+                </div>                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+    <!-- End Success Deposit Cancel -->
+
+    <!-- Admin Info USD Start -->
+        <div class="bg-overlay" id="admininfo_usd">
+            <div class="deposit-option">
+                <h5>Deposit Address</h5>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label>Bank Info</label>
+                    </div>
+                    <div class="col-md-8">                 
+                        <p class="bankacc-info">{{=it.user.bankinfousd[0]['bankname']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account owner</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfousd[0]['acctowner']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account Number</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfousd[0]['acctno']}}</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+        <!-- Admin Info USD Start -->
+
+        <!-- Admin Info KRW Start -->
+        <div class="bg-overlay" id="admininfo_krw">
+            <div class="deposit-option">
+                <h5>Deposit Address</h5>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label>Bank Info</label>
+                    </div>
+                    <div class="col-md-8">                    
+                        <p class="bankacc-info">{{=it.user.bankinfokrw[0]['bankname']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account owner</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfokrw[0]['acctowner']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account Number</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfokrw[0]['acctno']}}</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+        <!-- Admin Info KRW Start -->
+        <div class="bg-overlay" id="admininfo_vnd">
+            <div class="deposit-option">
+                <h5>Deposit Address</h5>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label>Bank Info</label>
+                    </div>
+                    <div class="col-md-8">
+                    
+                        <p class="bankacc-info">{{=it.user.bankinfovnd[0]['bankname']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account owner</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfovnd[0]['acctowner']}}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <label>Account Number</label>
+                    </div>
+                    <div class="col-md-8">
+                        <p class="bankacc-info">{{=it.user.bankinfovnd[0]['acctno']}}</p>
+                    </div>
+                </div>
+                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+
+        <div class="bg-overlay" id="admininfo_eth">
+            <div class="deposit-option">
+                <h5>Deposit Address</h5>
+                <div class="col-md-12">
+                    <div class="col-md-4">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-md-8">                    
+                        
+                    </div>
+                    
+                </div>
+                
+                <a href="#" class="optin-close">x</a>
+            </div>
+        </div> 
+        
+        <!-- Admin Info ETH Start -->
+
+
+
+
+                </div><!-- end deposit -->
+                <div class="bg-overlay" id="admininfo">
+                <div class="deposit-option">
+                    <h5>Deposit Address</h5>
+                    <div class="col-md-12">
+                        <div class="col-md-4">
+                            <label>Bank Info</label>
+                        </div>
+                        
+                        <div class="col-md-8">
+                        
+                            <input type="text" name="bankname" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Account owner</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="name" class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label>Account Number</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" name="acctno" class="form-control">
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="optin-close">x</a>
+                </div>
+                </div> 
+        
+
+                <!-- Start Tip -->
+                <div class="tip" style="margin-bottom: 10px;">
+                    <div >
+                        <!-- <a class="button arrow" href="#tip">Tip</a> -->
+                        <a href="#tip" class="tip-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Tip</span>
+                              </button>
+                         </a>
+                    </div>
+                    <div class="bg-overlay" id="tip">
+                                <div class="deposit-option">
+                                    <a class="border-button right green" href="#tip-send">Send Tip</a>
+                                    <h5 class="dep-header">Tip History</h5>
+                                    <hr class="hr-height">
+                                {{?it.user.tips.length > 0}}    
+                                <div class="tableFixHead">    
+                                 <table>
+                                    <thead>
+                                        <tr>
+                                            <th>From</th>
+                                            <th>To</th>
+                                            <th>Amount</th>
+                                            <th>Commission</th>
+                                            <th class="show-for-large-up">Transaction ID</th>
+                                            <th class="show-for-large-up">Date</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{~it.user.tips :tip:index}}
+                                            <tr>
+                                                <td>{{=tip.sender}}</td>
+                                                <td>{{=tip.recipient}}</td>
+                                                <td>{{#def.format: {n: tip.amount, decimals: 2 } }}</td>
+                                                <td>{{#def.format: {n: tip.commission, decimals: 2 } }}</td>
+                                                <td class="show-for-large-up">{{=tip.tipTxId}}</td>
+                                                <td class="show-for-large-up">{{=tip.created}}</td>
+                                            </tr>
+                                        {{~}}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {{??}}
+                              <br>
+                            
+                            <p class="alllabel">You have no tip history in your account.</p>
+                            {{?}}
+                                    <a href="#" class="optin-close">x</a>
+                            </div>
+                    
+                   </div> 
+                   <!-- End Tip -->
+                   <!-- Success Tip -->
+                   <div class="tip">                    
+                        <div class="bg-overlay" id="tip-send-successfully">
+                                <div class="deposit-option">
+                                    <h5>Tip Sent Successfully.</h5>
+                                    <a href="#" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div> 
+                        <div class="bg-overlay" id="amount-notenough">
+                                <div class="deposit-option">
+                                    <h5>Not enough money.</h5>
+                                    <a href="#" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div> 
+                        <div class="bg-overlay" id="no-receipt-user">
+                                <div class="deposit-option">
+                                    <h5>Could not verify the recipient.</h5>
+                                    <a href="#" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div> 
+                        <div class="bg-overlay" id="sender-wrongpass">
+                                <div class="deposit-option">
+                                    <h5>Wrong password. Try it again.....</h5>
+                                    <a href="/account" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div>
+                    </div>
+
+
+                    <div class="tip">                    
+                        <div class="bg-overlay" id="deposit-send-successfully">
+                                <div class="deposit-option">
+                                    <h4>Deposit Ethereum Sent Successfully.</h4>
+                                    <a href="#" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div> 
+                    </div> 
+
+                    <div class="tip">                    
+                        <div class="bg-overlay" id="deposit-send-fail">
+                                <div class="deposit-option">
+                                    <h4>Deposit Ethereum Sent fail. You have no ethereum.</h4>
+                                    <a href="#" class="optin-close">x</a>                                    
+                                </div>                    
+                        </div> 
+                    </div> 
+
+                    <!-- End Success Tip -->
+                    <div class="bg-overlay" id="tip-send">
+                         <div class="deposit-option">
+                            <h5 class="dep-header">Send Tip</h5>
+                            <p class="alllabel">You can send the tip at least 10 tips, to whomever you want.<br/>
+                            Tip will be delivered to the designated User ID immediately, and cannot be returned.</br>
+                            Recheck before submit.</p>
+                            <form action="/tip-send" method="post">
+                                <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                                <input style="display:none" type="text" name="fakeusernameremembered"/>
+                                <input style="display:none" type="password" name="fakepasswordremembered"/>
+
+                                <input type="hidden" name="tipTxId" value="{{= it.id}}" />
+                                <label for="amount" class="nomarginlabel">Amount</label>
+                                <input type="text"  id="your_amount" name="your_amount"  placeholder="{{= it.tipFee }}" min="{{= it.tipFee }}"  required/>
+                                <label for="recipient" class="nomarginlabel">Recipient User ID</label>
+                                <input type="text" id="recipient" name="recipient" required/>
+                                <label for="password" class="nomarginlabel">Your Password</label>
+                                <input type="password" id="your_password" name="your_password" autocomplete="off"/>
+                                {{?it.user.mfa_secret}}
+                                    <label for="otp">2FA Code</label>
+                                    <input type="text" id="otp" name="otp" autocomplete="off" pattern="[0-9]{6}" required />
+                                {{?}}
+                                <a href="#tip" class="border-button ">Back</a>
+
+                                <script>
+                                    var i = 2;
+                                    $(document).ready(function(){
+                                        $("#your_amount").on("keypress", function(event) {                                           
+                                           var that = $("#your_amount").val();                                           
+                                           if (event.which < 48 || event.which > 57) {
+                                                event.preventDefault();
+                                            } else {
+                                                $(this).val($(this).val().replace(/[^\d].+/, ""));
+                                            }                                            
+                                        });
+                                    });
+                                </script>                               
+
+                               <!--Tip send Button unactive STATUS-->
+
+                                <!--input class="border-button right blue" type="submit" value="submit"/ -->
+
+                                <input class="border-button right blue" type="submit" value="submit">
+
+
+                                <!--Tip send save Button unactive STATUS-->
+                            </form>
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                </div>
+                
+		{{?it.user.referral != null}}
+
+                 <div class="col-md-4 col-sm-12 right-column nopadding">
+                    <div class="howplay">
+                        <div>
+                            <a href="/affiliate" class="howplay-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Affiliate</span>
+                              </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {{?}}
+                <!-- How to play Start -->
+                <!-- <div class="settings"> -->
+                    
+                <!-- </div> -->
+                <!-- How to play End -->
+                <!-- end support -->
+            </div>
+            <div class="col-md-4 col-sm-12 right-column nopadding">
+                <div class="howplay">
+                        <div>
+                            <!-- <a class="button arrow" href="/howtoplay">How To Play</a> -->
+                            <a href="/howtoplay" class="howplay-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">How To Play</span>
+                              </button>
+                            </a>
+                        </div>
+                </div>
+                <div class="security">
+                    <div >
+                        <!-- <a class="button arrow" href="#security">Security</a> -->
+                        <a href="#security" class="security-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Security</span>
+                              </button>
+                         </a>
+                    </div>
+                    <div class="bg-overlay" id="security">
+                            <div class="deposit-option">
+                                
+                                    
+                                        <div class="col-md-12 col-sm-12">
+                                                <h5 class="dep-header">Update Your Password</h5>
+                                                <form action="reset-password" method="post" >
+                                                    <label for="old_password" class="nomarginlabel">Old Password</label>
+                                                    <input name="old_password" type="password" id="old_password" autocomplete="off" required/>
+                                                    {{?it.user.mfa_secret}}
+                                                        <label>2FA Code
+                                                            <input name="otp" type="text" pattern="[0-9]{6}" required />
+                                                        </label>
+                                                    {{?}}
+                                                    <label for="password" class="nomarginlabel">New Password <span class="small">At least 4 characters</span></label>
+                                                    <input name="password" type="password" minlength="4" id="new_password"  required/>
+                                                    <label for="confirmation" class="nomarginlabel">Confirm Password</label>
+                                                    <input name="confirmation" type="password" id="confirmation"  required/>                     
+                                                    <!--Password change save Button unactive STATUS-->
+
+                                                    <input type="submit" class="border-button blue right" value="Change">
+
+                                                    <!--Password change save Button unactive STATUS-->
+
+
+                                                </form>
+                                        </div>  
+                                        
+                                   
+                                
+                        <hr class="hr-height">
+                       
+                                <a href="#" class="optin-close">x</a>
+                            </div>
+                    </div>
+                </div>
+                <div class="bg-overlay" id="old-pass-error">
+                        <div class="deposit-option">
+                            <h5>Change Password</h5>
+                            <div class="col-md-12">
+                                <div class="col-md-12">
+                                  Enter your old password.
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                </div>
+                <div class="bg-overlay" id="new-pass-error">
+                        <div class="deposit-option">                            
+                            <div class="col-md-12 popupclass">
+                                <div class="col-md-12">
+                                  New password is not valid.
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                </div>
+                <div class="bg-overlay" id="same-error">
+                        <div class="deposit-option">                            
+                            <div class="col-md-12 popupclass">
+                                <div class="col-md-12">
+                                  New password and confirmation should be the same.
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                </div>
+                <div class="bg-overlay" id="change-error">
+                        <div class="deposit-option">
+                            
+                            <div class="col-md-12 popupclass">
+                                <div class="col-md-12">
+                                  Unable to change your password.
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                </div>
+                <div class="bg-overlay" id="wrong-password">
+
+                        <div class="deposit-optin">                            
+                            <div class="col-md-12 popupclass">
+                                <div class="col-md-12 ">
+                                  Your old password is wrong.
+                                </div>                    
+                            </div>               
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                </div>
+                <div class="bg-overlay" id="change-success">
+                        <div class="deposit-option">
+                            <div class="col-md-12 popupclass">
+                                <div class="col-md-12">
+                                  Password changed successfully.
+                                </div>                    
+                            </div>               
+                            <a href="/account" class="optin-close">x</a>
+                        </div>
+                </div>
+                <!-- end security -->
+                <div class="withdraw">
+                    <div >
+                        <!-- <a class="button arrow" href="#withdraw">Withdraw</a> -->
+                        <a href="#withdraw" class="withdraw-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Withdraw</span>
+                              </button>
+                         </a>
+                    </div>
+        <div class="bg-overlay" id="withdrawnew">
+            <div class="deposit-option currency">
+            <form action="/new-withdraw-request" method="post">
+            <h5 class="dep-header">Withdrawal Request</h5>         
+            <ul>                             
+                <li><input type="radio" checked="checked" value="ETH" id="1" data-trigger="div2" class="currency-label" name="withdraw_currency"><label class="currency-label"> ETH</label></li>
+                <li><input type="radio" value="CTC" id="5" data-trigger="div2" class="currency-label" name="withdraw_currency"><label class="currency-label"> CTC</label></li>
+                <li><input type="radio" style="background : blue;" value="USD" id="2" data-trigger="div1" class="currency-label" name="withdraw_currency"> <label class="currency-label">USD</label></li>                
+                <li><input type="radio" value="KRW" id="3" data-trigger="div1" class="currency-label" name="withdraw_currency"> <label class="currency-label">KRW</label></li>                    
+                <li><input type="radio" value="VND" id="4" data-trigger="div1" class="currency-label" name="withdraw_currency"> <label class="currency-label">VND</label></li>                
+                </ul>
+            <div id="with_usd"  style="display: none;" class="mid_padding">
+    
+                <label class="nomarginlabel">Please input the amount</label>
+                <input type="text" name="usd_amount" id="usd_amount" class="form-control" placeholder="wow">                
+    
+           <span name="usd_with_amt" id="usd_with_amt"></span> <input type="hidden" name="usd_change_value" id="usd_change_value">
+                
+                <p class="alllabel">Please input the bank account information</p>
+                <label class="nomarginlabel">Country</label>
+                <input type="text" name="usd_country" class="form-control">
+                <label class="nomarginlabel">Bank Name</label>
+                <input type="text" name="usd_bank_name" class="form-control">
+                <label class="nomarginlabel">Owner Name</label>
+                <input type="text" name="usd_owner_name" class="form-control">
+                <label class="nomarginlabel">Account Address</label>
+                <input type="text" name="usd_account_address" class="form-control">
+        </div>
+           
+            <div id="with_krw"  style="display: none;" class="mid_padding">
+                <label class="nomarginlabel">Please input the amount</label>
+                <input type="text" name="krw_amount" id="krw_amount" class="form-control" placeholder="wow">
+                <span name="krw_with_amt" id="krw_with_amt"></span><input type="hidden" name="krw_change_value" id="krw_change_value">
+                <p class="alllabel">Please input the bank account information</p>
+                <label class="nomarginlabel">Country</label>
+                <input type="text" name="krw_country" class="form-control">
+                <label class="nomarginlabel">Bank Name</label>
+                <input type="text" name="krw_bank_name" class="form-control">
+                <label class="nomarginlabel">Owner Name</label>
+                <input type="text" name="krw_owner_name" class="form-control">
+                <label class="nomarginlabel">Account Address</label>
+                <input type="text" name="krw_account_address" class="form-control">
+            </div>
+            <div id="with_vnd"  style="display: none;" class="mid_padding">
+                <label class="nomarginlabel">Please input the amount</label>
+                <input type="text" name="vnd_amount" id="vnd_amount" class="form-control" placeholder="wow">
+                <span name="vnd_with_amt" id="vnd_with_amt"></span><input type="hidden" name="vnd_change_value" id="vnd_change_value">
+                <p class="alllabel">Please input the bank account information</p>
+                <label class="nomarginlabel">Country</label>
+                <input type="text" name="vnd_country" class="form-control">
+                <label class="nomarginlabel">Bank Name</label>
+                <input type="text" name="vnd_bank_name" class="form-control">
+                <label class="nomarginlabel">Owner Name</label>
+                <input type="text" name="vnd_owner_name" class="form-control">
+                <label class="nomarginlabel">Account Address</label>
+                <input type="text" name="vnd_account_address" class="form-control">
+            </div>
+            <div id="with_ctc" style="display: none;" class="mid_padding">
+                <label class="nomarginlabel">Please input the amount</label>
+                <input type="text" name="ctc_amount" id="ctc_amount" class="form-control" placeholder="wow">
+                <span name="ctc_with_amt" id="ctc_with_amt"></span><input type="hidden" name="ctc_change_value" id="ctc_change_value">
+
+                <p class="nomarginlabel">Please input the Ethereum Address</p>
+                <input type="text" name="ctc_etherum_address" class="form-control">         
+            </div>
+            <div id="with_eth" class="mid_padding">
+                <label class="nomarginlabel">Please input the amount</label>
+                <input type="number" onkeypress="return isNumberKey(event)" name="eth_amount" id="eth_amount" class="form-control" placeholder="wow">
+                
+
+                <p class="nomarginlabel">Please input the Ethereum Address</p>
+                <input type="text" name="eth_etherum_address" class="form-control">         
+            </div>
+            
+            <input type="hidden" name="withdrawal_id" value="{{= it.id}}" />
+            <input type="submit" class="right btn btn-success" value="Submit">
+        </form>
+            <a href="#" class="optin-close">x</a>
+            </div>
+        </div>
+                    <div class="bg-overlay" id="withdraw">
+                                <div class="deposit-option">
+                                    <a class="border-button right green" href="#withdrawnew">Request Withdraw</a>
+                            <h5 class="dep-header">Withdraw History</h5>
+                            {{?it.user.withdrawals.length > 0}}
+                            <div class="tableFixHead">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>WoW</th>
+                                            <th>Currency</th>
+                                            <th>Destination</th>
+                                            <th>Status</th>
+                                            <th class="show-for-large-up">Created</th>
+                                            <th>Cancel</th>
+                                        </tr>
+                                    </thead>
+                                    <!-- <tbody>
+                                        {{~it.user.withdrawals :withdrawal:index}}
+                                            <tr>
+                                                <td>{{#def.format: {n: withdrawal.amount*-1, decimals: 2 } }}</td>
+                                                <td>
+                                                    <a href="https://etherscan.io/tx/{{=withdrawal.ethereum_withdrawal_txid}}"  target="_blank">Link</a>
+                                                </td>
+                                                <td>
+                                                    {{?withdrawal.status}}
+                                                         <a href="https://etherscan.io/tx/{{=withdrawal.status}}" target="_blank">Transferred</a>
+                                                    {{??}}
+                                                        in progress
+                                                    {{?}}
+                                                </td>
+                                                <td class="show-for-large-up">{{=withdrawal.created}}</td>
+                                            </tr>
+                                        {{~}}
+                                    </tbody> -->
+                                    <tbody>
+                                        {{~it.user.withdrawals :withdrawal:index}}
+                                            <tr>
+                                                <td>{{=withdrawal.amount}}</td>
+                                                <td>{{=withdrawal.currency_type}}</td>
+                                                <td>
+                                                    <!-- <a href="https://etherscan.io/tx/{{=withdrawal.ethereum_withdrawal_txid}}"  target="_blank">Link</a> -->
+                                                    <a href="/withdraw-info/{{=withdrawal.id}}">Link</a>
+                                                </td>
+                                                <td>
+                                                    {{?withdrawal.status == '1'}}
+                                                    Confirmed
+                                                    {{??}}
+                                                    {{?withdrawal.status == '0'}}
+                                                    In Progress
+                                                    {{??}}
+                                                    Cancelled
+                                                    {{?}}
+                                                    {{?}}                                                     
+                                                </td>
+                                                <td class="show-for-large-up">{{=withdrawal.created}}</td>
+                                                <form action="/cancel-withdraw" id="withdraw-cancel" name="withdraw-cancel" method="post">
+                                                <td>
+                                                    {{?withdrawal.status == '0'}}
+                                                    <input type="button" onclick="getConfirmation('{{=withdrawal.id}}');" name="withdraw-cancel" value="Cancel" class="right btn btn-success">
+                                                    {{??}}
+                                                    {{?withdrawal.status == '2'}}
+                                                    <input type="button" disabled="disabled"  value="Cancelled" class="right btn btn-secondary">
+                                                    {{??}}
+                                                       <input type="button" disabled="disabled"  value="Success" class="right btn btn-success">
+                                                    {{?}}
+                                                    {{?}}
+                                
+                                                 <input type="hidden" name="forcancel" id="forcancel">
+                                                </td>
+                                                <script type="text/javascript">
+                                                    function getConfirmation(cc) {                                                           
+                                                           var retVal = confirm("Are you sure to cancel ?");
+                                                                                                                 
+                                                           if( retVal == true ) {
+                                                              document.getElementById('forcancel').value = cc;                                                
+                                                              document.getElementById('withdraw-cancel').submit();
+                                                              
+                                                           } else {                                                              
+                                                              return false;
+                                                           }
+                                                        }
+                                                </script>
+                                                </form>    
+                                            </tr>
+                                        {{~}}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {{??}}
+                                <br>
+                                <br>
+                                <br>
+                                <p class="alllabel">You have no withdrawals in your account.</p>
+                            {{?}}
+                                    <a href="#" class="optin-close">x</a>
+                                </div>
+                    </div>
+                  
+
+                    <div class="bg-overlay" id="widthdraw-request">
+                        <div class="deposit-option">
+                            <h4>Withdrawal WoW</h4>
+            
+                            <p>
+                                <strong>Note:</strong> If you bet on the current game, some of the balance may not be withdrawn.
+                            </p>
+                            <form action="/withdraw-request" method="post">
+                                <!-- fake fields are a workaround for chrome autofill getting the wrong fields -->
+                                <input style="display:none" type="text" name="fakeusernameremembered"/>
+                                <input style="display:none" type="password" name="fakepasswordremembered"/>
+
+                                <label for="amount">WoW amount</label>
+                                <input oninput="updateTotal()" type="number" id="amount" name="amount" placeholder="Min {{= it.minWithdraw }} Bits" min="{{= it.minWithdraw }}" step="0.01" required/>
+                                <label for="destination">Destination Address</label>
+                                <input type="text" id="destination" name="destination" required/>
+                                <label for="password">Your password</label>
+                                <input type="password" id="password" name="password" autocomplete="off"/>
+                                {{?it.user.mfa_secret}}
+                                    <label for="otp">2FA Code</label>
+                                    <input type="text" id="otp" name="otp" autocomplete="off" pattern="[0-9]{6}" required />
+                                {{?}}
+
+                                <a href="#withdraw" class="border-button ">Back</a>
+                                <div class="right">
+                                    <span style="font-size: 12px; color:#484848; margin-right: 3px; margin-top: 10px;">FEE: {{= it.miningFee}} WoW // <strong>TOTAL: <span id="total">0</span> WoW</strong></span>
+
+
+                                    <!--Tip send Button unactive STATUS-->
+                                    <!--input class="border-button right blue" type="submit" value="Proceed"/-->
+                                    <!--Tip send Button unactive STATUS-->
+                                </div>
+                                <input type="hidden" name="withdrawal_id" value="{{= it.id}}" />
+                            </form>
+                            <a href="#" class="optin-close">x</a>
+                        </div>
+                    </div>
+                </div><!-- end withdraw -->
+                
+                
+                
+                <div class="bg-overlay" id="register">
+                <div class="deposit-option">
+                    <div class="register_form">
+                        <form action="/register" method="post" onsubmit="return submitEnabled;">
+                            <div class="row">
+                                <div class="col-md-12 columns input">
+                                    <h5>Create a new account<br/> <small><a href="#login">already have one?</a></small></h5>
+                                    <hr>
+                                </div>
+">
+                                <div class="col-md-12 columns input">
+
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label for="username">Username</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="username" type="text" name="user[name]" value="{{?it.values}}{{!it.values.name}}{{?}}" autocomplete="off" pattern="[A-Za-z0-9_\-]{3,16}" title="Username only allowed alphanumeric, hyphen and underscore" required />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 columns">
+                                            <label>Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="password" type="password" value="{{?it.values}}{{!it.values.password}}{{?}}" name="user[password]" autocomplete="off"  title="Password should be at least 4 characters" required/>
+                                           
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Confirm Password</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="confirmation" type="password" value="{{?it.values}}{{!it.values.confirm}}{{?}}" name="user[confirm]" autocomplete="off"  data-equal-id="password" required/>
+                                        </div>
+                                    </div>
+</a></p>                                </div>
+                                <div class="large-12 columns input">
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-4 columns">
+                                            <label>Referral</label>
+                                        </div>
+                                        <div class="col-md-9 columns">
+                                            <input id="referral" type="text" value="{{=it.user.username}}" name="referral_code" autocomplete="off"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="large-12 columns">
+                                   <!--<div class="g-recaptcha" data-sitekey="{{=it.recaptchaKey}}" data-callback="enableSubmit"></div>-->
+                                    <input id="registerSubmit"  class="border-button blue right" type="submit" value="Register"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                <a href="#" class="optin-close">x</a>
+                </div>
+            </div>
+               
+            </div><!-- col4 -->
+            <div class="col-md-4 col-sm-12 right-column nopadding">
+                <div class="support">
+                    <div >
+                        <!-- <a class="button arrow" href="#support">Support</a> -->
+                        <a href="#support" class="support-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Support</span>
+                              </button>
+                         </a>
+                    </div>
+                    <div class="bg-overlay" id="support">
+                                <div class="deposit-option">
+                                    <h5 class="dep-header">Need help? <br> <br>Please contact to <br> <br>Telegram @wowkonghelper</h5>
+                                    <a href="#" class="optin-close">x</a>
+                                </div>
+                    </div>
+                </div><!-- end support -->
+                <div class="source_code">
+                    <div >
+                        <!-- <a class="button arrow" href="#source_code">Source Code Verification</a> -->
+                        <a href="#account" class="source_code-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Source Code Verification</span>
+                              </button>
+                         </a>
+                    </div>
+                    <div class="bg-overlay" id="source_code">
+                                <div class="deposit-option">
+                                    <h5 class="dep-header">You can verify the wowgo source code through this site.</h5>
+                    <p><a href="https://jsfiddle.net/1L1uqcgv/6/embedded/result" target="_blank">https://jsfiddle.net/1L1uqcgv/6/embedded/result</a></p>
+                                    <a href="#" class="optin-close">x</a>
+
+                                </div>
+                    </div>
+                </div><!-- end source -->
+                <!-- Fairness Start -->
+                <div class="fairness">
+                    <div >
+                        <!-- <a class="button arrow" href="/fairness">Fairness</a> -->
+                        <a href="/fairness" class="fairness-color">
+                              <button class="learn-more">
+                                <span class="circle" aria-hidden="true">
+                                  <span class="icon arrow"></span>
+                                </span>
+                                <span class="button-text">Fairness</span>
+                              </button>
+                         </a>
+                    </div>
+                </div>
+                <!-- Fairness End -->
+            </div><!-- third column -->
+         </div>  
+    <div class="row mid_top_padding">
+         <div class="col-md-3 offset-md-1 col-sm-12 center sett">
+            <div class="logout">
+                <div >
+                    <a onclick="logout();" class="logout-btn">
+                        Logout
+                    </a>
+                </div>
+            </div><!-- end logout -->
+         </div>
+    <div class="col-md-4 col-sm-12 center">
+        <div class="gotoplay">
+            <a href="/" class="logout-btn"> 
+            Go to play page
+            </a>
+        </div>
+    </div>
+    </div>
+    </div> 
+
+    
+    </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+   $(document).ready(function () {    
+    $('input[type="radio"][name="currency_type"]').change(function() {            
+            var inputValue = $(this).attr("value");            
+            if(inputValue == 'ETH'){
+                $('#dep_eth').show();        
+                $('#dep_usd').hide();
+                $('#dep_krw').hide();
+                $('#dep_vnd').hide(); 
+                $('#dep_ctc').hide();
+            }
+            else if(inputValue == 'USD'){
+                $('#dep_usd').show();    
+                $('#dep_eth').hide(); 
+                $('#dep_krw').hide();
+                $('#dep_vnd').hide();  
+                $('#dep_ctc').hide();
+            }
+            else if(inputValue == 'KRW'){
+                $('#dep_krw').show();        
+                $('#dep_eth').hide();
+                $('#dep_usd').hide();
+                $('#dep_vnd').hide(); 
+                $('#dep_ctc').hide();  
+            }
+            else if(inputValue == 'VND'){
+                $('#dep_vnd').show();         
+                $('#dep_eth').hide(); 
+                $('#dep_usd').hide();
+                $('#dep_krw').hide(); 
+                $('#dep_ctc').hide(); 
+            }
+            else if(inputValue == 'CTC'){
+                $('#dep_ctc').show();         
+                $('#dep_eth').hide(); 
+                $('#dep_usd').hide();
+                $('#dep_krw').hide(); 
+                $('#dep_vnd').hide(); 
+            }
+            else{}
+            
+    }); 
+
+    $('input[type="radio"][name="withdraw_currency"]').change(function() {
+            var inputValue = $(this).attr("value");            
+            if(inputValue == 'ETH'){
+                $('#with_eth').show();        
+                $('#with_usd').hide();
+                $('#with_krw').hide();
+                $('#with_vnd').hide(); 
+                $('#with_ctc').hide(); 
+            }
+            else if(inputValue == 'USD'){
+                $('#with_usd').show();        
+                $('#with_eth').hide(); 
+                $('#with_krw').hide();
+                $('#with_vnd').hide();
+                $('#with_ctc').hide();  
+            }
+            else if(inputValue == 'KRW'){
+                $('#with_krw').show();        
+                $('#with_eth').hide();
+                $('#with_usd').hide();
+                $('#with_vnd').hide(); 
+                $('#with_ctc').hide();  
+            }
+            else if(inputValue == 'VND'){
+                $('#with_vnd').show();        
+                $('#with_eth').hide(); 
+                $('#with_usd').hide();
+                $('#with_krw').hide(); 
+                $('#with_ctc').hide(); 
+            }
+            else if(inputValue == 'CTC'){
+                $('#with_ctc').show();        
+                $('#with_eth').hide(); 
+                $('#with_usd').hide();
+                $('#with_krw').hide(); 
+                $('#with_vnd').hide(); 
+            }
+            else{}
+            
+    }); 
+
+   $.ajax({
+                type: 'GET',
+                url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                success: function(data){
+                
+                 
+                
+               }
+            });
+
+    $('.currencychange').keyup(function () {
+
+        $.ajax({
+                  type: 'GET',
+                  url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                  success: function(data){
+                                  
+                  var num1 = $('#usdamt').val();
+                  
+                  var num2=(data.result.ethusd/100000).toFixed(5);
+                  
+                  var result=parseInt(num1/num2);
+                  
+                  $('#wowamt').val(result);
+                    
+                  
+                 }
+              });
+        
+     });
+      setInterval(function() {  
+                    changenum()
+                   
+                    }, 600000);
+});
+   function changenum(){
+            $.ajax({
+                type: 'GET',
+                url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                success: function(data){
+               
+                              
+
+               }
+            });
+   }
+
+   $('.krwchange').keyup(function () {
+        $.ajax({
+                type: 'GET',
+                url : 'https://openexchangerates.org/api/latest.json?app_id=a498071e2aa94e6eb3f2024ee5737dfe',
+                success: function(data){
+                var usd_change =  data.rates.KRW;
+                
+                var usd_value  =  $('#krwamt').val() / usd_change;                
+                    $.ajax({
+                      type: 'GET',
+                      url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                      success: function(data){
+                                      
+                      var num1 = usd_value;
+                      
+                      var num2=(data.result.ethusd/100000).toFixed(5);
+                      
+                      var result=parseInt(num1/num2);
+                      
+                      $('#krw_wow_amt').val(result);                       
+                      
+                     }
+                  });
+
+                  setInterval(function() {  
+                    changenum()
+                   
+                    }, 600000);                 
+               },
+               error: function(err){
+                console.log(err);
+               }
+            });
+     });
+
+   $('.vndchange').keyup(function () {
+        $.ajax({
+                type: 'GET',
+                url : 'https://openexchangerates.org/api/latest.json?app_id=a498071e2aa94e6eb3f2024ee5737dfe',
+                success: function(data){
+                var usd_change =  data.rates.VND; 
+                var usd_value  =  $('#vndamt').val() / usd_change;                
+
+                    $.ajax({
+                      type: 'GET',
+                      url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                      success: function(data){
+                                      
+                      var num1 = usd_value;
+                      
+                      var num2=(data.result.ethusd/100000).toFixed(5);
+                      
+                      var result=parseInt(num1/num2);
+                      
+                      $('#vnd_wow_amt').val(result);
+                        
+                      
+                     }
+                  });
+
+                  setInterval(function() {  
+                    changenum()
+                   
+                    }, 600000);                 
+               }
+            });
+     });
+
+   $('#ethereum_amt').keyup(function () {
+        var eth_amt = $('#ethereum_amt').val();
+        $.ajax({
+                  type: 'GET',
+                  url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                  success: function(data){                                  
+                  var num1 = eth_amt;
+                  var num2 = parseInt(num1*data.result.ethusd); 
+                  var num3= ((data.result.ethusd) / 100000).toFixed(5); 
+                  var num4=  parseInt(num2/num3);  
+                           
+                  var new_num4 = eth_amt*100000;                            
+                  $('#ethereum_wow_amt').val(new_num4);                    
+                 }
+        });                     
+
+     });
+
+   $('.ctcchange').keyup(function () {
+        $.ajax({
+                type: 'GET',
+                url : 'https://api.exchangerate-api.com/v4/latest/USD',
+                success: function(data){
+                var usd_value  =  $('#ctc_amt').val() * 0.066;                     
+                    $.ajax({
+                      type: 'GET',
+                      url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+                      success: function(data){                                      
+                      var num1 = usd_value;                                           
+                      var num2=(data.result.ethusd/100000).toFixed(5);                      
+                      var result=parseInt(num1/num2);                      
+                      $('#ctc_wow_amt').val(result);  
+                      var eth_value = (usd_value/data.result.ethusd).toFixed(5);                      
+                      $('#eth_ctc').val(eth_value);                    
+                      
+                     }
+                  });
+
+                  setInterval(function() {  
+                    changenum()
+                   
+                    }, 600000);                 
+               },
+               error: function(err){
+                alert('derrd');
+               }
+            });
+     });
+
+   
+   $('#usd_amount').keyup(function () {       
+    var usd_value = $('#usd_amount').val();
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){                          
+          var num1 = usd_value;          
+          var num2=(data.result.ethusd/100000).toFixed(5);
+          var res =    (num1*num2).toFixed(2) ;       
+          var result = (num1*num2).toFixed(2) + '  USD';          
+          $('#usd_with_amt').text(result);           
+          $('#usd_change_value').val(res);
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);           
+     });
+
+   $('#krw_amount').keyup(function () {
+       var wow_value = $('#krw_amount').val(); 
+
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){
+                          
+          var num1 = wow_value;
+          
+          var num2=(data.result.ethusd/100000).toFixed(5);
+          
+          var result=parseInt(num1*num2);
+          
+          $.ajax({
+                type: 'GET',
+                url : 'https://openexchangerates.org/api/latest.json?app_id=a498071e2aa94e6eb3f2024ee5737dfe',
+                success: function(data){
+                var usd_change =  data.rates.KRW; 
+                var krw_value  =  result * usd_change;
+                var krw_text =   result * usd_change + ' KRW';              
+                $('#krw_with_amt').text(krw_text);
+                $('#krw_change_value').val(krw_value);
+            }
+        });         
+          
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);                 
+               
+     });
+
+  $('#vnd_amount').keyup(function () {
+       var wow_value = $('#vnd_amount').val(); 
+
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){
+                          
+          var num1 = wow_value;
+          
+          var num2=(data.result.ethusd/100000).toFixed(5);
+          
+          var result=parseInt(num1*num2);
+          
+          $.ajax({
+                type: 'GET',
+                url : 'https://openexchangerates.org/api/latest.json?app_id=a498071e2aa94e6eb3f2024ee5737dfe',
+                success: function(data){
+                var usd_change =  data.rates.VND; 
+                var vnd_value  =  result * usd_change;
+                var vnd_text =   result * usd_change + ' VND';
+                
+                $('#vnd_with_amt').text(vnd_text);
+                $('#vnd_change_value').val(vnd_value);
+            }
+        });         
+          
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);                 
+               
+     });
+
+  $('#ctc_amount').keyup(function () {
+       var wow_value = $('#ctc_amount').val(); 
+
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){
+                          
+          var num1 = wow_value;          
+          var num2=(data.result.ethusd/100000).toFixed(5);          
+          var result=parseInt(num1*num2);
+          
+          var usd_change =  6.6; 
+          var ctc_value  =  result * usd_change;
+          var ctc_text =   result * usd_change + ' CTC';
+        
+          $('#ctc_with_amt').text(ctc_text);
+          $('#ctc_change_value').val(ctc_value);           
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);                 
+               
+     });
+
+  $('#eth_amount').keyup(function () {
+       var wow_value = $('#eth_amount').val(); 
+
+        $.ajax({
+          type: 'GET',
+          url : 'https://api.etherscan.io/api?module=stats&action=ethprice&result=ethusd&get=ethusd&apikey=VHT75SBSCA3GTIS5AKPMAC2SAI1M81TIPQ',
+          success: function(data){                          
+          var num1 = wow_value;          
+          var num2=(data.result.ethusd/100000).toFixed(5);                 
+          var result= Math.round(num1*num2); 
+          var rr =  (result/data.result.ethusd).toFixed(4) + ' ETH';
+          var e_val = (result/data.result.ethusd).toFixed(4);
+
+          var new_rr = (wow_value/100000).toFixed(4) + ' ETH';
+          var new_eval =  (wow_value/100000).toFixed(4);      
+             
+         }
+      });
+
+      setInterval(function() {  
+        changenum()
+       
+        }, 600000);                 
+               
+     });
+
+
+   
+</script>
+#}}
+{{#def.include('./template/main_new')}}
+
